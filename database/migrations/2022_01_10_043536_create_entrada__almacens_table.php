@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDetallesEntradasTable extends Migration
+class CreateEntradaAlmacensTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateDetallesEntradasTable extends Migration
      */
     public function up()
     {
-        Schema::create('detalles__entradas', function (Blueprint $table) {
+        Schema::create('entrada_almacens', function (Blueprint $table) {
             $table->id();
             $table->boolean('estado_activo')->default('0');
             $table->timestamps();
@@ -32,6 +32,6 @@ class CreateDetallesEntradasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detalles__entradas');
+        Schema::dropIfExists('entrada_almacens');
     }
 }

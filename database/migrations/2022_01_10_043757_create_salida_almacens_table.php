@@ -4,41 +4,32 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+
 class CreateSalidaAlmacensTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
-        Schema::create('salida__almacens', function (Blueprint $table) {
+        Schema::create('salida_almacen', function (Blueprint $table) {
             $table->id();
-            $table->integer('cantidad_salida');
-            $table->string('estado_conservacion');
             $table->boolean('estado_activo')->default('0');
             $table->timestamps();
-            $table->foreignId('id_stock')
+            $table->foreignId('id_usuario')
                 ->nullable()
-                ->constrained('stocks')
+                ->constrained('users')
                 ->cascadeOnUpdate()
                 ->nullOnDelete();
-            $table->foreignId('id_detalles_salida')
+            $table->foreignId('id_persona')
                 ->nullable()
-                ->constrained('detalles__salidas')
+                ->constrained('personas')
                 ->cascadeOnUpdate()
                 ->nullOnDelete();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+
     public function down()
     {
-        Schema::dropIfExists('salida__almacens');
+        Schema::dropIfExists('salida_almacen');
     }
 }
