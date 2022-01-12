@@ -9,6 +9,11 @@ class Stock extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'cantidad',
+        'estado_conservacion',
+    ];
+
     public function productos()
     {
         return $this->belongsTo(Producto::class, 'id_producto');

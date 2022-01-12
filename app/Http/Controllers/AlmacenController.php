@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\AlmacenController;
-
 namespace App\Http\Controllers;
 
 use App\Models\Entrada_Almacen;
@@ -20,5 +18,11 @@ class AlmacenController extends Controller
     {
         $entradas = Entrada_Almacen::all();
         return view('almacen/entrada', compact('entradas'));
+    }
+
+    public function salida()
+    {
+        $entradas = Entrada_Almacen::all();
+        return view('almacen/salida', compact('salidas'));
     }
 }

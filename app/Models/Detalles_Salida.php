@@ -9,6 +9,13 @@ class Detalles_Salida extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'cantidad_salida',
+        'detalles',
+        'estado_conservacion',
+        'estado_activo',
+    ];
+
     public function stocks()
     {
         return $this->belongsTo(Stock::class, 'id_stock');

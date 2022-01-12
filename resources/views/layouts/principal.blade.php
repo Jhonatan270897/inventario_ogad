@@ -43,7 +43,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="home">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Inicio</span></a>
             </li>
@@ -58,14 +58,14 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item ">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="entrada">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Entradas</span></a>
             </li>
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item ">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="stock">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Stock</span></a>
             </li>
@@ -211,7 +211,7 @@
                 <footer class="sticky-footer bg-white">
                     <div class="container my-auto">
                         <div class="copyright text-center my-auto">
-                            <span>Copyright &copy; OGAD 2022</span>
+                            <span>Copyright &copy; OGAD {{ date('Y') }}</span>
                         </div>
                     </div>
                 </footer>
@@ -238,10 +238,14 @@
                             <span aria-hidden="true">×</span>
                         </button>
                     </div>
-                    <div class="modal-body">Presione <b>aceptar</b> para terminar su sesión. :D</div>
+                    <div class="modal-body">Presione <b>aceptar</b> para cerrar su sesión.</div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                        <a class="btn btn-primary" href="login.html">Aceptar</a>
+                        <a class="btn btn-primary" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"> Aceptar</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
                     </div>
                 </div>
             </div>

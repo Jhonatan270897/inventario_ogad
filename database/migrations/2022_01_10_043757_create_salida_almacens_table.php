@@ -12,6 +12,8 @@ class CreateSalidaAlmacensTable extends Migration
     {
         Schema::create('salida_almacen', function (Blueprint $table) {
             $table->id();
+            $table->text('detalles')->nullable();
+            $table->text('ruta')->nullable();
             $table->boolean('estado_activo')->default('0');
             $table->timestamps();
             $table->foreignId('id_usuario')

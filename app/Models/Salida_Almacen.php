@@ -9,6 +9,12 @@ class Salida_Almacen extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'detalles',
+        'ruta',
+        'estado_activo',
+    ];
+
     public function personas()
     {
         return $this->belongsTo(Persona::class, 'id_persona');

@@ -9,6 +9,14 @@ class Persona extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'dni',
+        'nombre_persona',
+        'a_paterno',
+        'a_materno',
+        'estado_activo',
+    ];
+
     public function salida_almacens()
     {
         return $this->hasMany(Salida_Almacen::class, 'id');

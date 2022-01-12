@@ -15,6 +15,8 @@ class CreateEntradaAlmacensTable extends Migration
     {
         Schema::create('entrada_almacens', function (Blueprint $table) {
             $table->id();
+            $table->text('detalles')->nullable();
+            $table->text('ruta')->nullable();
             $table->boolean('estado_activo')->default('0');
             $table->timestamps();
             $table->foreignId('id_usuario')

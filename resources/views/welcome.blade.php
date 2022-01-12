@@ -30,13 +30,6 @@
                         <th>Cantidad</th>
                     </thead>
                     <tbody>
-                        @foreach($inventarios as $inventario)
-                        <tr>
-                            <td>{{$inventario->id}}</td>
-                            <td>{{$inventario->productos->nombre_producto}}</td>
-                            <td>{{$inventario->cantidad}}</td>
-                        </tr>
-                        @endforeach
                     </tbody>
                 </table>
             </div>

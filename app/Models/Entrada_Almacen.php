@@ -10,6 +10,12 @@ class Entrada_Almacen extends Model
     public $table = "entrada_almacens";
     use HasFactory;
 
+    protected $fillable = [
+        'detalles',
+        'ruta',
+        'estado_activo',
+    ];
+    
     public function users()
     {
         return $this->belongsTo(User::class, 'id_usuario');

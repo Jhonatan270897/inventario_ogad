@@ -9,6 +9,13 @@ class Detalles_Entrada extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'cantidad',
+        'estado_conservacion',
+        'estado_activo',
+        'detalles',
+    ];
+
     public function productos()
     {
         return $this->belongsTo(Producto::class, 'id_producto');
