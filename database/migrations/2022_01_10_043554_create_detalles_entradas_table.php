@@ -12,7 +12,7 @@ class CreateDetallesEntradasTable extends Migration
         Schema::create('detalles_entradas', function (Blueprint $table) {
             $table->id();
             $table->integer('cantidad');
-            $table->string('estado_conservacion');
+            $table->string('estado_conservacion')->nullable();
             $table->boolean('estado_activo')->default('0');
             $table->text('detalles')->nullable();
             $table->timestamps();

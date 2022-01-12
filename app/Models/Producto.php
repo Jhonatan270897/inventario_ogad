@@ -12,7 +12,7 @@ class Producto extends Model
     {
         return $this->belongsTo(Categoria::class, 'id_categoria');
     }
-    public function Marca()
+    public function marcas()
     {
         return $this->belongsTo(Marca::class, 'id_marca');
     }

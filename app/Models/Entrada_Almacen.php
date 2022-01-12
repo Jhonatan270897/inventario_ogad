@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Entrada_Almacen extends Model
 {
+    public $table = "entrada_almacens";
     use HasFactory;
 
     public function users()

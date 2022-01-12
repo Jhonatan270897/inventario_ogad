@@ -13,4 +13,8 @@ class Persona extends Model
     {
         return $this->hasMany(Salida_Almacen::class, 'id');
     }
+    public function users()
+    {
+        return $this->hasMany(User::class, 'id');
+    }
 }
