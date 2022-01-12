@@ -15,7 +15,7 @@ class AddIdPersonaToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_persona');
+            $table->unsignedBigInteger('id_persona')->nullable();
             $table->foreign('id_persona')->references('id')->on('personas');
         });
     }
