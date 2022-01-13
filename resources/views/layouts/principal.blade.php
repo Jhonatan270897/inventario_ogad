@@ -20,10 +20,12 @@
     <!-- Custom styles for this page -->
     <link href="{{asset('sbadmin/dataTables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
 
+
 </head>
 
 <body id="page-top">
 
+    <!-- Componente vuee -->
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -200,7 +202,7 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
+                <div id="app">
                     @yield('content')
                 </div>
                 <!-- End of Page Content -->
@@ -250,21 +252,22 @@
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Bootstrap core JavaScript-->
-        <script src="{{asset('sbadmin/jquery/jquery.min.js')}}"></script>
-        <!-- Core plugin Bootstrap-->
-        <script src="{{asset('sbadmin\bootstrap\js\bootstrap.bundle.min.js')}}"></script>
 
-        <!-- Custom scripts for all pages-->
-        <script src="{{asset('sbadmin\js\sb-admin-2.min.js')}}"></script>
 
-        <!-- Page level plugins -->
-        <script src="{{asset('sbadmin/datatables/jquery.dataTables.min.js')}}"></script>
-        <script src="{{asset('sbadmin/datatables/dataTables.bootstrap4.min.js')}}"></script>
 
-        <!-- Js Personalizado -->
-        <script src="{{asset('js\principal.js')}}"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="{{asset('sbadmin/jquery/jquery.min.js')}}"></script>
+    <!-- Core plugin Bootstrap-->
+    <script src="{{asset('sbadmin\bootstrap\js\bootstrap.bundle.min.js')}}"></script>
+    <!-- Js Personalizado -->
+    <script src="{{asset('js/app.js')}}"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="{{asset('sbadmin\js\sb-admin-2.min.js')}}"></script>
+    <!-- Page level plugins -->
+    <script src="{{asset('sbadmin/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('sbadmin/datatables/dataTables.bootstrap4.min.js')}}"></script>
 
 </body>
 

@@ -10,19 +10,12 @@ class AlmacenController extends Controller
 {
     public function stock()
     {
-        $stocks = Stock::all();
-        return view('almacen/stock', compact('stocks'));
+        return view('almacen/stock');
     }
 
     public function entrada()
     {
         $entradas = Entrada_Almacen::all();
         return view('almacen/entrada', compact('entradas'));
-    }
-
-    public function salida()
-    {
-        $entradas = Entrada_Almacen::all();
-        return view('almacen/salida', compact('salidas'));
     }
 }
