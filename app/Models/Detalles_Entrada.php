@@ -8,12 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Detalles_Entrada extends Model
 {
     use HasFactory;
-
+    protected $table = 'detalles_entradas';
     protected $fillable = [
-        'cantidad',
-        'estado_conservacion',
+        'tipo_unidad',
+        'valor_unidad',
+        'cantidad_unidad',
         'estado_activo',
-        'detalles',
     ];
 
     public function productos()
@@ -23,5 +23,9 @@ class Detalles_Entrada extends Model
     public function entrada_almacens()
     {
         return $this->belongsTo(Producto::class, 'id_entrada_almacen');
+    }
+    public function stocks()
+    {
+        return $this->hasMany(Stock::class, 'id');
     }
 }

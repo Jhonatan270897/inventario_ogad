@@ -11,10 +11,11 @@ class CreateDetallesEntradasTable extends Migration
     {
         Schema::create('detalles_entradas', function (Blueprint $table) {
             $table->id();
-            $table->integer('cantidad');
+            $table->string('tipo_unidad')->nullable();
+            $table->integer('valor_unidad')->default(0);
+            $table->integer('cantidad_unidad')->default(0);
             $table->string('estado_conservacion')->nullable();
             $table->boolean('estado_activo')->default('0');
-            $table->text('detalles')->nullable();
             $table->timestamps();
             $table->foreignId('id_entrada_almacen')
                 ->nullable()

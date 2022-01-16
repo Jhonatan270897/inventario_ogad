@@ -13,10 +13,13 @@ class Producto extends Model
         'nombre_producto',
         'color',
         'modelo',
-        'detalles',
+        'medida',
         'estado_activo',
     ];
-
+    public function detalle_productos()
+    {
+        return $this->belongsTo(Detalle_producto::class, 'id_detalle_producto');
+    }
     public function categorias()
     {
         return $this->belongsTo(Categoria::class, 'id_categoria');
@@ -29,10 +32,5 @@ class Producto extends Model
     public function detalle_entradas()
     {
         return $this->hasMany(Detalles_Entrada::class, 'id');
-    }
-
-    public function stocks()
-    {
-        return $this->hasMany(Stock::class, 'id');
     }
 }

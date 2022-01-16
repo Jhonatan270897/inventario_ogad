@@ -15,12 +15,12 @@ class CreateStocksTable extends Migration
     {
         Schema::create('stocks', function (Blueprint $table) {
             $table->id();
-            $table->integer('cantidad');
+            $table->integer('cantidad_total');
             $table->string('estado_conservacion')->nullable();
             $table->timestamps();
-            $table->foreignId('id_producto')
+            $table->foreignId('detalles_entrada')
                 ->nullable()
-                ->constrained('productos')
+                ->constrained('detalles_entradas')
                 ->cascadeOnUpdate()
                 ->nullOnDelete();
         });

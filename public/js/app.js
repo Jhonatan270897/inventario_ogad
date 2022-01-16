@@ -1,17 +1,6 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./node_modules/@babel/runtime/regenerator/index.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
-  \**********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-module.exports = __webpack_require__(/*! regenerator-runtime */ "./node_modules/regenerator-runtime/runtime.js");
-
-
-/***/ }),
-
 /***/ "./node_modules/@popperjs/core/lib/createPopper.js":
 /*!*********************************************************!*\
   !*** ./node_modules/@popperjs/core/lib/createPopper.js ***!
@@ -5273,94 +5262,647 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/*Variables globales */
+var dte;
+var dt1;
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      entrada: []
+      lista_producto: {},
+      lista_categoria: {},
+      lista_marca: {},
+      lista_color: [{
+        idcolor: 1,
+        nombre_color: "AZUL"
+      }, {
+        idcolor: 2,
+        nombre_color: "ROJO"
+      }],
+      opcion_producto: "",
+      opcion_stock: "",
+      productos: {
+        idDetalleProducto: 0,
+        unidadMedida: "",
+        cantidadUnitaria: 0,
+        cantidadProducto: 0,
+        idCategoria: 0,
+        idMarca: 0,
+        idModelo: 0,
+        color: "",
+        medida: "",
+        estado_conservacion: ""
+      },
+      stock: {
+        id: 0,
+        cantidad: 0,
+        estado_conservacion: "",
+        id_producto: 0,
+        nombre_producto: "",
+        color: "",
+        modelo: "",
+        detalles: "",
+        estado_activo: 0,
+        id_marca: 0,
+        id_categoria: 0,
+        nombre_marca: "",
+        descripcion: "",
+        nombre_categoria: ""
+      }
     };
   },
   methods: {
-    listar: function listar() {
-      var _this = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.next = 2;
-                return axios.get('entrada');
-
-              case 2:
-                res = _context.sent;
-                _this.entrada = res.data;
-
-              case 4:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }))();
+    reset_producto: function reset_producto() {},
+    reset_stock: function reset_stock() {
+      this.stock = {
+        idea: 0,
+        idd: 0,
+        idp: 0,
+        ruta: "",
+        nombre_categoria: "",
+        tipo_unidad: "",
+        valor_unidad: 0,
+        cantidad_unidad: 0,
+        nombre_producto: "",
+        nombre_marca: "",
+        modelo: "",
+        medida: "",
+        color: "",
+        created_at: "",
+        d_entrada: "",
+        estado_conservacion: "",
+        name: ""
+      };
     }
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    axios.get("detalle_producto").then(function (response) {
+      _this.lista_producto = response.data;
+    });
   }
+});
+fnObtenerListaEntrada();
+/*Tabla para mostrar los productos temproales seleccionados a ingresar */
+
+function initListaTempEntrada(lista) {
+  dt1 = $("#datatable_temp").DataTable({
+    info: false,
+    paging: false,
+    lengthChange: false,
+    searching: false,
+    order: [],
+    columnDefs: [{
+      targets: [8],
+      orderable: false
+    }],
+    data: lista,
+    columns: [{
+      data: function data(_data, type, dataToSet) {
+        return '<div class="RowsTituloTest">' + _data.nombre_categoria + "</div>";
+      }
+    }, {
+      data: function data(_data2, type, dataToSet) {
+        return '<div class="RowsTituloTest">' + _data2.cantidad + "</div>";
+      }
+    }, {
+      data: function data(_data3, type, dataToSet) {
+        return '<div class="RowsTituloTest">' + _data3.nombre_producto + "</div>";
+      }
+    }, {
+      data: function data(_data4, type, dataToSet) {
+        return '<div class="RowsTituloTest">' + _data4.nombre_marca + "</div>";
+      }
+    }, {
+      data: function data(_data5, type, dataToSet) {
+        return '<div class="RowsTituloTest">' + _data5.modelo + "</div>";
+      }
+    }, {
+      data: function data(_data6, type, dataToSet) {
+        return '<div class="RowsTituloTest">' + _data6.detalles + "</div>";
+      }
+    }, {
+      data: function data(_data7, type, dataToSet) {
+        return '<div class="RowsTituloTest">' + _data7.color + "</div>";
+      }
+    }, {
+      data: function data(_data8, type, dataToSet) {
+        return '<div class="RowsTituloTest">' + _data8.estado_conservacion + "</div>";
+      }
+    }, {
+      data: function data(_data9, type, dataToSet) {
+        var id = _data9.id;
+        var nombre = _data9.cantidad;
+        var btn = "";
+        btn += "<button type='button' onclick=\"fn_modificar('" + id + "', '" + nombre + "')\" class='btn btn-warning btn-circle btn-sm'><i class='fas fa-pencil-alt'></i></button>";
+        btn += "<button type='button' onclick=\"fn_eliminar('" + id + "','" + nombre + "')\" class='btn btn-danger btn-circle btn-sm'><i class='fas fa-trash'></i></button>";
+        return "" + btn;
+      }
+    }]
+  });
+}
+/*Tabla para mostrar la lista e productos ingresados tablas entrada_almacen,detalle_entrada*/
+
+
+function fnObtenerListaEntrada() {
+  var parametros = {};
+  $.get("entrada", parametros).done(function (response) {
+    if (dte) {
+      dte.clear();
+      dte.rows.add(response);
+      dte.draw();
+    } else {
+      //window.alert(JSON.stringify(response));
+      initListaEntrada(response);
+    }
+  });
+}
+
+function initListaEntrada(lista) {
+  dte = $("#datatable_entrada").DataTable({
+    order: [],
+    columnDefs: [{
+      targets: [11],
+      orderable: false
+    }],
+    data: lista,
+    columns: [{
+      data: function data(_data10, type, dataToSet) {
+        return '<div class="RowsTituloTest">' + _data10.d_entrada + "</div>";
+      }
+    }, {
+      data: function data(_data11, type, dataToSet) {
+        return '<div class="RowsTituloTest">' + _data11.nombre_categoria + "</div>";
+      }
+    }, {
+      data: function data(_data12, type, dataToSet) {
+        return '<div class="RowsTituloTest">' + _data12.cantidad_unidad + "</div>";
+      }
+    }, {
+      data: function data(_data13, type, dataToSet) {
+        return '<div class="RowsTituloTest">' + _data13.tipo_unidad + " DE " + _data13.valor_unidad + " UNIDADES</div>";
+      }
+    }, {
+      data: function data(_data14, type, dataToSet) {
+        return '<div class="RowsTituloTest">' + _data14.nombre_producto + "</div>";
+      }
+    }, {
+      data: function data(_data15, type, dataToSet) {
+        return '<div class="RowsTituloTest">' + _data15.nombre_marca + "</div>";
+      }
+    }, {
+      data: function data(_data16, type, dataToSet) {
+        return '<div class="RowsTituloTest">' + _data16.modelo + "/" + _data16.medida + "</div>";
+      }
+    }, {
+      data: function data(_data17, type, dataToSet) {
+        return '<div class="RowsTituloTest">' + _data17.color + "</div>";
+      }
+    }, {
+      data: function data(_data18, type, dataToSet) {
+        return '<div class="RowsTituloTest">' + _data18.created_at.substring(0, 10) + "</div>";
+      }
+    }, {
+      data: function data(_data19, type, dataToSet) {
+        return '<div class="RowsTituloTest">' + _data19.estado_conservacion + "</div>";
+      }
+    }, {
+      data: function data(_data20, type, dataToSet) {
+        return '<div class="RowsTituloTest">' + _data20.name + "</div>";
+      }
+    }, {
+      data: function data(_data21, type, dataToSet) {
+        var id = _data21.idde;
+        var nombre = _data21.name;
+        var btn = "";
+        btn += "<button type='button' onclick=\"fn_modificar('" + id + "', '" + nombre + "')\" class='btn btn-warning btn-circle btn-sm'><i class='fas fa-pencil-alt'></i></button>";
+        btn += "<button type='button' onclick=\"fn_eliminar('" + id + "','" + nombre + "')\" class='btn btn-danger btn-circle btn-sm'><i class='fas fa-trash'></i></button>";
+        return "" + btn;
+      }
+    }]
+  });
+}
+
+function fnAgregarListaProducto() {
+  $("#modal-add-producto").modal("show");
+}
+
+$(document).ready(function () {
+  $("#btn-modal-producto").click(function () {
+    fnAgregarListaProducto();
+  });
 });
 
 /***/ }),
@@ -5376,95 +5918,347 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/*VAriables globales */
+var dts;
+var dt1;
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      stock: []
+      producto_seleccionado: "",
+      producto: [],
+      opcion_stock: "",
+      stock: {
+        id: 0,
+        cantidad: 0,
+        estado_conservacion: "",
+        id_producto: 0,
+        nombre_producto: "",
+        color: "",
+        modelo: "",
+        detalles: "",
+        estado_activo: 0,
+        id_marca: 0,
+        id_categoria: 0,
+        nombre_marca: "",
+        descripcion: "",
+        nombre_categoria: ""
+      }
     };
   },
   methods: {
-    listar: function listar() {
-      var _this = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.next = 2;
-                return axios.get('stock');
-
-              case 2:
-                $res = _context.sent;
-                _this.articulos;
-
-              case 4:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }))();
+    reset_producto: function reset_producto() {},
+    reset_stock: function reset_stock() {
+      this.stock = {
+        id: 0,
+        cantidad: 0,
+        estado_conservacion: "",
+        id_producto: 0,
+        nombre_producto: "",
+        color: "",
+        modelo: "",
+        detalles: "",
+        estado_activo: 0,
+        id_marca: 0,
+        id_categoria: 0,
+        nombre_marca: "",
+        descripcion: "",
+        nombre_categoria: ""
+      };
     }
   }
 });
+fnObtenerListaSalida();
+/*Tabla para mostrar los productos temproales seleccionados a ingresar */
+
+function initListaTempSalida(lista) {
+  dt1 = $("#datatable_entrada_productos").DataTable({
+    info: false,
+    paging: false,
+    lengthChange: false,
+    searching: false,
+    order: [],
+    columnDefs: [{
+      targets: [8],
+      orderable: false
+    }],
+    data: lista,
+    columns: [{
+      data: function data(_data, type, dataToSet) {
+        return '<div class="RowsTituloTest">' + _data.nombre_categoria + "</div>";
+      }
+    }, {
+      data: function data(_data2, type, dataToSet) {
+        return '<div class="RowsTituloTest">' + _data2.cantidad + "</div>";
+      }
+    }, {
+      data: function data(_data3, type, dataToSet) {
+        return '<div class="RowsTituloTest">' + _data3.nombre_producto + "</div>";
+      }
+    }, {
+      data: function data(_data4, type, dataToSet) {
+        return '<div class="RowsTituloTest">' + _data4.nombre_marca + "</div>";
+      }
+    }, {
+      data: function data(_data5, type, dataToSet) {
+        return '<div class="RowsTituloTest">' + _data5.modelo + "</div>";
+      }
+    }, {
+      data: function data(_data6, type, dataToSet) {
+        return '<div class="RowsTituloTest">' + _data6.detalles + "</div>";
+      }
+    }, {
+      data: function data(_data7, type, dataToSet) {
+        return '<div class="RowsTituloTest">' + _data7.color + "</div>";
+      }
+    }, {
+      data: function data(_data8, type, dataToSet) {
+        return '<div class="RowsTituloTest">' + _data8.estado_conservacion + "</div>";
+      }
+    }, {
+      data: function data(_data9, type, dataToSet) {
+        var id = _data9.id;
+        var nombre = _data9.cantidad;
+        var btn = "";
+        btn += "<button type='button' onclick=\"fn_modificar('" + id + "', '" + nombre + "')\" class='btn btn-warning btn-circle btn-sm'><i class='fas fa-pencil-alt'></i></button>";
+        btn += "<button type='button' onclick=\"fn_eliminar('" + id + "','" + nombre + "')\" class='btn btn-danger btn-circle btn-sm'><i class='fas fa-trash'></i></button>";
+        return "" + btn;
+      }
+    }]
+  });
+}
+/*Tabla para mostrar la lista e productos ingresados tablas entrada_almacen,detalle_entrada*/
+
+
+function fnObtenerListaSalida() {
+  var parametros = {};
+  $.get("salida", parametros).done(function (response) {
+    if (dts) {
+      dts.clear();
+      dts.rows.add(response);
+      dts.draw();
+    } else {
+      /* window.alert(JSON.stringify(response));*/
+      initListaSalida(response);
+    }
+  });
+}
+
+function initListaSalida(lista) {
+  dts = $("#datatable_salida").DataTable({
+    order: [],
+    columnDefs: [{
+      targets: [12],
+      orderable: false
+    }],
+    data: lista,
+    columns: [{
+      data: function data(_data10, type, dataToSet) {
+        return '<div class="RowsTituloTest">' + _data10.nombre_categoria + "</div>";
+      }
+    }, {
+      data: function data(_data11, type, dataToSet) {
+        return '<div class="RowsTituloTest">' + _data11.cantidad + "</div>";
+      }
+    }, {
+      data: function data(_data12, type, dataToSet) {
+        return '<div class="RowsTituloTest">' + _data12.nombre_producto + "</div>";
+      }
+    }, {
+      data: function data(_data13, type, dataToSet) {
+        return '<div class="RowsTituloTest">' + _data13.nombre_marca + "</div>";
+      }
+    }, {
+      data: function data(_data14, type, dataToSet) {
+        return '<div class="RowsTituloTest">' + _data14.modelo + "</div>";
+      }
+    }, {
+      data: function data(_data15, type, dataToSet) {
+        return '<div class="RowsTituloTest">' + _data15.detalles + "</div>";
+      }
+    }, {
+      data: function data(_data16, type, dataToSet) {
+        return '<div class="RowsTituloTest">' + _data16.color + "</div>";
+      }
+    }, {
+      data: function data(_data17, type, dataToSet) {
+        return '<div class="RowsTituloTest">' + _data17.created_at.substring(0, 10) + "</div>";
+      }
+    }, {
+      data: function data(_data18, type, dataToSet) {
+        return '<div class="RowsTituloTest">' + _data18.estado_conservacion + "</div>";
+      }
+    }, {
+      data: function data(_data19, type, dataToSet) {
+        return '<div class="RowsTituloTest">' + _data19.d_d_entrada + "</div>";
+      }
+    }, {
+      data: function data(_data20, type, dataToSet) {
+        return '<div class="RowsTituloTest">' + _data20.name + "</div>";
+      }
+    }, {
+      data: function data(_data21, type, dataToSet) {
+        return '<div class="RowsTituloTest">' + _data21.d_entrada + "</div>";
+      }
+    }, {
+      data: function data(_data22, type, dataToSet) {
+        var id = _data22.id;
+        var nombre = _data22.cantidad;
+        var btn = "";
+        btn += "<button type='button' onclick=\"fn_modificar('" + id + "', '" + nombre + "')\" class='btn btn-warning btn-circle btn-sm'><i class='fas fa-pencil-alt'></i></button>";
+        btn += "<button type='button' onclick=\"fn_eliminar('" + id + "','" + nombre + "')\" class='btn btn-danger btn-circle btn-sm'><i class='fas fa-trash'></i></button>";
+        return "" + btn;
+      }
+    }]
+  });
+}
 
 /***/ }),
 
@@ -5523,21 +6317,119 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-var dt;
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var dta;
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      opcion: "",
+      stock: {
+        id: 0,
+        cantidad: 0,
+        estado_conservacion: "",
+        id_producto: 0,
+        nombre_producto: "",
+        color: "",
+        modelo: "",
+        detalles: "",
+        estado_activo: 0,
+        id_marca: 0,
+        id_categoria: 0,
+        nombre_marca: "",
+        descripcion: "",
+        nombre_categoria: ""
+      }
+    };
+  },
   methods: {
     resetForm: function resetForm() {
-      this.frecuencia = {
-        'IdFrecuencia': 0,
-        'Nombre': '',
-        'FMin': '',
-        'FMax': '',
-        'Orden': 0,
-        'MaxOcupacional': '',
-        'MaxPublico': '',
-        'MaxPoblacional': '',
-        'UnidadMedida': '',
-        'Estado': '1'
+      this.stock = {
+        id: 0,
+        cantidad: 0,
+        estado_conservacion: "",
+        id_producto: 0,
+        nombre_producto: "",
+        color: "",
+        modelo: "",
+        detalles: "",
+        estado_activo: 0,
+        id_marca: 0,
+        id_categoria: 0,
+        nombre_marca: "",
+        descripcion: "",
+        nombre_categoria: ""
       };
     }
   }
@@ -5547,56 +6439,56 @@ fnObtenerListaPrincipal();
 function fnObtenerListaPrincipal() {
   var parametros = {};
   $.get("stock", parametros).done(function (response) {
-    if (dt) {
-      dt.clear();
-      dt.rows.add(response);
-      dt.draw();
+    if (dta) {
+      dta.clear();
+      dta.rows.add(response);
+      dta.draw();
     } else {
-      window.alert(JSON.stringify(response));
+      /* window.alert(JSON.stringify(response));*/
       initLista(response);
     }
   });
 }
 
 function initLista(lista) {
-  dt = $('#datatable_stock').DataTable({
+  dta = $("#datatable_stock").DataTable({
     order: [],
     columnDefs: [{
-      "targets": [8],
-      "orderable": false
+      targets: [8],
+      orderable: false
     }],
     data: lista,
     columns: [{
       data: function data(_data, type, dataToSet) {
-        return '<div class="RowsTituloTest">' + _data.id + '</div>';
+        return '<div class="RowsTituloTest">' + _data.nombre_categoria + "</div>";
       }
     }, {
       data: function data(_data2, type, dataToSet) {
-        return '<div class="RowsTituloTest">' + _data2.cantidad + '</div>';
+        return '<div class="RowsTituloTest">' + _data2.cantidad + "</div>";
       }
     }, {
       data: function data(_data3, type, dataToSet) {
-        return '<div class="RowsTituloTest">' + _data3.id + '</div>';
+        return '<div class="RowsTituloTest">' + _data3.nombre_producto + "</div>";
       }
     }, {
       data: function data(_data4, type, dataToSet) {
-        return '<div class="RowsTituloTest">' + _data4.id + '</div>';
+        return '<div class="RowsTituloTest">' + _data4.nombre_marca + "</div>";
       }
     }, {
       data: function data(_data5, type, dataToSet) {
-        return '<div class="RowsTituloTest">' + _data5.id + '</div>';
+        return '<div class="RowsTituloTest">' + _data5.modelo + "</div>";
       }
     }, {
       data: function data(_data6, type, dataToSet) {
-        return '<div class="RowsTituloTest">' + _data6.id + '</div>';
+        return '<div class="RowsTituloTest">' + _data6.detalles + "</div>";
       }
     }, {
       data: function data(_data7, type, dataToSet) {
-        return '<div class="RowsTituloTest">' + _data7.id + '</div>';
+        return '<div class="RowsTituloTest">' + _data7.color + "</div>";
       }
     }, {
       data: function data(_data8, type, dataToSet) {
-        return '<div class="RowsTituloTest">' + _data8.estado_conservacion + '</div>';
+        return '<div class="RowsTituloTest">' + _data8.estado_conservacion + "</div>";
       }
     }, {
       data: function data(_data9, type, dataToSet) {
@@ -5605,7 +6497,7 @@ function initLista(lista) {
         var btn = "";
         btn += "<button type='button' onclick=\"fnModificar('" + id + "', '" + nombre + "')\" class='btn btn-light btn-circle btn-sm mr-1'><i class='fas fa-pencil-alt'></i></button>";
         btn += "<button type='button' onclick=\"fnEliminar('" + id + "','" + nombre + "')\" class='btn btn-light btn-circle btn-sm mr-1'><i class='fas fa-trash'></i></button>";
-        return '' + btn;
+        return "" + btn;
       }
     }]
   });
@@ -28134,770 +29026,6 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
-/***/ "./node_modules/regenerator-runtime/runtime.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/regenerator-runtime/runtime.js ***!
-  \*****************************************************/
-/***/ ((module) => {
-
-/**
- * Copyright (c) 2014-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-var runtime = (function (exports) {
-  "use strict";
-
-  var Op = Object.prototype;
-  var hasOwn = Op.hasOwnProperty;
-  var undefined; // More compressible than void 0.
-  var $Symbol = typeof Symbol === "function" ? Symbol : {};
-  var iteratorSymbol = $Symbol.iterator || "@@iterator";
-  var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
-  var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
-
-  function define(obj, key, value) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-    return obj[key];
-  }
-  try {
-    // IE 8 has a broken Object.defineProperty that only works on DOM objects.
-    define({}, "");
-  } catch (err) {
-    define = function(obj, key, value) {
-      return obj[key] = value;
-    };
-  }
-
-  function wrap(innerFn, outerFn, self, tryLocsList) {
-    // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
-    var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator;
-    var generator = Object.create(protoGenerator.prototype);
-    var context = new Context(tryLocsList || []);
-
-    // The ._invoke method unifies the implementations of the .next,
-    // .throw, and .return methods.
-    generator._invoke = makeInvokeMethod(innerFn, self, context);
-
-    return generator;
-  }
-  exports.wrap = wrap;
-
-  // Try/catch helper to minimize deoptimizations. Returns a completion
-  // record like context.tryEntries[i].completion. This interface could
-  // have been (and was previously) designed to take a closure to be
-  // invoked without arguments, but in all the cases we care about we
-  // already have an existing method we want to call, so there's no need
-  // to create a new function object. We can even get away with assuming
-  // the method takes exactly one argument, since that happens to be true
-  // in every case, so we don't have to touch the arguments object. The
-  // only additional allocation required is the completion record, which
-  // has a stable shape and so hopefully should be cheap to allocate.
-  function tryCatch(fn, obj, arg) {
-    try {
-      return { type: "normal", arg: fn.call(obj, arg) };
-    } catch (err) {
-      return { type: "throw", arg: err };
-    }
-  }
-
-  var GenStateSuspendedStart = "suspendedStart";
-  var GenStateSuspendedYield = "suspendedYield";
-  var GenStateExecuting = "executing";
-  var GenStateCompleted = "completed";
-
-  // Returning this object from the innerFn has the same effect as
-  // breaking out of the dispatch switch statement.
-  var ContinueSentinel = {};
-
-  // Dummy constructor functions that we use as the .constructor and
-  // .constructor.prototype properties for functions that return Generator
-  // objects. For full spec compliance, you may wish to configure your
-  // minifier not to mangle the names of these two functions.
-  function Generator() {}
-  function GeneratorFunction() {}
-  function GeneratorFunctionPrototype() {}
-
-  // This is a polyfill for %IteratorPrototype% for environments that
-  // don't natively support it.
-  var IteratorPrototype = {};
-  define(IteratorPrototype, iteratorSymbol, function () {
-    return this;
-  });
-
-  var getProto = Object.getPrototypeOf;
-  var NativeIteratorPrototype = getProto && getProto(getProto(values([])));
-  if (NativeIteratorPrototype &&
-      NativeIteratorPrototype !== Op &&
-      hasOwn.call(NativeIteratorPrototype, iteratorSymbol)) {
-    // This environment has a native %IteratorPrototype%; use it instead
-    // of the polyfill.
-    IteratorPrototype = NativeIteratorPrototype;
-  }
-
-  var Gp = GeneratorFunctionPrototype.prototype =
-    Generator.prototype = Object.create(IteratorPrototype);
-  GeneratorFunction.prototype = GeneratorFunctionPrototype;
-  define(Gp, "constructor", GeneratorFunctionPrototype);
-  define(GeneratorFunctionPrototype, "constructor", GeneratorFunction);
-  GeneratorFunction.displayName = define(
-    GeneratorFunctionPrototype,
-    toStringTagSymbol,
-    "GeneratorFunction"
-  );
-
-  // Helper for defining the .next, .throw, and .return methods of the
-  // Iterator interface in terms of a single ._invoke method.
-  function defineIteratorMethods(prototype) {
-    ["next", "throw", "return"].forEach(function(method) {
-      define(prototype, method, function(arg) {
-        return this._invoke(method, arg);
-      });
-    });
-  }
-
-  exports.isGeneratorFunction = function(genFun) {
-    var ctor = typeof genFun === "function" && genFun.constructor;
-    return ctor
-      ? ctor === GeneratorFunction ||
-        // For the native GeneratorFunction constructor, the best we can
-        // do is to check its .name property.
-        (ctor.displayName || ctor.name) === "GeneratorFunction"
-      : false;
-  };
-
-  exports.mark = function(genFun) {
-    if (Object.setPrototypeOf) {
-      Object.setPrototypeOf(genFun, GeneratorFunctionPrototype);
-    } else {
-      genFun.__proto__ = GeneratorFunctionPrototype;
-      define(genFun, toStringTagSymbol, "GeneratorFunction");
-    }
-    genFun.prototype = Object.create(Gp);
-    return genFun;
-  };
-
-  // Within the body of any async function, `await x` is transformed to
-  // `yield regeneratorRuntime.awrap(x)`, so that the runtime can test
-  // `hasOwn.call(value, "__await")` to determine if the yielded value is
-  // meant to be awaited.
-  exports.awrap = function(arg) {
-    return { __await: arg };
-  };
-
-  function AsyncIterator(generator, PromiseImpl) {
-    function invoke(method, arg, resolve, reject) {
-      var record = tryCatch(generator[method], generator, arg);
-      if (record.type === "throw") {
-        reject(record.arg);
-      } else {
-        var result = record.arg;
-        var value = result.value;
-        if (value &&
-            typeof value === "object" &&
-            hasOwn.call(value, "__await")) {
-          return PromiseImpl.resolve(value.__await).then(function(value) {
-            invoke("next", value, resolve, reject);
-          }, function(err) {
-            invoke("throw", err, resolve, reject);
-          });
-        }
-
-        return PromiseImpl.resolve(value).then(function(unwrapped) {
-          // When a yielded Promise is resolved, its final value becomes
-          // the .value of the Promise<{value,done}> result for the
-          // current iteration.
-          result.value = unwrapped;
-          resolve(result);
-        }, function(error) {
-          // If a rejected Promise was yielded, throw the rejection back
-          // into the async generator function so it can be handled there.
-          return invoke("throw", error, resolve, reject);
-        });
-      }
-    }
-
-    var previousPromise;
-
-    function enqueue(method, arg) {
-      function callInvokeWithMethodAndArg() {
-        return new PromiseImpl(function(resolve, reject) {
-          invoke(method, arg, resolve, reject);
-        });
-      }
-
-      return previousPromise =
-        // If enqueue has been called before, then we want to wait until
-        // all previous Promises have been resolved before calling invoke,
-        // so that results are always delivered in the correct order. If
-        // enqueue has not been called before, then it is important to
-        // call invoke immediately, without waiting on a callback to fire,
-        // so that the async generator function has the opportunity to do
-        // any necessary setup in a predictable way. This predictability
-        // is why the Promise constructor synchronously invokes its
-        // executor callback, and why async functions synchronously
-        // execute code before the first await. Since we implement simple
-        // async functions in terms of async generators, it is especially
-        // important to get this right, even though it requires care.
-        previousPromise ? previousPromise.then(
-          callInvokeWithMethodAndArg,
-          // Avoid propagating failures to Promises returned by later
-          // invocations of the iterator.
-          callInvokeWithMethodAndArg
-        ) : callInvokeWithMethodAndArg();
-    }
-
-    // Define the unified helper method that is used to implement .next,
-    // .throw, and .return (see defineIteratorMethods).
-    this._invoke = enqueue;
-  }
-
-  defineIteratorMethods(AsyncIterator.prototype);
-  define(AsyncIterator.prototype, asyncIteratorSymbol, function () {
-    return this;
-  });
-  exports.AsyncIterator = AsyncIterator;
-
-  // Note that simple async functions are implemented on top of
-  // AsyncIterator objects; they just return a Promise for the value of
-  // the final result produced by the iterator.
-  exports.async = function(innerFn, outerFn, self, tryLocsList, PromiseImpl) {
-    if (PromiseImpl === void 0) PromiseImpl = Promise;
-
-    var iter = new AsyncIterator(
-      wrap(innerFn, outerFn, self, tryLocsList),
-      PromiseImpl
-    );
-
-    return exports.isGeneratorFunction(outerFn)
-      ? iter // If outerFn is a generator, return the full iterator.
-      : iter.next().then(function(result) {
-          return result.done ? result.value : iter.next();
-        });
-  };
-
-  function makeInvokeMethod(innerFn, self, context) {
-    var state = GenStateSuspendedStart;
-
-    return function invoke(method, arg) {
-      if (state === GenStateExecuting) {
-        throw new Error("Generator is already running");
-      }
-
-      if (state === GenStateCompleted) {
-        if (method === "throw") {
-          throw arg;
-        }
-
-        // Be forgiving, per 25.3.3.3.3 of the spec:
-        // https://people.mozilla.org/~jorendorff/es6-draft.html#sec-generatorresume
-        return doneResult();
-      }
-
-      context.method = method;
-      context.arg = arg;
-
-      while (true) {
-        var delegate = context.delegate;
-        if (delegate) {
-          var delegateResult = maybeInvokeDelegate(delegate, context);
-          if (delegateResult) {
-            if (delegateResult === ContinueSentinel) continue;
-            return delegateResult;
-          }
-        }
-
-        if (context.method === "next") {
-          // Setting context._sent for legacy support of Babel's
-          // function.sent implementation.
-          context.sent = context._sent = context.arg;
-
-        } else if (context.method === "throw") {
-          if (state === GenStateSuspendedStart) {
-            state = GenStateCompleted;
-            throw context.arg;
-          }
-
-          context.dispatchException(context.arg);
-
-        } else if (context.method === "return") {
-          context.abrupt("return", context.arg);
-        }
-
-        state = GenStateExecuting;
-
-        var record = tryCatch(innerFn, self, context);
-        if (record.type === "normal") {
-          // If an exception is thrown from innerFn, we leave state ===
-          // GenStateExecuting and loop back for another invocation.
-          state = context.done
-            ? GenStateCompleted
-            : GenStateSuspendedYield;
-
-          if (record.arg === ContinueSentinel) {
-            continue;
-          }
-
-          return {
-            value: record.arg,
-            done: context.done
-          };
-
-        } else if (record.type === "throw") {
-          state = GenStateCompleted;
-          // Dispatch the exception by looping back around to the
-          // context.dispatchException(context.arg) call above.
-          context.method = "throw";
-          context.arg = record.arg;
-        }
-      }
-    };
-  }
-
-  // Call delegate.iterator[context.method](context.arg) and handle the
-  // result, either by returning a { value, done } result from the
-  // delegate iterator, or by modifying context.method and context.arg,
-  // setting context.delegate to null, and returning the ContinueSentinel.
-  function maybeInvokeDelegate(delegate, context) {
-    var method = delegate.iterator[context.method];
-    if (method === undefined) {
-      // A .throw or .return when the delegate iterator has no .throw
-      // method always terminates the yield* loop.
-      context.delegate = null;
-
-      if (context.method === "throw") {
-        // Note: ["return"] must be used for ES3 parsing compatibility.
-        if (delegate.iterator["return"]) {
-          // If the delegate iterator has a return method, give it a
-          // chance to clean up.
-          context.method = "return";
-          context.arg = undefined;
-          maybeInvokeDelegate(delegate, context);
-
-          if (context.method === "throw") {
-            // If maybeInvokeDelegate(context) changed context.method from
-            // "return" to "throw", let that override the TypeError below.
-            return ContinueSentinel;
-          }
-        }
-
-        context.method = "throw";
-        context.arg = new TypeError(
-          "The iterator does not provide a 'throw' method");
-      }
-
-      return ContinueSentinel;
-    }
-
-    var record = tryCatch(method, delegate.iterator, context.arg);
-
-    if (record.type === "throw") {
-      context.method = "throw";
-      context.arg = record.arg;
-      context.delegate = null;
-      return ContinueSentinel;
-    }
-
-    var info = record.arg;
-
-    if (! info) {
-      context.method = "throw";
-      context.arg = new TypeError("iterator result is not an object");
-      context.delegate = null;
-      return ContinueSentinel;
-    }
-
-    if (info.done) {
-      // Assign the result of the finished delegate to the temporary
-      // variable specified by delegate.resultName (see delegateYield).
-      context[delegate.resultName] = info.value;
-
-      // Resume execution at the desired location (see delegateYield).
-      context.next = delegate.nextLoc;
-
-      // If context.method was "throw" but the delegate handled the
-      // exception, let the outer generator proceed normally. If
-      // context.method was "next", forget context.arg since it has been
-      // "consumed" by the delegate iterator. If context.method was
-      // "return", allow the original .return call to continue in the
-      // outer generator.
-      if (context.method !== "return") {
-        context.method = "next";
-        context.arg = undefined;
-      }
-
-    } else {
-      // Re-yield the result returned by the delegate method.
-      return info;
-    }
-
-    // The delegate iterator is finished, so forget it and continue with
-    // the outer generator.
-    context.delegate = null;
-    return ContinueSentinel;
-  }
-
-  // Define Generator.prototype.{next,throw,return} in terms of the
-  // unified ._invoke helper method.
-  defineIteratorMethods(Gp);
-
-  define(Gp, toStringTagSymbol, "Generator");
-
-  // A Generator should always return itself as the iterator object when the
-  // @@iterator function is called on it. Some browsers' implementations of the
-  // iterator prototype chain incorrectly implement this, causing the Generator
-  // object to not be returned from this call. This ensures that doesn't happen.
-  // See https://github.com/facebook/regenerator/issues/274 for more details.
-  define(Gp, iteratorSymbol, function() {
-    return this;
-  });
-
-  define(Gp, "toString", function() {
-    return "[object Generator]";
-  });
-
-  function pushTryEntry(locs) {
-    var entry = { tryLoc: locs[0] };
-
-    if (1 in locs) {
-      entry.catchLoc = locs[1];
-    }
-
-    if (2 in locs) {
-      entry.finallyLoc = locs[2];
-      entry.afterLoc = locs[3];
-    }
-
-    this.tryEntries.push(entry);
-  }
-
-  function resetTryEntry(entry) {
-    var record = entry.completion || {};
-    record.type = "normal";
-    delete record.arg;
-    entry.completion = record;
-  }
-
-  function Context(tryLocsList) {
-    // The root entry object (effectively a try statement without a catch
-    // or a finally block) gives us a place to store values thrown from
-    // locations where there is no enclosing try statement.
-    this.tryEntries = [{ tryLoc: "root" }];
-    tryLocsList.forEach(pushTryEntry, this);
-    this.reset(true);
-  }
-
-  exports.keys = function(object) {
-    var keys = [];
-    for (var key in object) {
-      keys.push(key);
-    }
-    keys.reverse();
-
-    // Rather than returning an object with a next method, we keep
-    // things simple and return the next function itself.
-    return function next() {
-      while (keys.length) {
-        var key = keys.pop();
-        if (key in object) {
-          next.value = key;
-          next.done = false;
-          return next;
-        }
-      }
-
-      // To avoid creating an additional object, we just hang the .value
-      // and .done properties off the next function object itself. This
-      // also ensures that the minifier will not anonymize the function.
-      next.done = true;
-      return next;
-    };
-  };
-
-  function values(iterable) {
-    if (iterable) {
-      var iteratorMethod = iterable[iteratorSymbol];
-      if (iteratorMethod) {
-        return iteratorMethod.call(iterable);
-      }
-
-      if (typeof iterable.next === "function") {
-        return iterable;
-      }
-
-      if (!isNaN(iterable.length)) {
-        var i = -1, next = function next() {
-          while (++i < iterable.length) {
-            if (hasOwn.call(iterable, i)) {
-              next.value = iterable[i];
-              next.done = false;
-              return next;
-            }
-          }
-
-          next.value = undefined;
-          next.done = true;
-
-          return next;
-        };
-
-        return next.next = next;
-      }
-    }
-
-    // Return an iterator with no values.
-    return { next: doneResult };
-  }
-  exports.values = values;
-
-  function doneResult() {
-    return { value: undefined, done: true };
-  }
-
-  Context.prototype = {
-    constructor: Context,
-
-    reset: function(skipTempReset) {
-      this.prev = 0;
-      this.next = 0;
-      // Resetting context._sent for legacy support of Babel's
-      // function.sent implementation.
-      this.sent = this._sent = undefined;
-      this.done = false;
-      this.delegate = null;
-
-      this.method = "next";
-      this.arg = undefined;
-
-      this.tryEntries.forEach(resetTryEntry);
-
-      if (!skipTempReset) {
-        for (var name in this) {
-          // Not sure about the optimal order of these conditions:
-          if (name.charAt(0) === "t" &&
-              hasOwn.call(this, name) &&
-              !isNaN(+name.slice(1))) {
-            this[name] = undefined;
-          }
-        }
-      }
-    },
-
-    stop: function() {
-      this.done = true;
-
-      var rootEntry = this.tryEntries[0];
-      var rootRecord = rootEntry.completion;
-      if (rootRecord.type === "throw") {
-        throw rootRecord.arg;
-      }
-
-      return this.rval;
-    },
-
-    dispatchException: function(exception) {
-      if (this.done) {
-        throw exception;
-      }
-
-      var context = this;
-      function handle(loc, caught) {
-        record.type = "throw";
-        record.arg = exception;
-        context.next = loc;
-
-        if (caught) {
-          // If the dispatched exception was caught by a catch block,
-          // then let that catch block handle the exception normally.
-          context.method = "next";
-          context.arg = undefined;
-        }
-
-        return !! caught;
-      }
-
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        var record = entry.completion;
-
-        if (entry.tryLoc === "root") {
-          // Exception thrown outside of any try block that could handle
-          // it, so set the completion value of the entire function to
-          // throw the exception.
-          return handle("end");
-        }
-
-        if (entry.tryLoc <= this.prev) {
-          var hasCatch = hasOwn.call(entry, "catchLoc");
-          var hasFinally = hasOwn.call(entry, "finallyLoc");
-
-          if (hasCatch && hasFinally) {
-            if (this.prev < entry.catchLoc) {
-              return handle(entry.catchLoc, true);
-            } else if (this.prev < entry.finallyLoc) {
-              return handle(entry.finallyLoc);
-            }
-
-          } else if (hasCatch) {
-            if (this.prev < entry.catchLoc) {
-              return handle(entry.catchLoc, true);
-            }
-
-          } else if (hasFinally) {
-            if (this.prev < entry.finallyLoc) {
-              return handle(entry.finallyLoc);
-            }
-
-          } else {
-            throw new Error("try statement without catch or finally");
-          }
-        }
-      }
-    },
-
-    abrupt: function(type, arg) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.tryLoc <= this.prev &&
-            hasOwn.call(entry, "finallyLoc") &&
-            this.prev < entry.finallyLoc) {
-          var finallyEntry = entry;
-          break;
-        }
-      }
-
-      if (finallyEntry &&
-          (type === "break" ||
-           type === "continue") &&
-          finallyEntry.tryLoc <= arg &&
-          arg <= finallyEntry.finallyLoc) {
-        // Ignore the finally entry if control is not jumping to a
-        // location outside the try/catch block.
-        finallyEntry = null;
-      }
-
-      var record = finallyEntry ? finallyEntry.completion : {};
-      record.type = type;
-      record.arg = arg;
-
-      if (finallyEntry) {
-        this.method = "next";
-        this.next = finallyEntry.finallyLoc;
-        return ContinueSentinel;
-      }
-
-      return this.complete(record);
-    },
-
-    complete: function(record, afterLoc) {
-      if (record.type === "throw") {
-        throw record.arg;
-      }
-
-      if (record.type === "break" ||
-          record.type === "continue") {
-        this.next = record.arg;
-      } else if (record.type === "return") {
-        this.rval = this.arg = record.arg;
-        this.method = "return";
-        this.next = "end";
-      } else if (record.type === "normal" && afterLoc) {
-        this.next = afterLoc;
-      }
-
-      return ContinueSentinel;
-    },
-
-    finish: function(finallyLoc) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.finallyLoc === finallyLoc) {
-          this.complete(entry.completion, entry.afterLoc);
-          resetTryEntry(entry);
-          return ContinueSentinel;
-        }
-      }
-    },
-
-    "catch": function(tryLoc) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.tryLoc === tryLoc) {
-          var record = entry.completion;
-          if (record.type === "throw") {
-            var thrown = record.arg;
-            resetTryEntry(entry);
-          }
-          return thrown;
-        }
-      }
-
-      // The context.catch method must only be called with a location
-      // argument that corresponds to a known catch block.
-      throw new Error("illegal catch attempt");
-    },
-
-    delegateYield: function(iterable, resultName, nextLoc) {
-      this.delegate = {
-        iterator: values(iterable),
-        resultName: resultName,
-        nextLoc: nextLoc
-      };
-
-      if (this.method === "next") {
-        // Deliberately forget the last sent value so that we don't
-        // accidentally pass it on to the delegate.
-        this.arg = undefined;
-      }
-
-      return ContinueSentinel;
-    }
-  };
-
-  // Regardless of whether this script is executing as a CommonJS module
-  // or not, return the runtime object so that we can declare the variable
-  // regeneratorRuntime in the outer scope, which allows this module to be
-  // injected easily by `bin/regenerator --include-runtime script.js`.
-  return exports;
-
-}(
-  // If this script is executing as a CommonJS module, use module.exports
-  // as the regeneratorRuntime namespace. Otherwise create a new empty
-  // object. Either way, the resulting object will be used to initialize
-  // the regeneratorRuntime variable at the top of this file.
-   true ? module.exports : 0
-));
-
-try {
-  regeneratorRuntime = runtime;
-} catch (accidentalStrictMode) {
-  // This module should not be running in strict mode, so the above
-  // assignment should always work unless something is misconfigured. Just
-  // in case runtime.js accidentally runs in strict mode, in modern engines
-  // we can explicitly access globalThis. In older engines we can escape
-  // strict mode using a global Function call. This could conceivably fail
-  // if a Content Security Policy forbids using Function, but in that case
-  // the proper solution is to fix the accidental strict mode problem. If
-  // you've misconfigured your bundler to force strict mode and applied a
-  // CSP to forbid Function, and you're not willing to fix either of those
-  // problems, please detail your unique predicament in a GitHub issue.
-  if (typeof globalThis === "object") {
-    globalThis.regeneratorRuntime = runtime;
-  } else {
-    Function("r", "regeneratorRuntime = r")(runtime);
-  }
-}
-
-
-/***/ }),
-
 /***/ "./resources/js/components/Entrada_Almacen.vue":
 /*!*****************************************************!*\
   !*** ./resources/js/components/Entrada_Almacen.vue ***!
@@ -29130,51 +29258,441 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "card shadow mb-4" }, [
+  return _c("div", [
     _vm._m(0),
     _vm._v(" "),
-    _c("div", { staticClass: "card-body" }, [
-      _c("div", { staticClass: "table-responsive" }, [
+    _vm._m(1),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "modal-add-producto",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "modal-notification",
+          "aria-hidden": "true",
+        },
+      },
+      [
         _c(
-          "table",
-          {
-            staticClass: "table table-bordered",
-            attrs: { id: "datatable_entrada", width: "100%", cellspacing: "0" },
-          },
+          "div",
+          { staticClass: "modal-dialog modal-lg", attrs: { role: "document" } },
           [
-            _vm._m(1),
-            _vm._v(" "),
-            _c(
-              "tbody",
-              _vm._l(_vm.stock, function (data) {
-                return _c("tr", { key: data.id }, [
-                  _c("th", { attrs: { scope: "row" } }, [
-                    _vm._v(_vm._s(data.id)),
+            _c("div", { staticClass: "modal-content" }, [
+              _vm._m(2),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-md-6" }, [
+                    _c("div", { staticClass: "form-group" }, [
+                      _vm._m(3),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.idDetalleProducto,
+                              expression: "idDetalleProducto",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: { required: "" },
+                          on: {
+                            change: function ($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function (o) {
+                                  return o.selected
+                                })
+                                .map(function (o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.idDetalleProducto = $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            },
+                          },
+                        },
+                        [
+                          _c("option", { attrs: { value: "0" } }, [
+                            _vm._v("--Seleccionar--"),
+                          ]),
+                          _vm._v(" "),
+                          _vm._l(_vm.lista_producto, function (producto) {
+                            return _c(
+                              "option",
+                              {
+                                key: producto.id,
+                                domProps: { value: producto.id },
+                              },
+                              [
+                                _vm._v(
+                                  "\n                    " +
+                                    _vm._s(producto.nombre_producto) +
+                                    "\n                  "
+                                ),
+                              ]
+                            )
+                          }),
+                        ],
+                        2
+                      ),
+                    ]),
                   ]),
                   _vm._v(" "),
-                  _c("th", [_vm._v("Total Unidades")]),
+                  _c("div", { staticClass: "col-md-2" }, [
+                    _c("div", { staticClass: "form-group" }, [
+                      _vm._m(4),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.productos.color,
+                              expression: "productos.color",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: { required: "" },
+                          on: {
+                            change: function ($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function (o) {
+                                  return o.selected
+                                })
+                                .map(function (o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.productos,
+                                "color",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            },
+                          },
+                        },
+                        [
+                          _c("option", { attrs: { value: "0" } }, [
+                            _vm._v("--Seleccionar--"),
+                          ]),
+                          _vm._v(" "),
+                          _vm._l(_vm.lista_color, function (color) {
+                            return _c(
+                              "option",
+                              {
+                                key: color.idcolor,
+                                domProps: { value: color.nombre_color },
+                              },
+                              [
+                                _vm._v(
+                                  "\n                    " +
+                                    _vm._s(color.nombre_color) +
+                                    "\n                  "
+                                ),
+                              ]
+                            )
+                          }),
+                        ],
+                        2
+                      ),
+                    ]),
+                  ]),
                   _vm._v(" "),
-                  _c("th", [_vm._v("Denominacion")]),
+                  _c("div", { staticClass: "col-md-2" }, [
+                    _c("div", { staticClass: "form-group" }, [
+                      _vm._m(5),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.cantidad_producto,
+                            expression: "cantidad_producto",
+                          },
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          id: "idCantidadUnitariaproducto",
+                          type: "text",
+                        },
+                        domProps: { value: _vm.cantidad_producto },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.cantidad_producto = $event.target.value
+                          },
+                        },
+                      }),
+                    ]),
+                  ]),
                   _vm._v(" "),
-                  _c("th", [_vm._v("Marca")]),
+                  _c("div", { staticClass: "col-md-2" }, [
+                    _c("div", { staticClass: "form-group" }, [
+                      _vm._m(6),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.cantidad_producto,
+                            expression: "cantidad_producto",
+                          },
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          id: "idCantidadIngresoProducto",
+                          type: "text",
+                        },
+                        domProps: { value: _vm.cantidad_producto },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.cantidad_producto = $event.target.value
+                          },
+                        },
+                      }),
+                    ]),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-md-4" }, [
+                    _c("div", { staticClass: "form-group" }, [
+                      _vm._m(7),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.producto_seleccionado,
+                              expression: "producto_seleccionado",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: { required: "" },
+                          on: {
+                            change: function ($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function (o) {
+                                  return o.selected
+                                })
+                                .map(function (o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.producto_seleccionado = $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            },
+                          },
+                        },
+                        [
+                          _c("option", { attrs: { value: "0" } }, [
+                            _vm._v("--Seleccionar--"),
+                          ]),
+                          _vm._v(" "),
+                          _vm._l(_vm.categoria_producto, function (categoria) {
+                            return _c(
+                              "option",
+                              {
+                                key: categoria.id,
+                                domProps: { value: categoria.id },
+                              },
+                              [
+                                _vm._v(
+                                  "\n                    " +
+                                    _vm._s(categoria.nombre_categoria) +
+                                    "\n                  "
+                                ),
+                              ]
+                            )
+                          }),
+                        ],
+                        2
+                      ),
+                    ]),
+                  ]),
                   _vm._v(" "),
-                  _c("th", [_vm._v("Modelo")]),
+                  _c("div", { staticClass: "col-md-4" }, [
+                    _c("div", { staticClass: "form-group" }, [
+                      _vm._m(8),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.producto_seleccionado,
+                              expression: "producto_seleccionado",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: { required: "" },
+                          on: {
+                            change: function ($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function (o) {
+                                  return o.selected
+                                })
+                                .map(function (o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.producto_seleccionado = $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            },
+                          },
+                        },
+                        [
+                          _c("option", { attrs: { value: "0" } }, [
+                            _vm._v("--Seleccionar--"),
+                          ]),
+                          _vm._v(" "),
+                          _vm._l(_vm.marca_producto, function (marca) {
+                            return _c(
+                              "option",
+                              { key: marca.id, domProps: { value: marca.id } },
+                              [
+                                _vm._v(
+                                  "\n                    " +
+                                    _vm._s(marca.nombre_marca) +
+                                    "\n                  "
+                                ),
+                              ]
+                            )
+                          }),
+                        ],
+                        2
+                      ),
+                    ]),
+                  ]),
                   _vm._v(" "),
-                  _c("th", [_vm._v("Descripcion")]),
+                  _c("div", { staticClass: "col-md-4" }, [
+                    _c("div", { staticClass: "form-group" }, [
+                      _vm._m(9),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.producto_seleccionado,
+                              expression: "producto_seleccionado",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: { required: "" },
+                          on: {
+                            change: function ($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function (o) {
+                                  return o.selected
+                                })
+                                .map(function (o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.producto_seleccionado = $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            },
+                          },
+                        },
+                        [
+                          _c("option", { attrs: { value: "0" } }, [
+                            _vm._v("--Seleccionar--"),
+                          ]),
+                          _vm._v(" "),
+                          _vm._l(_vm.colors, function (color) {
+                            return _c(
+                              "option",
+                              { key: color.id, domProps: { value: color.id } },
+                              [
+                                _vm._v(
+                                  "\n                    " +
+                                    _vm._s(color.nombre_color) +
+                                    "\n                  "
+                                ),
+                              ]
+                            )
+                          }),
+                        ],
+                        2
+                      ),
+                    ]),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-md-4" }, [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", { staticClass: "form-control-label" }, [
+                        _vm._v("Modelo"),
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.modelo,
+                            expression: "modelo",
+                          },
+                        ],
+                        staticClass: "form-control",
+                        attrs: { id: "idModeloProducto", type: "text" },
+                        domProps: { value: _vm.modelo },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.modelo = $event.target.value
+                          },
+                        },
+                      }),
+                    ]),
+                  ]),
                   _vm._v(" "),
-                  _c("th", [_vm._v("Color")]),
+                  _vm._m(10),
                   _vm._v(" "),
-                  _c("th", [_vm._v("Estado Conservación")]),
-                  _vm._v(" "),
-                  _c("th", [_vm._v("Botones")]),
-                ])
-              }),
-              0
-            ),
+                  _vm._m(11),
+                ]),
+              ]),
+              _vm._v(" "),
+              _vm._m(12),
+            ]),
           ]
         ),
-      ]),
-    ]),
+      ]
+    ),
+    _vm._v(" "),
+    _vm._m(13),
   ])
 }
 var staticRenderFns = [
@@ -29182,23 +29700,127 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header py-3" }, [
-      _c("div", { staticClass: "row align-items-center" }, [
-        _c("div", { staticClass: "col-8" }, [
-          _c("h6", { staticClass: "m-0 font-weight-bold text-primary" }, [
-            _vm._v("Entrada"),
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-4" }, [
+        _c("div", { staticClass: "card shadow mb-4" }, [
+          _c("div", { staticClass: "card-header py-3" }, [
+            _c("div", { staticClass: "row align-items-center" }, [
+              _c("div", { staticClass: "col-12" }, [
+                _c("h6", { staticClass: "m-0 font-weight-bold text-primary" }, [
+                  _vm._v("Generalidades"),
+                ]),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-12" }, [
+                _c("form", { attrs: { action: "" } }, [
+                  _c("label", [_vm._v("Detalles del ingreso")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    staticClass: "form-control bg-light border-0 small",
+                    attrs: { type: "textarea", placeholder: "Detalles" },
+                  }),
+                ]),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-6 text-left" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-sm btn-primary",
+                    attrs: { type: "button" },
+                  },
+                  [_vm._v("\n                Subir PDF\n              ")]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-6 text-right" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-sm btn-primary",
+                    attrs: { type: "button" },
+                  },
+                  [_vm._v("\n                Guardar\n              ")]
+                ),
+              ]),
+            ]),
           ]),
         ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-4 text-right" }, [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-sm btn-primary",
-              attrs: { type: "button" },
-            },
-            [_vm._v("Agregar")]
-          ),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-8" }, [
+        _c("div", { staticClass: "card shadow mb-4" }, [
+          _c("div", { staticClass: "card-header py-3" }, [
+            _c("div", { staticClass: "row align-items-center" }, [
+              _c("div", { staticClass: "col-8" }, [
+                _c("h6", { staticClass: "m-0 font-weight-bold text-primary" }, [
+                  _vm._v(
+                    "\n                Productos a ingresar\n              "
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-4 text-right" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-sm btn-primary",
+                    attrs: { type: "button", id: "btn-modal-producto" },
+                  },
+                  [_vm._v("\n                Agregar\n              ")]
+                ),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c(
+                "table",
+                {
+                  staticClass: "table table-bordered",
+                  attrs: {
+                    id: "datatable_temp",
+                    width: "100%",
+                    cellspacing: "0",
+                  },
+                },
+                [
+                  _c("thead", [
+                    _c("tr", [
+                      _c("th", [_vm._v("Item")]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("Cantidad")]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("Denominacion")]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("Marca")]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("Modelo")]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("Descripcion")]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("Color")]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("Estado Conservación")]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("Opciones")]),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("tbody"),
+                ]
+              ),
+            ]),
+          ]),
         ]),
       ]),
     ])
@@ -29207,27 +29829,355 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", [_vm._v("Categoría")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Totaasdasdasd Unidades")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Denominacion")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Marcasdasdasda")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Modeasdasdlo")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Descripcion")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Color")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Estado Conservación")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Botones")]),
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-12" }, [
+        _c("div", { staticClass: "card shadow mb-4" }, [
+          _c("div", { staticClass: "card-header py-3" }, [
+            _c("div", { staticClass: "row align-items-center" }, [
+              _c("div", { staticClass: "col-12" }, [
+                _c("h6", { staticClass: "m-0 font-weight-bold text-primary" }, [
+                  _vm._v(
+                    "\n                Lista de productos ingresados.\n              "
+                  ),
+                ]),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c(
+                "table",
+                {
+                  staticClass: "table table-bordered",
+                  attrs: {
+                    id: "datatable_entrada",
+                    width: "100%",
+                    cellspacing: "0",
+                  },
+                },
+                [
+                  _c("thead", [
+                    _c("tr", [
+                      _c("th", [_vm._v("Detalle General")]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("Categoria")]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("Medida")]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("Cantidad")]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("Denominacion")]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("Marca")]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("Modelo/Medida")]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("Color")]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("Fecha")]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("Estado Conservación")]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("Usuario")]),
+                      _vm._v(" "),
+                      _c("th", { staticStyle: { width: "5%" } }, [
+                        _vm._v("Opciones"),
+                      ]),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("tbody", [
+                    _c("tr", [
+                      _c("td"),
+                      _vm._v(" "),
+                      _c("td"),
+                      _vm._v(" "),
+                      _c("td"),
+                      _vm._v(" "),
+                      _c("td"),
+                      _vm._v(" "),
+                      _c("td"),
+                      _vm._v(" "),
+                      _c("td"),
+                      _vm._v(" "),
+                      _c("td"),
+                      _vm._v(" "),
+                      _c("td"),
+                      _vm._v(" "),
+                      _c("td"),
+                      _vm._v(" "),
+                      _c("td"),
+                      _vm._v(" "),
+                      _c("td"),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(" ")]),
+                    ]),
+                  ]),
+                ]
+              ),
+            ]),
+          ]),
+        ]),
       ]),
     ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        {
+          staticClass: "modal-title",
+          attrs: { id: "modal-title-notification" },
+        },
+        [_vm._v("\n            Agregar Producto\n          ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-bs-dismiss": "modal",
+            "aria-label": "Close",
+          },
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "form-control-label" }, [
+      _vm._v("Productos"),
+      _c("span", { staticClass: "is-required" }, [_vm._v("*")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "form-control-label" }, [
+      _vm._v("Unidad Medida"),
+      _c("span", { staticClass: "is-required" }, [_vm._v("*")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "form-control-label" }, [
+      _vm._v("Cantidad Unitaria"),
+      _c("span", { staticClass: "is-required" }, [_vm._v("*")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "form-control-label" }, [
+      _vm._v("Cantidad"),
+      _c("span", { staticClass: "is-required" }, [_vm._v("*")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "form-control-label" }, [
+      _vm._v("Categoría"),
+      _c("span", { staticClass: "is-required" }, [_vm._v("*")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "form-control-label" }, [
+      _vm._v("Marca"),
+      _c("span", { staticClass: "is-required" }, [_vm._v("*")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "form-control-label" }, [
+      _vm._v("Color"),
+      _c("span", { staticClass: "is-required" }, [_vm._v("*")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-4" }, [
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { staticClass: "form-control-label" }, [_vm._v("Medida")]),
+        _vm._v(" "),
+        _c("input", {
+          staticClass: "form-control",
+          attrs: { id: "inFMax", type: "text" },
+        }),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-4" }, [
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { staticClass: "form-control-label" }, [
+          _vm._v("Estado de Conservacion"),
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          staticClass: "form-control",
+          attrs: { id: "inOrden", type: "text" },
+        }),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-primary",
+          attrs: { type: "button", id: "modal-add-producto-aceptar" },
+        },
+        [_vm._v("\n            Guardar\n          ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn ml-auto",
+          attrs: { type: "button", "data-bs-dismiss": "modal" },
+        },
+        [_vm._v("\n            Cancelar\n          ")]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "modal-delete-producto",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "modal-notification",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "modal-dialog", attrs: { role: "document" } },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _c("div", { staticClass: "modal-header" }, [
+                _c(
+                  "h5",
+                  {
+                    staticClass: "modal-title",
+                    attrs: { id: "modal-title-notification" },
+                  },
+                  [_vm._v("\n            Se requiere su atención\n          ")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "close",
+                    attrs: {
+                      type: "button",
+                      "data-dismiss": "modal",
+                      "aria-label": "Close",
+                    },
+                  },
+                  [
+                    _c("span", { attrs: { "aria-hidden": "true" } }, [
+                      _vm._v("×"),
+                    ]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c("div", { staticClass: "py-3 text-center" }, [
+                  _c("i", { staticClass: "fas fa-bell fa-4x" }),
+                  _vm._v(" "),
+                  _c("h4", { staticClass: "heading mt-4" }, [
+                    _vm._v("¿Estas seguro?"),
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v("\n              La frecuencia\n              "),
+                    _c("strong", [
+                      _c("u", {
+                        attrs: { id: "ModalFrecuenciaEliminarNombres" },
+                      }),
+                    ]),
+                    _vm._v("\n              será eliminada."),
+                    _c("br"),
+                    _vm._v(
+                      "\n              Este proceso no podrá ser revertido.\n            "
+                    ),
+                  ]),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-footer" }, [
+                _c("input", {
+                  attrs: {
+                    type: "hidden",
+                    id: "ModalFrecuenciaEliminarIdFrecuencia",
+                    value: "0",
+                  },
+                }),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-danger",
+                    attrs: {
+                      type: "button",
+                      id: "ModalFrecuenciaEliminarAceptar",
+                    },
+                  },
+                  [_vm._v("\n            Eliminar\n          ")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn ml-auto",
+                    attrs: { type: "button", "data-dismiss": "modal" },
+                  },
+                  [_vm._v("\n            Cancelar\n          ")]
+                ),
+              ]),
+            ]),
+          ]
+        ),
+      ]
+    )
   },
 ]
 render._withStripped = true
@@ -29259,86 +30209,240 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card shadow mb-4" }, [
-      _c("div", { staticClass: "card-header py-3" }, [
-        _c("div", { staticClass: "row align-items-center" }, [
-          _c("div", { staticClass: "col-8" }, [
-            _c("h6", { staticClass: "m-0 font-weight-bold text-primary" }, [
-              _vm._v("Inventario"),
+    return _c("div", [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-4" }, [
+          _c("div", { staticClass: "card shadow mb-4" }, [
+            _c("div", { staticClass: "card-header py-3" }, [
+              _c("div", { staticClass: "row align-items-center" }, [
+                _c("div", { staticClass: "col-12" }, [
+                  _c(
+                    "h6",
+                    { staticClass: "m-0 font-weight-bold text-primary" },
+                    [_vm._v("Generalidades")]
+                  ),
+                ]),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-12" }, [
+                  _c("form", { attrs: { action: "" } }, [
+                    _c("label", { attrs: { for: "" } }, [
+                      _vm._v("Detalles del ingreso"),
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      staticClass: "form-control bg-light border-0 small",
+                      attrs: { type: "textarea", placeholder: "Detalles" },
+                    }),
+                  ]),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-6 text-left" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-sm btn-primary",
+                      attrs: { type: "button" },
+                    },
+                    [_vm._v("\n                Subir PDF\n              ")]
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-6 text-right" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-sm btn-primary",
+                      attrs: { type: "button" },
+                    },
+                    [_vm._v("\n                Guardar\n              ")]
+                  ),
+                ]),
+              ]),
             ]),
           ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-4 text-right" }, [
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-sm btn-primary",
-                attrs: { type: "button" },
-              },
-              [_vm._v("Agregar")]
-            ),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-8" }, [
+          _c("div", { staticClass: "card shadow mb-4" }, [
+            _c("div", { staticClass: "card-header py-3" }, [
+              _c("div", { staticClass: "row align-items-center" }, [
+                _c("div", { staticClass: "col-8" }, [
+                  _c(
+                    "h6",
+                    { staticClass: "m-0 font-weight-bold text-primary" },
+                    [
+                      _vm._v(
+                        "\n                Productos a ingresar\n              "
+                      ),
+                    ]
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-4 text-right" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-sm btn-primary",
+                      attrs: { type: "button" },
+                    },
+                    [_vm._v("\n                Agregar\n              ")]
+                  ),
+                ]),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body" }, [
+              _c("div", { staticClass: "table-responsive" }, [
+                _c(
+                  "table",
+                  {
+                    staticClass: "table table-bordered",
+                    attrs: {
+                      id: "datatable_entrada_productos",
+                      width: "100%",
+                      cellspacing: "0",
+                    },
+                  },
+                  [
+                    _c("thead", [
+                      _c("tr", [
+                        _c("th", [_vm._v("Item")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Cantidad")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Denominacion")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Marca")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Modelo")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Descripcion")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Color")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Estado Conservación")]),
+                        _vm._v(" "),
+                        _c("th", { staticStyle: { width: "10%" } }, [
+                          _vm._v("Opciones"),
+                        ]),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("tbody"),
+                  ]
+                ),
+              ]),
+            ]),
           ]),
         ]),
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "card-body" }, [
-        _c("div", { staticClass: "table-responsive" }, [
-          _c(
-            "table",
-            {
-              staticClass: "table table-bordered",
-              attrs: {
-                id: "datatable_salida",
-                width: "100%",
-                cellspacing: "0",
-              },
-            },
-            [
-              _c("thead", [
-                _c("tr", [
-                  _c("th", [_vm._v("Categoría")]),
-                  _vm._v(" "),
-                  _c("th", [_vm._v("Total asdasd")]),
-                  _vm._v(" "),
-                  _c("th", [_vm._v("Denomasdasdasdinacion")]),
-                  _vm._v(" "),
-                  _c("th", [_vm._v("Marasdasdasdca")]),
-                  _vm._v(" "),
-                  _c("th", [_vm._v("Modelo")]),
-                  _vm._v(" "),
-                  _c("th", [_vm._v("Descripcion")]),
-                  _vm._v(" "),
-                  _c("th", [_vm._v("Color")]),
-                  _vm._v(" "),
-                  _c("th", [_vm._v("Estado Conservación")]),
-                  _vm._v(" "),
-                  _c("th", [_vm._v("Botones")]),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-12" }, [
+          _c("div", { staticClass: "card shadow mb-4" }, [
+            _c("div", { staticClass: "card-header py-3" }, [
+              _c("div", { staticClass: "row align-items-center" }, [
+                _c("div", { staticClass: "col-12" }, [
+                  _c(
+                    "h6",
+                    { staticClass: "m-0 font-weight-bold text-primary" },
+                    [
+                      _vm._v(
+                        "\n                Lista de productos ingresados.\n              "
+                      ),
+                    ]
+                  ),
                 ]),
               ]),
-              _vm._v(" "),
-              _c("tbody", [
-                _c("tr", [
-                  _c("th", [_vm._v("Categoría")]),
-                  _vm._v(" "),
-                  _c("th", [_vm._v("Total Unidades")]),
-                  _vm._v(" "),
-                  _c("th", [_vm._v("asdasd")]),
-                  _vm._v(" "),
-                  _c("th", [_vm._v("Marca")]),
-                  _vm._v(" "),
-                  _c("th", [_vm._v("asdasd")]),
-                  _vm._v(" "),
-                  _c("th", [_vm._v("Descasdasdripcion")]),
-                  _vm._v(" "),
-                  _c("th", [_vm._v("Color")]),
-                  _vm._v(" "),
-                  _c("th", [_vm._v("Estado Conservación")]),
-                  _vm._v(" "),
-                  _c("th", [_vm._v("asdasd")]),
-                ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body" }, [
+              _c("div", { staticClass: "table-responsive" }, [
+                _c(
+                  "table",
+                  {
+                    staticClass: "table table-bordered",
+                    attrs: {
+                      id: "datatable_entrada",
+                      width: "100%",
+                      cellspacing: "0",
+                    },
+                  },
+                  [
+                    _c("thead", [
+                      _c("tr", [
+                        _c("th", [_vm._v("Categoria")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Cantidad")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Denominacion")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Marca")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Modelo")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Descripcion")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Color")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Fecha")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Detalles")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Estado Conservación")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Detalle General")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Detalle Producto")]),
+                        _vm._v(" "),
+                        _c("th", { staticStyle: { width: "5%" } }, [
+                          _vm._v("Opciones"),
+                        ]),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("tbody", [
+                      _c("tr", [
+                        _c("td"),
+                        _vm._v(" "),
+                        _c("td"),
+                        _vm._v(" "),
+                        _c("td"),
+                        _vm._v(" "),
+                        _c("td"),
+                        _vm._v(" "),
+                        _c("td"),
+                        _vm._v(" "),
+                        _c("td"),
+                        _vm._v(" "),
+                        _c("td"),
+                        _vm._v(" "),
+                        _c("td"),
+                        _vm._v(" "),
+                        _c("td"),
+                        _vm._v(" "),
+                        _c("td"),
+                        _vm._v(" "),
+                        _c("td"),
+                        _vm._v(" "),
+                        _c("td"),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(" ")]),
+                      ]),
+                    ]),
+                  ]
+                ),
               ]),
-            ]
-          ),
+            ]),
+          ]),
         ]),
       ]),
     ])
@@ -29389,7 +30493,7 @@ var staticRenderFns = [
                 staticClass: "btn btn-sm btn-primary",
                 attrs: { type: "button" },
               },
-              [_vm._v("Agregar")]
+              [_vm._v("Imprimir")]
             ),
           ]),
         ]),
@@ -29406,7 +30510,7 @@ var staticRenderFns = [
             [
               _c("thead", [
                 _c("tr", [
-                  _c("th", [_vm._v("Item")]),
+                  _c("th", [_vm._v("Categoría")]),
                   _vm._v(" "),
                   _c("th", [_vm._v("Total Unidades")]),
                   _vm._v(" "),
@@ -29422,92 +30526,150 @@ var staticRenderFns = [
                   _vm._v(" "),
                   _c("th", [_vm._v("Estado Conservación")]),
                   _vm._v(" "),
-                  _c("th", [_vm._v("Opciones")]),
+                  _c("th", { staticStyle: { width: "10%" } }, [
+                    _vm._v("Opciones"),
+                  ]),
                 ]),
               ]),
               _vm._v(" "),
               _c("tbody", [
                 _c("tr", [
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td", [_vm._v(" ")]),
                 ]),
                 _vm._v(" "),
                 _c("tr", [
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td", [_vm._v(" ")]),
                 ]),
                 _vm._v(" "),
                 _c("tr", [
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td", [_vm._v(" ")]),
                 ]),
                 _vm._v(" "),
                 _c("tr", [
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td", [_vm._v(" ")]),
                 ]),
                 _vm._v(" "),
                 _c("tr", [
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td", [_vm._v(" ")]),
                 ]),
                 _vm._v(" "),
                 _c("tr", [
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td", [_vm._v(" ")]),
                 ]),
                 _vm._v(" "),
                 _c("tr", [
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td"),
+                  _vm._v(" "),
                   _c("td", [_vm._v(" ")]),
                 ]),
               ]),
@@ -41754,18 +42916,6 @@ module.exports = JSON.parse('{"_args":[["axios@0.21.4","C:\\\\laragon\\\\www\\\\
 /******/ 				}
 /******/ 			}
 /******/ 			return result;
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
 /******/ 		};
 /******/ 	})();
 /******/ 	

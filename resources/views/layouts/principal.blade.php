@@ -33,9 +33,9 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="home">
+                <div class="sidebar-brand-icon">
+                    <img class="img-profile rounded-circle" src="">
                 </div>
                 <div class="sidebar-brand-text mx-3">Almacen</div>
             </a>
@@ -60,21 +60,21 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item ">
-                <a class="nav-link" href="entrada">
+                <a class="nav-link" href="almacen_entrada">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Entradas</span></a>
             </li>
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item ">
-                <a class="nav-link" href="stock">
+                <a class="nav-link" href="almacen_stock">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Stock</span></a>
+                    <span>Almacen</span></a>
             </li>
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="almacen_salida">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Salidas</span></a>
             </li>
@@ -179,8 +179,8 @@
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><b>Usuario:</b> {{ Auth::user()->name }}</span>
-                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                                <!--<span class="mr-2 d-none d-lg-inline text-gray-600 small"><b>Usuario:</b>  Auth::user->name </span>-->
+                                <img class="img-profile rounded-circle" src="https://us.123rf.com/450wm/thesomeday123/thesomeday1231712/thesomeday123171200009/91087331-icono-de-perfil-de-avatar-predeterminado-para-hombre-marcador-de-posici%C3%B3n-de-foto-gris-vector-de-ilu.jpg?ver=6">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

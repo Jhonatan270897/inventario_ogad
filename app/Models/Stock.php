@@ -10,13 +10,13 @@ class Stock extends Model
     use HasFactory;
 
     protected $fillable = [
-        'cantidad',
+        'cantidad_total',
         'estado_conservacion',
     ];
 
-    public function productos()
+    public function detalles_entrada()
     {
-        return $this->belongsTo(Producto::class, 'id_producto');
+        return $this->belongsTo(Detalles_Entrada::class, 'id_detalles_entrada');
     }
 
     public function detalles_salidas()

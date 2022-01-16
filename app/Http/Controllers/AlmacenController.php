@@ -15,7 +15,11 @@ class AlmacenController extends Controller
 
     public function entrada()
     {
-        $entradas = Entrada_Almacen::all();
-        return view('almacen/entrada', compact('entradas'));
+        return view('almacen/entrada');
+    }
+
+    public function salida()
+    {
+        return view('almacen/salida');
     }
 }

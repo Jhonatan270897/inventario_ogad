@@ -21,11 +21,11 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            /*   $table->foreignId('id_persona')
+            $table->foreignId('id_persona')
                 ->nullable()
                 ->constrained('personas')
                 ->cascadeOnUpdate()
-                ->nullOnDelete();*/
+                ->nullOnDelete();
         });
     }
 
