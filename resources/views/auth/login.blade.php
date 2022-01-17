@@ -124,6 +124,11 @@
                                                 {{ __('¿Olvidaste tu contraseña?') }}
                                             </a>
                                             @endif
+                                            @if (Route::has('password.request'))
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                            </li>
+                                            @endif
                                         </div>
                                     </form>
                                 </div>

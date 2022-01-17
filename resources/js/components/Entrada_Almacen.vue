@@ -146,8 +146,6 @@
         </div>
       </div>
     </div>
-    <!-- Modales pagina entrada-->
-    <!-- Modal para agregar producto -->
     <div
       class="modal fade"
       id="modal-add-producto"
@@ -181,7 +179,7 @@
                   <select
                     class="form-control"
                     required
-                    v-model="idDetalleProducto"
+                    v-model="productos.idDetalleProducto"
                   >
                     <option value="0">--Seleccionar--</option>
                     <option
@@ -202,15 +200,15 @@
                   <select
                     class="form-control"
                     required
-                    v-model="productos.color"
+                    v-model="productos.unidadMedida"
                   >
                     <option value="0">--Seleccionar--</option>
                     <option
-                      v-for="color in lista_color"
-                      :key="color.idcolor"
-                      :value="color.nombre_color"
+                      v-for="um in lista_unidad_medida"
+                      :key="um.nombre_um"
+                      :value="um.nombre_um"
                     >
-                      {{ color.nombre_color }}
+                      {{ um.nombre_um }}
                     </option>
                   </select>
                 </div>
@@ -224,7 +222,7 @@
                     class="form-control"
                     id="idCantidadUnitariaproducto"
                     type="text"
-                    v-model="cantidad_producto"
+                    v-model="productos.cantidadUnitaria"
                   />
                 </div>
               </div>
@@ -237,7 +235,7 @@
                     class="form-control"
                     id="idCantidadIngresoProducto"
                     type="text"
-                    v-model="cantidad_producto"
+                    v-model="productos.cantidadProducto"
                   />
                 </div>
               </div>
@@ -251,11 +249,11 @@
                   <select
                     class="form-control"
                     required
-                    v-model="producto_seleccionado"
+                    v-model="productos.idCategoria"
                   >
                     <option value="0">--Seleccionar--</option>
                     <option
-                      v-for="categoria in categoria_producto"
+                      v-for="categoria in lista_categoria"
                       :key="categoria.id"
                       :value="categoria.id"
                     >
@@ -272,11 +270,11 @@
                   <select
                     class="form-control"
                     required
-                    v-model="producto_seleccionado"
+                    v-model="productos.idMarca"
                   >
                     <option value="0">--Seleccionar--</option>
                     <option
-                      v-for="marca in marca_producto"
+                      v-for="marca in lista_marca"
                       :key="marca.id"
                       :value="marca.id"
                     >
@@ -293,13 +291,13 @@
                   <select
                     class="form-control"
                     required
-                    v-model="producto_seleccionado"
+                    v-model="productos.color"
                   >
-                    <option value="0">--Seleccionar--</option>
+                    <option value="NINGUNO">--Seleccionar--</option>
                     <option
-                      v-for="color in colors"
-                      :key="color.id"
-                      :value="color.id"
+                      v-for="color in lista_color"
+                      :key="color.nombre_color"
+                      :value="color.nombre_color"
                     >
                       {{ color.nombre_color }}
                     </option>
@@ -315,14 +313,19 @@
                     class="form-control"
                     id="idModeloProducto"
                     type="text"
-                    v-model="modelo"
+                    v-model="productos.modelo"
                   />
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
                   <label class="form-control-label">Medida</label>
-                  <input class="form-control" id="inFMax" type="text" />
+                  <input
+                    class="form-control"
+                    id="idMedidaProducto"
+                    type="text"
+                    v-model="productos.medida"
+                  />
                 </div>
               </div>
               <div class="col-md-4">
@@ -330,7 +333,20 @@
                   <label class="form-control-label"
                     >Estado de Conservacion</label
                   >
-                  <input class="form-control" id="inOrden" type="text" />
+                  <select
+                    class="form-control"
+                    required
+                    v-model="productos.estado_conservacion"
+                  >
+                    <option value="NINGUNO">--Seleccionar--</option>
+                    <option
+                      v-for="ec in lista_ec"
+                      :key="ec.nombre_ec"
+                      :value="ec.nombre_ec"
+                    >
+                      {{ ec.nombre_ec }}
+                    </option>
+                  </select>
                 </div>
               </div>
             </div>
@@ -339,7 +355,7 @@
             <button
               type="button"
               class="btn btn-primary"
-              id="modal-add-producto-aceptar"
+              id="btn-modal-agregar_producto"
             >
               Guardar
             </button>
@@ -420,17 +436,44 @@ export default {
       lista_producto: {},
       lista_categoria: {},
       lista_marca: {},
-      lista_color: [{idcolor: 1,nombre_color: "AZUL"},{idcolor: 2,nombre_color: "ROJO"}],
+      lista_ec: [{ nombre_ec: "SELLADO" }],
+      lista_unidad_medida: [
+        { nombre_um: "UNIDAD" },
+        { nombre_um: "CAJA" },
+        { nombre_um: "PAQUETE" },
+      ],
+      lista_color: [
+        { nombre_color: "AZUL" },
+        { nombre_color: "ROJO" },
+        { nombre_color: "MULTICOLOR" },
+        { nombre_color: "BLANCO" },
+        { nombre_color: "ROSADO" },
+        { nombre_color: "AMARILLO" },
+        { nombre_color: "VERDE" },
+        { nombre_color: "CELESTE" },
+        { nombre_color: "MELON" },
+        { nombre_color: "NARANJA" },
+        { nombre_color: "CREMA" },
+        { nombre_color: "NEGRO" },
+        { nombre_color: "CIAN" },
+        { nombre_color: "MAGENTA" },
+        { nombre_color: "PLOMO" },
+        { nombre_color: "PLATEADO" },
+        { nombre_color: "TRANSPARENTE" },
+        { nombre_color: "CRISTALINA" },
+        { nombre_color: "MARRON" },
+      ],
+      lista_guardar_producto: [],
       opcion_producto: "",
       opcion_stock: "",
-      productos:{
+      productos: {
         idDetalleProducto: 0,
         unidadMedida: "",
         cantidadUnitaria: 0,
         cantidadProducto: 0,
         idCategoria: 0,
         idMarca: 0,
-        idModelo: 0,
+        modelo: "",
         color: "",
         medida: "",
         estado_conservacion: "",
@@ -454,6 +497,12 @@ export default {
     };
   },
   methods: {
+    guardarProducto() {
+      this.lista_guardar_producto.push(this.productos);
+    },
+    mostrarProducto() {
+      return this.lista_guardar_producto;
+    },
     reset_producto() {},
     reset_stock() {
       this.stock = {
@@ -485,95 +534,6 @@ export default {
 };
 
 fnObtenerListaEntrada();
-
-/*Tabla para mostrar los productos temproales seleccionados a ingresar */
-
-function initListaTempEntrada(lista) {
-  dt1 = $("#datatable_temp").DataTable({
-    info: false,
-    paging: false,
-    lengthChange: false,
-    searching: false,
-    order: [],
-    columnDefs: [
-      {
-        targets: [8],
-        orderable: false,
-      },
-    ],
-    data: lista,
-    columns: [
-      {
-        data: function (data, type, dataToSet) {
-          return (
-            '<div class="RowsTituloTest">' + data.nombre_categoria + "</div>"
-          );
-        },
-      },
-      {
-        data: function (data, type, dataToSet) {
-          return '<div class="RowsTituloTest">' + data.cantidad + "</div>";
-        },
-      },
-      {
-        data: function (data, type, dataToSet) {
-          return (
-            '<div class="RowsTituloTest">' + data.nombre_producto + "</div>"
-          );
-        },
-      },
-      {
-        data: function (data, type, dataToSet) {
-          return '<div class="RowsTituloTest">' + data.nombre_marca + "</div>";
-        },
-      },
-      {
-        data: function (data, type, dataToSet) {
-          return '<div class="RowsTituloTest">' + data.modelo + "</div>";
-        },
-      },
-      {
-        data: function (data, type, dataToSet) {
-          return '<div class="RowsTituloTest">' + data.detalles + "</div>";
-        },
-      },
-      {
-        data: function (data, type, dataToSet) {
-          return '<div class="RowsTituloTest">' + data.color + "</div>";
-        },
-      },
-      {
-        data: function (data, type, dataToSet) {
-          return (
-            '<div class="RowsTituloTest">' + data.estado_conservacion + "</div>"
-          );
-        },
-      },
-      {
-        data: function (data, type, dataToSet) {
-          let id = data.id;
-          let nombre = data.cantidad;
-          var btn = "";
-          btn +=
-            "<button type='button' onclick=\"fn_modificar('" +
-            id +
-            "', '" +
-            nombre +
-            "')\" class='btn btn-warning btn-circle btn-sm'><i class='fas fa-pencil-alt'></i></button>";
-          btn +=
-            "<button type='button' onclick=\"fn_eliminar('" +
-            id +
-            "','" +
-            nombre +
-            "')\" class='btn btn-danger btn-circle btn-sm'><i class='fas fa-trash'></i></button>";
-          return "" + btn;
-        },
-      },
-    ],
-  });
-}
-
-/*Tabla para mostrar la lista e productos ingresados tablas entrada_almacen,detalle_entrada*/
 
 function fnObtenerListaEntrada() {
   let parametros = {};
@@ -707,9 +667,17 @@ function fnAgregarListaProducto() {
   $("#modal-add-producto").modal("show");
 }
 
+function fnAgregarProductoTemp() {
+  fnObtnerListaTempProductos();
+  $("#modal-add-producto").modal("hide");
+}
+
 $(document).ready(function () {
   $("#btn-modal-producto").click(function () {
     fnAgregarListaProducto();
+  });
+  $("#btn-modal-agregar_producto").click(function () {
+    fnAgregarProductoTemp();
   });
 });
 </script>

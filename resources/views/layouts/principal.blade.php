@@ -114,7 +114,7 @@
                         <h6 class="collapse-header">Registrar:</h6>
                         <a class="collapse-item" href="utilities-color.html">Categoria</a>
                         <a class="collapse-item" href="utilities-border.html">Marca</a>
-                        <a class="collapse-item" href="utilities-animation.html">Producto</a>
+                        <a class="collapse-item" href="almacen_detalle_producto">Producto</a>
                     </div>
                 </div>
             </li>

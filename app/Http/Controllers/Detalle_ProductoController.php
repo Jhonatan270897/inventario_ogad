@@ -14,7 +14,8 @@ class Detalle_ProductoController extends Controller
 
     public function store(Request $request)
     {
-        //
+        $detalle_producto = new Detalle_Producto;
+        $detalle_producto->create($request->all());
     }
     public function show($detalle_producto)
     {

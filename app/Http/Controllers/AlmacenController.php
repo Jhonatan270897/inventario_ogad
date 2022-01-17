@@ -22,4 +22,8 @@ class AlmacenController extends Controller
     {
         return view('almacen/salida');
     }
+    public function detalle_producto()
+    {
+        return view('almacen/producto');
+    }
 }

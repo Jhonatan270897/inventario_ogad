@@ -22,6 +22,7 @@ window.Vue = require('vue').default;
 Vue.component('stock', require('./components/Stock.vue').default);
 Vue.component('entrada_almacen', require('./components/Entrada_Almacen.vue').default);
 Vue.component('salida_almacen', require('./components/Salida_Almacen.vue').default);
+Vue.component('detalle_producto', require('./components/Detalle_Producto.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
