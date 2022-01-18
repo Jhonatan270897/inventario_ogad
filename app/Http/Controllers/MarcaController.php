@@ -3,31 +3,28 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Producto;
-
-class ProductoController extends Controller
+use App\Models\Marca;
+class MarcaController extends Controller
 {
 
     public function index()
     {
-        return Producto::get();
+       return Marca::get();
     }
-
     public function store(Request $request)
     {
         //
     }
-    public function show($producto)
+    public function show($id)
     {
         //
     }
 
-    public function update(Request $request, $producto)
+    public function update(Request $request, $id)
     {
         //
     }
-
-    public function destroy($producto)
+    public function destroy($id)
     {
         //
     }

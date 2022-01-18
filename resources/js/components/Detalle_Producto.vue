@@ -150,12 +150,13 @@
 
 <script>
 /*Variables globales */
-let dtdp;
+let dt;
 
 export default {
   data: function () {
     return {
       opcion_detalle_producto: "",
+      detalle_productos: [],
       detalle_producto: {
         idDetalleProducto: 0,
         nombre_producto: "",
@@ -164,13 +165,76 @@ export default {
       },
     };
   },
+  mounted() {
+    this.listar();
+  },
   methods: {
-    setOpcion() {
-      this.opcion_detalle_producto = capitalize(opcion_detalle_producto);
+    async listar() {
+      const res = await axios.get("detalle_producto");
+      if (dt) {
+        dt.clear();
+        dt.rows.add(res.data);
+        dt.draw();
+      } else {
+        this.gtabla(res.data);
+      }
+    },
+    gtabla(lista) {
+      dt = $("#datatable_detalle_producto").DataTable({
+        order: [],
+        columnDefs: [
+          {
+            targets: [3],
+            orderable: false,
+          },
+        ],
+        data: lista,
+        columns: [
+          {
+            data: function (data, type, dataToSet) {
+              return (
+                '<div class="RowsTituloTest">' + data.nombre_producto + "</div>"
+              );
+            },
+          },
+          {
+            data: function (data, type, dataToSet) {
+              return (
+                '<div class="RowsTituloTest">' + data.descripcion + "</div>"
+              );
+            },
+          },
+          {
+            data: function (data, type, dataToSet) {
+              return (
+                '<div class="RowsTituloTest">' + data.estado_activo + "</div>"
+              );
+            },
+          },
+          {
+            data: function (data, type, dataToSet) {
+              let id = data.id;
+              let nombre = data.nombre_producto;
+              var btn = "";
+              btn +=
+                "<button type='button' @click=modificar('" +
+                id +
+                "', '" +
+                nombre +
+                "')\" class='btn btn-warning btn-circle btn-sm'><i class='fas fa-pencil-alt'></i></button>";
+              btn +=
+                "<button type='button' @click=eliminar('" +
+                id +
+                "')\" class='btn btn-danger btn-circle btn-sm'><i class='fas fa-trash'></i></button>";
+              return "" + btn;
+            },
+          },
+        ],
+      });
     },
   },
 };
-
+/*
 fnObtenerListaDetalleProducto();
 
 function fnObtenerListaDetalleProducto() {
@@ -235,14 +299,13 @@ function initListaDetalleProducto(lista) {
     ],
   });
 }
-
+*/
 function fnAgregarDetalleProducto() {
   opcion_detalle_producto = "AGREGAR";
   $("#modal-add-detalle_producto").modal("show");
 }
 
 function fnAceptarAgregarDetalleProducto() {
-    
   $("modal-add-detalle_producto").modal("hide");
 }
 
