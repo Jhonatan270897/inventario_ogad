@@ -11,6 +11,10 @@
               type="button"
               id="btn-modal-add-detalle-producto"
               class="btn btn-sm btn-primary"
+              @click="
+                modificardp = false;
+                abrirModaldp(detalle_producto);
+              "
             >
               Agregar
             </button>
@@ -33,29 +37,58 @@
                 <th style="width: 10%">Opciones</th>
               </tr>
             </thead>
-            <tbody></tbody>
+            <tbody>
+              <tr v-for="producto in detalle_productos" :key="producto.id">
+                <td>{{ producto.nombre_producto }}</td>
+                <td>{{ producto.descripcion }}</td>
+                <td>
+                  <div v-if="producto.estado_activo == '0'">Activo</div>
+                  <div v-else>Inactivo</div>
+                </td>
+                <td>
+                  <button
+                    type="button"
+                    @click="
+                      modificardp = true;
+                      abrirModaldp(producto);
+                    "
+                    class="btn btn-warning btn-circle btn-sm"
+                  >
+                    <i class="fas fa-pencil-alt"></i>
+                  </button>
+                  <button
+                    type="button"
+                    @click="eliminardp(producto)"
+                    class="btn btn-danger btn-circle btn-sm"
+                  >
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
           </table>
         </div>
       </div>
     </div>
     <div
-      class="modal fade"
+      class="modal"
       id="modal-add-detalle_producto"
       tabindex="-1"
       role="dialog"
       aria-labelledby="modal-notification"
       aria-hidden="true"
+      :class="{ mostrar: modaldp }"
     >
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="modal-title-notification">
-              Agregar Producto
+              {{ opcion_detalle_producto }} Producto
             </h5>
             <button
               type="button"
               class="close"
-              data-bs-dismiss="modal"
+              @click="cerrarModaldp()"
               aria-label="Close"
             >
               <span aria-hidden="true">×</span>
@@ -135,10 +168,11 @@
               type="button"
               class="btn btn-primary"
               id="btn-modal-add-detalle-producto"
+              @click="guardardp()"
             >
               Guardar
             </button>
-            <button type="button" class="btn ml-auto" data-bs-dismiss="modal">
+            <button type="button" class="btn ml-auto" @click="cerrarModaldp()">
               Cancelar
             </button>
           </div>
@@ -150,168 +184,79 @@
 
 <script>
 /*Variables globales */
-let dt;
 
 export default {
   data: function () {
     return {
+      id: 0,
+      modificardp: false,
+      modaldp: 0,
       opcion_detalle_producto: "",
       detalle_productos: [],
       detalle_producto: {
-        idDetalleProducto: 0,
         nombre_producto: "",
         descripcion: "",
         estado_activo: "",
       },
     };
   },
-  mounted() {
-    this.listar();
-  },
   methods: {
-    async listar() {
-      const res = await axios.get("detalle_producto");
-      if (dt) {
-        dt.clear();
-        dt.rows.add(res.data);
-        dt.draw();
+    limpiardp() {},
+    async listardp() {
+      const res = await axios.get("/detalle_producto");
+      this.detalle_productos = res.data;
+    },
+    async guardardp() {
+      if (this.modificardp) {
+        window.alert("/detalle_producto/" + this.id,this.detalle_producto);
+        const res = await axios.put(
+          "/detalle_producto/" + this.id,
+          this.detalle_producto
+        );
       } else {
-        this.gtabla(res.data);
+        const res = await axios.post(
+          "/detalle_producto",
+          this.detalle_producto
+        );
+      }
+      this.cerrarModaldp();
+      this.listardp();
+    },
+    async eliminardp() {
+      
+      this.listardp();
+    },
+    abrirModaldp(data = {}) {
+      this.modaldp = 1;
+      if (this.modificardp) {
+        this.id = data.id;
+        this.opcion_detalle_producto = "Modificar";
+        this.detalle_producto.nombre_producto = data.nombre_producto;
+        this.detalle_producto.descripcion = data.descripcion;
+        this.detalle_producto.estado_activo = data.estado_activo;
+      } else {
+        this.id = 0;
+        this.opcion_detalle_producto = "Agregar";
+        this.detalle_producto.nombre_producto = "";
+        this.detalle_producto.descripcion = "";
+        this.detalle_producto.estado_activo = 0;
       }
     },
-    gtabla(lista) {
-      dt = $("#datatable_detalle_producto").DataTable({
-        order: [],
-        columnDefs: [
-          {
-            targets: [3],
-            orderable: false,
-          },
-        ],
-        data: lista,
-        columns: [
-          {
-            data: function (data, type, dataToSet) {
-              return (
-                '<div class="RowsTituloTest">' + data.nombre_producto + "</div>"
-              );
-            },
-          },
-          {
-            data: function (data, type, dataToSet) {
-              return (
-                '<div class="RowsTituloTest">' + data.descripcion + "</div>"
-              );
-            },
-          },
-          {
-            data: function (data, type, dataToSet) {
-              return (
-                '<div class="RowsTituloTest">' + data.estado_activo + "</div>"
-              );
-            },
-          },
-          {
-            data: function (data, type, dataToSet) {
-              let id = data.id;
-              let nombre = data.nombre_producto;
-              var btn = "";
-              btn +=
-                "<button type='button' @click=modificar('" +
-                id +
-                "', '" +
-                nombre +
-                "')\" class='btn btn-warning btn-circle btn-sm'><i class='fas fa-pencil-alt'></i></button>";
-              btn +=
-                "<button type='button' @click=eliminar('" +
-                id +
-                "')\" class='btn btn-danger btn-circle btn-sm'><i class='fas fa-trash'></i></button>";
-              return "" + btn;
-            },
-          },
-        ],
-      });
+    cerrarModaldp() {
+      this.limpiardp();
+      this.modaldp = 0;
     },
   },
+  created() {
+    this.listardp();
+  },
 };
-/*
-fnObtenerListaDetalleProducto();
-
-function fnObtenerListaDetalleProducto() {
-  $.get("detalle_producto").done(function (response) {
-    if (dtdp) {
-      dtdp.clear();
-      dtdp.rows.add(response);
-      dtdp.draw();
-    } else {
-      //window.alert(JSON.stringify(response));
-      initListaDetalleProducto(response);
-    }
-  });
-}
-
-function initListaDetalleProducto(lista) {
-  dtdp = $("#datatable_detalle_producto").DataTable({
-    order: [],
-    columnDefs: [
-      {
-        targets: [3],
-        orderable: false,
-      },
-    ],
-    data: lista,
-    columns: [
-      {
-        data: function (data, type, dataToSet) {
-          return (
-            '<div class="RowsTituloTest">' + data.nombre_producto + "</div>"
-          );
-        },
-      },
-      {
-        data: function (data, type, dataToSet) {
-          return '<div class="RowsTituloTest">' + data.descripcion + "</div>";
-        },
-      },
-      {
-        data: function (data, type, dataToSet) {
-          return '<div class="RowsTituloTest">' + data.estado_activo + "</div>";
-        },
-      },
-      {
-        data: function (data, type, dataToSet) {
-          let id = data.id;
-          let nombre = data.nombre_producto;
-          var btn = "";
-          btn +=
-            "<button type='button' onclick=\"fn_modificar('" +
-            id +
-            "', '" +
-            nombre +
-            "')\" class='btn btn-warning btn-circle btn-sm'><i class='fas fa-pencil-alt'></i></button>";
-          btn +=
-            "<button type='button' @click=eliminar('" +
-            id +
-            "')\" class='btn btn-danger btn-circle btn-sm'><i class='fas fa-trash'></i></button>";
-          return "" + btn;
-        },
-      },
-    ],
-  });
-}
-*/
-function fnAgregarDetalleProducto() {
-  opcion_detalle_producto = "AGREGAR";
-  $("#modal-add-detalle_producto").modal("show");
-}
-
-function fnAceptarAgregarDetalleProducto() {
-  $("modal-add-detalle_producto").modal("hide");
-}
-
-$(document).ready(function () {
-  $("#btn-modal-add-detalle-producto").click(function () {
-    fnAgregarDetalleProducto();
-  });
-});
 </script>
+
+<style>
+.mostrar {
+  display: list-item;
+  opacity: 1;
+  background: rgba(37, 37, 39, 0.847);
+}
+</style>
