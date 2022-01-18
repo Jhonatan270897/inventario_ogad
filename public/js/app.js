@@ -5483,7 +5483,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
   },
   methods: {
-    limpiardp: function limpiardp() {},
     listardp: function listardp() {
       var _this = this;
 
@@ -5519,32 +5518,31 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context2.prev = _context2.next) {
               case 0:
                 if (!_this2.modificardp) {
-                  _context2.next = 7;
+                  _context2.next = 6;
                   break;
                 }
 
-                window.alert("/detalle_producto/" + _this2.id, _this2.detalle_producto);
-                _context2.next = 4;
+                _context2.next = 3;
                 return axios.put("/detalle_producto/" + _this2.id, _this2.detalle_producto);
 
-              case 4:
+              case 3:
                 res = _context2.sent;
-                _context2.next = 10;
+                _context2.next = 9;
                 break;
 
-              case 7:
-                _context2.next = 9;
+              case 6:
+                _context2.next = 8;
                 return axios.post("/detalle_producto", _this2.detalle_producto);
 
-              case 9:
+              case 8:
                 _res = _context2.sent;
 
-              case 10:
+              case 9:
                 _this2.cerrarModaldp();
 
                 _this2.listardp();
 
-              case 12:
+              case 11:
               case "end":
                 return _context2.stop();
             }
@@ -5552,24 +5550,26 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee2);
       }))();
     },
-    eliminardp: function eliminardp(id, detalle_producto) {
-      var _this3 = this;
+    eliminardp: function eliminardp() {
+      var _arguments = arguments,
+          _this3 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
-        var res;
+        var data, res;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                _context3.next = 2;
-                return axios.put("/detalle_producto/" + id, detalle_producto);
+                data = _arguments.length > 0 && _arguments[0] !== undefined ? _arguments[0] : {};
+                _context3.next = 3;
+                return axios.put("/detalle_producto/" + data.id, {});
 
-              case 2:
+              case 3:
                 res = _context3.sent;
 
                 _this3.listardp();
 
-              case 4:
+              case 5:
               case "end":
                 return _context3.stop();
             }
@@ -5596,7 +5596,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
     },
     cerrarModaldp: function cerrarModaldp() {
-      this.limpiardp();
       this.modaldp = 0;
     }
   },
@@ -30951,7 +30950,7 @@ var render = function () {
                           on: {
                             click: function ($event) {
                               _vm.modificardp = true
-                              _vm.abrirModaldp(producto.id, producto)
+                              _vm.abrirModaldp(producto)
                             },
                           },
                         },

@@ -28,13 +28,17 @@ class Detalle_ProductoController extends Controller
 
     public function update(Request $request, $detalle_producto)
     {
-        $detalle_producto->update($request->all());
+        $dp = Detalle_Producto::find($detalle_producto);
+        $dp->update($request->all());
+        return $dp;
     }
 
     public function destroy($detalle_producto)
     {
-        $detalle_producto->update([
-            'estado_activo' => ''
+        $dp = Detalle_Producto::find($detalle_producto);
+        $dp->update([
+            'estado_activo' => '1'
         ]);
+        return $dp;
     }
 }

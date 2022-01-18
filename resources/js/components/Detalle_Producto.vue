@@ -201,14 +201,12 @@ export default {
     };
   },
   methods: {
-    limpiardp() {},
     async listardp() {
       const res = await axios.get("/detalle_producto");
       this.detalle_productos = res.data;
     },
     async guardardp() {
       if (this.modificardp) {
-        window.alert("/detalle_producto/" + this.id,this.detalle_producto);
         const res = await axios.put(
           "/detalle_producto/" + this.id,
           this.detalle_producto
@@ -222,8 +220,8 @@ export default {
       this.cerrarModaldp();
       this.listardp();
     },
-    async eliminardp() {
-      
+    async eliminardp(data = {}) {
+      const res = await axios.put("/detalle_producto/" + data.id, {});
       this.listardp();
     },
     abrirModaldp(data = {}) {
@@ -243,7 +241,6 @@ export default {
       }
     },
     cerrarModaldp() {
-      this.limpiardp();
       this.modaldp = 0;
     },
   },
