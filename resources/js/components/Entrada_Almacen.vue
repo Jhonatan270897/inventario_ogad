@@ -54,6 +54,10 @@
                   type="button"
                   id="btn-modal-producto"
                   class="btn btn-sm btn-primary"
+                  @click="
+                    modificardp = false;
+                    abrirModalp(producto);
+                  "
                 >
                   Agregar
                 </button>
@@ -70,18 +74,54 @@
               >
                 <thead>
                   <tr>
-                    <th>Item</th>
+                    <th>Categoria</th>
                     <th>Cantidad</th>
+                    <th>Medida</th>
                     <th>Denominacion</th>
                     <th>Marca</th>
-                    <th>Modelo</th>
-                    <th>Descripcion</th>
+                    <th>Modelo/Marca</th>
                     <th>Color</th>
                     <th>Estado Conservación</th>
                     <th>Opciones</th>
                   </tr>
                 </thead>
-                <tbody></tbody>
+                <tbody>
+                  <tr
+                    v-for="ptemp in lista_guardar_producto"
+                    :key="ptemp.idtemp"
+                  >
+                    <td>{{ mostrarNombreCat(ptemp.idc) }}</td>
+                    <td>{{ ptemp.cantidadProducto }}</td>
+                    <td>
+                      {{ ptemp.unidadMedida }} DE
+                      {{ ptemp.cantidadUnitaria }} UNIDADES
+                    </td>
+                    <td>{{ mostrarNombreDen(ptemp.iddp) }}</td>
+                    <td>{{ mostrarNombreMar(ptemp.idm) }}</td>
+                    <td>{{ ptemp.modelo }}/{{ ptemp.medida }}</td>
+                    <td>{{ ptemp.color }}</td>
+                    <td>{{ ptemp.estado_conservacion }}</td>
+                    <td>
+                      <button
+                        type="button"
+                        @click="
+                          modificarp = true;
+                          abrirModalp(ptemp);
+                        "
+                        class="btn btn-warning btn-circle btn-sm"
+                      >
+                        <i class="fas fa-pencil-alt"></i>
+                      </button>
+                      <button
+                        type="button"
+                        @click="eliminarp(ptemp)"
+                        class="btn btn-danger btn-circle btn-sm"
+                      >
+                        <i class="fas fa-trash-alt"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
               </table>
             </div>
           </div>
@@ -112,8 +152,8 @@
                   <tr>
                     <th>Detalle General</th>
                     <th>Categoria</th>
-                    <th>Medida</th>
                     <th>Cantidad</th>
+                    <th>Medida</th>
                     <th>Denominacion</th>
                     <th>Marca</th>
                     <th>Modelo/Medida</th>
@@ -125,19 +165,43 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>&nbsp;</td>
+                  <tr
+                    v-for="entrada in lista_detalle_entrada"
+                    :key="entrada.id"
+                  >
+                    <td>{{ entrada.d_entrada }}</td>
+                    <td>{{ entrada.nombre_categoria }}</td>
+                    <td>{{ entrada.cantidad_unidad }}</td>
+                    <td>
+                      {{ entrada.tipo_unidad }} DE
+                      {{ entrada.valor_unidad }} UNIDADES
+                    </td>
+                    <td>{{ entrada.nombre_producto }}</td>
+                    <td>{{ entrada.nombre_marca }}</td>
+                    <td>{{ entrada.modelo }}/{{ entrada.medida }}</td>
+                    <td>{{ entrada.color }}</td>
+                    <td>{{ entrada.created_at }}</td>
+                    <td>{{ entrada.estado_conservacion }}</td>
+                    <td>{{ entrada.name }}</td>
+                    <td>
+                      <button
+                        type="button"
+                        @click="
+                          modificarde = true;
+                          abrirModalde(entrada);
+                        "
+                        class="btn btn-warning btn-circle btn-sm"
+                      >
+                        <i class="fas fa-pencil-alt"></i>
+                      </button>
+                      <button
+                        type="button"
+                        @click="eliminarde(entrada)"
+                        class="btn btn-danger btn-circle btn-sm"
+                      >
+                        <i class="fas fa-trash-alt"></i>
+                      </button>
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -147,24 +211,25 @@
       </div>
     </div>
     <div
-      class="modal fade"
+      class="modal"
       id="modal-add-producto"
       tabindex="-1"
       role="dialog"
       aria-labelledby="modal-notification"
       aria-hidden="true"
+      :class="{ mostrar: modalp }"
     >
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="modal-title-notification">
-              Agregar Producto
+              {{ opcion_producto }} Producto
             </h5>
             <button
               type="button"
               class="close"
-              data-bs-dismiss="modal"
               aria-label="Close"
+              @click="cerrarModalp()"
             >
               <span aria-hidden="true">×</span>
             </button>
@@ -179,14 +244,14 @@
                   <select
                     class="form-control"
                     required
-                    v-model="producto.idp"
-                    @change="rellenarDatosProducto(producto)"
+                    v-model="cbxproduc"
+                    @change="rellenarDatosProducto(cbxproduc)"
                   >
                     <option value="0">--Seleccionar--</option>
                     <option
                       v-for="prod in lista_producto"
                       :key="prod.idp"
-                      :value="prod.idp"
+                      :value="prod"
                     >
                       <div v-if="prod.estado_activo == 0">
                         {{ prod.nombre_categoria }}/ {{ prod.nombre_producto }}/
@@ -227,7 +292,7 @@
                     required
                     v-model="producto.unidadMedida"
                   >
-                    <option value="0">--Seleccionar--</option>
+                    <option value="">--Seleccionar--</option>
                     <option
                       v-for="um in lista_unidad_medida"
                       :key="um.nombre_um"
@@ -254,8 +319,10 @@
               <div class="col-md-2">
                 <div class="form-group">
                   <label class="form-control-label"
-                    >Cantidad<span class="is-required">*</span></label
+                    >Cantidad <span class="is-required">*</span></label
                   >
+                  <br />
+                  <label> </label>
                   <input
                     class="form-control"
                     id="idCantidadIngresoProducto"
@@ -310,7 +377,7 @@
                     required
                     v-model="producto.color"
                   >
-                    <option value="NINGUNO">--Seleccionar--</option>
+                    <option value="">--Seleccionar--</option>
                     <option
                       v-for="color in lista_color"
                       :key="color.nombre_color"
@@ -355,7 +422,7 @@
                     required
                     v-model="producto.estado_conservacion"
                   >
-                    <option value="NINGUNO">--Seleccionar--</option>
+                    <option value="">--Seleccionar--</option>
                     <option
                       v-for="ec in lista_ec"
                       :key="ec.nombre_ec"
@@ -373,66 +440,11 @@
               type="button"
               class="btn btn-primary"
               id="btn-modal-agregar_producto"
+              @click="agregarProducto()"
             >
               Guardar
             </button>
-            <button type="button" class="btn ml-auto" data-bs-dismiss="modal">
-              Cancelar
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- -->
-    <div
-      class="modal fade"
-      id="modal-delete-producto"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="modal-notification"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="modal-title-notification">
-              Se requiere su atención
-            </h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="py-3 text-center">
-              <i class="fas fa-bell fa-4x"></i>
-              <h4 class="heading mt-4">¿Estas seguro?</h4>
-              <p>
-                La frecuencia
-                <strong><u id="ModalFrecuenciaEliminarNombres"></u></strong>
-                será eliminada.<br />
-                Este proceso no podrá ser revertido.
-              </p>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <input
-              type="hidden"
-              id="ModalFrecuenciaEliminarIdFrecuencia"
-              value="0"
-            />
-            <button
-              type="button"
-              class="btn btn-danger"
-              id="ModalFrecuenciaEliminarAceptar"
-            >
-              Eliminar
-            </button>
-            <button type="button" class="btn ml-auto" data-dismiss="modal">
+            <button type="button" class="btn ml-auto" @click="cerrarModalp()">
               Cancelar
             </button>
           </div>
@@ -443,16 +455,22 @@
 </template>
 
 <script>
-/*Variables globales */
-let dte;
-
 export default {
   data: function () {
     return {
+      idp: 0,
+      idde: 0,
+      modificarp: false,
+      modalde: 0,
+      modalp: 0,
+      opcion_producto: "",
+      opcion_stock: "",
+      /*Listas cbx */
+      cbxproduc: {},
+      lista_detalle_producto: {},
       lista_producto: {},
       lista_categoria: {},
       lista_marca: {},
-      lista_detalle_producto: {},
       lista_ec: [{ nombre_ec: "SELLADO" }],
       lista_unidad_medida: [
         { nombre_um: "UNIDAD" },
@@ -480,60 +498,11 @@ export default {
         { nombre_color: "CRISTALINA" },
         { nombre_color: "MARRON" },
       ],
+      /*Lista de cracoin de tablas */
       lista_guardar_producto: [],
-      opcion_producto: "",
-      opcion_stock: "",
+      lista_detalle_entrada: [],
+      /*Datos de formularios */
       producto: {
-        idProducto: 0,
-        idDetalleProducto: 0,
-        unidadMedida: "",
-        cantidadUnitaria: 0,
-        cantidadProducto: 0,
-        idCategoria: 0,
-        idMarca: 0,
-        modelo: "",
-        color: "",
-        medida: "",
-        estado_conservacion: "",
-      },
-      stock: {
-        id: 0,
-        cantidad: 0,
-        estado_conservacion: "",
-        id_producto: 0,
-        nombre_producto: "",
-        color: "",
-        modelo: "",
-        detalles: "",
-        estado_activo: 0,
-        id_marca: 0,
-        id_categoria: 0,
-        nombre_marca: "",
-        descripcion: "",
-        nombre_categoria: "",
-      },
-    };
-  },
-  methods: {
-    rellenarDatosProducto(producto) {
-      if (producto.idp == 0) {
-        this.reset_producto();
-      } else {
-        this.consultarp(producto);
-      }
-    },
-    async consultarp(producto) {
-      const res = await axios.get("/producto", producto);
-      this.producto = res.data[0];
-    },
-    guardarProducto() {
-      this.lista_guardar_producto.push(this.producto);
-    },
-    mostrarProducto() {
-      return this.lista_guardar_producto;
-    },
-    reset_producto() {
-      this.producto = {
         idc: 0,
         idp: 0,
         idm: 0,
@@ -541,18 +510,90 @@ export default {
         unidadMedida: "",
         cantidadUnitaria: 0,
         cantidadProducto: 0,
-        idCategoria: 0,
         modelo: "",
         color: "",
         medida: "",
         estado_conservacion: "",
-      };
+        idtemp: 1,
+      },
+      entrada: {
+        idde: 0,
+        ruta: "",
+        nombre_categoria: "",
+        tipo_unidad: "",
+        valor_unidad: 0,
+        cantidad_unidad: 0,
+        nombre_producto: "",
+        nombre_marca: "",
+        modelo: "",
+        medida: "",
+        color: "",
+        created_at: "",
+        d_entrada: "",
+        estado_conservacion: "",
+        name: "",
+      },
+    };
+  },
+  methods: {
+    /*Crud*/
+    async listarde() {
+      const res = await axios.get("/entrada");
+      this.lista_detalle_entrada = res.data;
     },
-    reset_stock() {
-      this.stock = {
-        idea: 0,
-        idd: 0,
-        idp: 0,
+    listtempp() {},
+    agregarProducto() {
+      window.alert(
+        typeof this.producto.idtemp + " /" + Number(this.producto.idtemp)
+      );
+      this.lista_guardar_producto.push({
+        idc: this.producto.idc,
+        idp: this.producto.idp,
+        idm: this.producto.idm,
+        iddp: this.producto.iddp,
+        modelo: this.producto.modelo,
+        color: this.producto.color,
+        medida: this.producto.medida,
+        estado_conservacion: this.producto.estado_conservacion,
+        idtemp: this.producto.idtemp,
+        unidadMedida: this.producto.unidadMedida,
+        cantidadUnitaria: this.producto.cantidadUnitaria,
+      });
+      this.producto.idtemp = Number(this.producto.idtemp) + 1;
+      this.cerrarModalp();
+    },
+
+    rellenarDatosProducto(cbx) {
+      if (cbx.idp === 0) {
+        this.reset_producto();
+      } else {
+        this.producto.idc = cbx.idc;
+        this.producto.idp = cbx.idp;
+        this.producto.idm = cbx.idm;
+        this.producto.iddp = cbx.iddp;
+        this.producto.modelo = cbx.modelo;
+        this.producto.color = cbx.color;
+        this.producto.medida = cbx.medida;
+        this.producto.estado_conservacion = cbx.estado_conservacion;
+      }
+    },
+    /*Limpiar*/
+    reset_producto() {
+      this.producto.idc = 0;
+      this.producto.idp = 0;
+      this.producto.idm = 0;
+      this.producto.iddp = 0;
+      this.producto.modelo = "";
+      this.producto.color = "";
+      this.producto.medida = "";
+      this.producto.estado_conservacion = "";
+      this.producto.unidadMedida = "";
+      this.producto.cantidadUnitaria = 0;
+      this.producto.cantidadProducto = 0;
+    },
+    reset_entrada() {
+      this.entrada = {
+        idde: 0,
         ruta: "",
         nombre_categoria: "",
         tipo_unidad: "",
@@ -569,6 +610,37 @@ export default {
         name: "",
       };
     },
+
+    /*Funciones*/
+    mostrarNombreCat: function (id) {
+      return this.lista_categoria.find((dev) => dev.id === id).nombre_categoria;
+    },
+    mostrarNombreDen: function (id) {
+      return this.lista_detalle_producto.find((dev) => dev.id === id)
+        .nombre_producto;
+    },
+    mostrarNombreMar: function (id) {
+      return this.lista_marca.find((dev) => dev.id === id).nombre_marca;
+    },
+    /*Modales*/
+
+    abrirModalp(data = {}) {
+      this.modalp = 1;
+      if (this.modificarp) {
+        this.idp = data.id;
+        this.opcion_producto = "Modificar";
+        this.producto.iddp = data.iddp;
+      } else {
+        this.idp = 0;
+        this.opcion_producto = "Agregar";
+        this.reset_producto();
+      }
+    },
+    cerrarModalp() {
+      this.modalp = 0;
+      this.reset_producto();
+      this.cbxproduc = 0;
+    },
   },
   mounted() {
     axios.get("producto").then((response) => {
@@ -584,164 +656,17 @@ export default {
       this.lista_marca = response.data;
     });
   },
-  computed: {
-    prodFiltrado: function () {
-      return this.lista_producto.filter(function (prod) {
-        return;
-      });
-    },
+  created() {
+    this.listarde();
   },
 };
-
-fnObtenerListaEntrada();
-
-function fnObtenerListaEntrada() {
-  let parametros = {};
-  $.get("entrada", parametros).done(function (response) {
-    if (dte) {
-      dte.clear();
-      dte.rows.add(response);
-      dte.draw();
-    } else {
-      //window.alert(JSON.stringify(response));
-      initListaEntrada(response);
-    }
-  });
-}
-
-function initListaEntrada(lista) {
-  dte = $("#datatable_entrada").DataTable({
-    order: [],
-    columnDefs: [
-      {
-        targets: [11],
-        orderable: false,
-      },
-    ],
-    data: lista,
-    columns: [
-      {
-        data: function (data, type, dataToSet) {
-          return '<div class="RowsTituloTest">' + data.d_entrada + "</div>";
-        },
-      },
-      {
-        data: function (data, type, dataToSet) {
-          return (
-            '<div class="RowsTituloTest">' + data.nombre_categoria + "</div>"
-          );
-        },
-      },
-      {
-        data: function (data, type, dataToSet) {
-          return (
-            '<div class="RowsTituloTest">' + data.cantidad_unidad + "</div>"
-          );
-        },
-      },
-
-      {
-        data: function (data, type, dataToSet) {
-          return (
-            '<div class="RowsTituloTest">' +
-            data.tipo_unidad +
-            " DE " +
-            data.valor_unidad +
-            " UNIDADES</div>"
-          );
-        },
-      },
-      {
-        data: function (data, type, dataToSet) {
-          return (
-            '<div class="RowsTituloTest">' + data.nombre_producto + "</div>"
-          );
-        },
-      },
-      {
-        data: function (data, type, dataToSet) {
-          return '<div class="RowsTituloTest">' + data.nombre_marca + "</div>";
-        },
-      },
-      {
-        data: function (data, type, dataToSet) {
-          return (
-            '<div class="RowsTituloTest">' +
-            data.modelo +
-            "/" +
-            data.medida +
-            "</div>"
-          );
-        },
-      },
-      {
-        data: function (data, type, dataToSet) {
-          return '<div class="RowsTituloTest">' + data.color + "</div>";
-        },
-      },
-      {
-        data: function (data, type, dataToSet) {
-          return (
-            '<div class="RowsTituloTest">' +
-            data.created_at.substring(0, 10) +
-            "</div>"
-          );
-        },
-      },
-      {
-        data: function (data, type, dataToSet) {
-          return (
-            '<div class="RowsTituloTest">' + data.estado_conservacion + "</div>"
-          );
-        },
-      },
-      {
-        data: function (data, type, dataToSet) {
-          return '<div class="RowsTituloTest">' + data.name + "</div>";
-        },
-      },
-      {
-        data: function (data, type, dataToSet) {
-          let id = data.idde;
-          let nombre = data.name;
-          var btn = "";
-          btn +=
-            "<button type='button' onclick=\"fn_modificar('" +
-            id +
-            "', '" +
-            nombre +
-            "')\" class='btn btn-warning btn-circle btn-sm'><i class='fas fa-pencil-alt'></i></button>";
-          btn +=
-            "<button type='button' onclick=\"fn_eliminar('" +
-            id +
-            "','" +
-            nombre +
-            "')\" class='btn btn-danger btn-circle btn-sm'><i class='fas fa-trash'></i></button>";
-          return "" + btn;
-        },
-      },
-    ],
-  });
-}
-function fnAgregarListaProducto() {
-  $("#modal-add-producto").modal("show");
-}
-
-function fnAgregarProductoTemp() {
-  fnObtnerListaTempProductos();
-  $("#modal-add-producto").modal("hide");
-}
-
-$(document).ready(function () {
-  $("#btn-modal-producto").click(function () {
-    fnAgregarListaProducto();
-  });
-  $("#btn-modal-agregar_producto").click(function () {
-    fnAgregarProductoTemp();
-  });
-});
 </script>
 
 <style>
+.mostrar {
+  display: list-item;
+  opacity: 1;
+  background: rgba(37, 37, 39, 0.847);
+}
 </style>
 
