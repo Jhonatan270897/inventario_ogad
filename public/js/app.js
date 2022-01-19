@@ -5963,7 +5963,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'vue-editor-bridge'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -6414,11 +6413,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
 
 /*Variables globales */
-
 var dte;
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -32916,19 +32912,19 @@ var render = function () {
                                 prod.estado_activo == 0
                                   ? _c("div", [
                                       _vm._v(
-                                        " \n                    " +
+                                        "\n                      " +
                                           _vm._s(prod.nombre_categoria) +
-                                          "/\n                    " +
+                                          "/ " +
                                           _vm._s(prod.nombre_producto) +
-                                          "/\n                    " +
+                                          "/\n                      " +
                                           _vm._s(prod.nombre_marca) +
-                                          "/\n                    " +
+                                          "/ " +
                                           _vm._s(prod.color) +
-                                          "/\n                    " +
+                                          "/\n                      " +
                                           _vm._s(prod.modelo) +
-                                          "/\n                    " +
+                                          "/\n                      " +
                                           _vm._s(prod.medida) +
-                                          "\n                  "
+                                          "\n                    "
                                       ),
                                     ])
                                   : _vm._e(),

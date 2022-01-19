@@ -187,15 +187,13 @@
                       v-for="prod in lista_producto"
                       :key="prod.idp"
                       :value="prod.idp"
-                      
-                    ><div v-if="prod.estado_activo==0"> 
-                      {{ prod.nombre_categoria }}/
-                      {{ prod.nombre_producto }}/
-                      {{ prod.nombre_marca }}/
-                      {{ prod.color }}/
-                      {{ prod.modelo }}/
-                      {{ prod.medida }}
-                    </div>
+                    >
+                      <div v-if="prod.estado_activo == 0">
+                        {{ prod.nombre_categoria }}/ {{ prod.nombre_producto }}/
+                        {{ prod.nombre_marca }}/ {{ prod.color }}/
+                        {{ prod.modelo }}/
+                        {{ prod.medida }}
+                      </div>
                     </option>
                   </select>
                 </div>
@@ -445,7 +443,6 @@
 </template>
 
 <script>
-import func from 'vue-editor-bridge';
 /*Variables globales */
 let dte;
 
@@ -587,12 +584,12 @@ export default {
       this.lista_marca = response.data;
     });
   },
-  computed:{
-prodFiltrado: function(){
-  return this.lista_producto.filter(function(prod){
-    return 
-  })
-}
+  computed: {
+    prodFiltrado: function () {
+      return this.lista_producto.filter(function (prod) {
+        return;
+      });
+    },
   },
 };
 
