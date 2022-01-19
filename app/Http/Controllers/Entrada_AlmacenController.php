@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Detalles_Entrada;
+use Illuminate\Support\Facades\DB;
 
 class Entrada_AlmacenController extends Controller
 {
@@ -40,8 +41,26 @@ class Entrada_AlmacenController extends Controller
         return $detalles_entrada;
     }
 
-    public function store(Request $request)
+    public function store(Request $entrada_almacen)
     {
+        try {
+            DB::beginTransaction();
+            $entrada_almacen = Employee::create([
+                'name' => $request->employee_name,
+                'email' => $request->employee_email
+            ]);
+            DB::afterCommit(function() use($employee){
+                Mail::to($employee)->send(new EmployeeHired);
+            });
+            $position = Position::create([
+                'name' => $request->position,
+            ]);
+            $position->employees()->save($employee);
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return response()->json(['message' => 'Error']);
+        }
         $entrada_almacen = new Entrada_Almacen;
         $entrada_almacen->create($request->all());
     }

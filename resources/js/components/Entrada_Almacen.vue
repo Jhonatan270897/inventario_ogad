@@ -90,14 +90,20 @@
                     v-for="ptemp in lista_guardar_producto"
                     :key="ptemp.idtemp"
                   >
-                    <td>{{ mostrarNombreCat(ptemp.idc) }}</td>
+                    <td>
+                      {{ mostrarNombre(lista_categoria, "c", ptemp.idc) }}
+                    </td>
                     <td>{{ ptemp.cantidadProducto }}</td>
                     <td>
                       {{ ptemp.unidadMedida }} DE
                       {{ ptemp.cantidadUnitaria }} UNIDADES
                     </td>
-                    <td>{{ mostrarNombreDen(ptemp.iddp) }}</td>
-                    <td>{{ mostrarNombreMar(ptemp.idm) }}</td>
+                    <td>
+                      {{
+                        mostrarNombre(lista_detalle_producto, "p", ptemp.iddp)
+                      }}
+                    </td>
+                    <td>{{ mostrarNombre(lista_marca, "m", ptemp.idm) }}</td>
                     <td>{{ ptemp.modelo }}/{{ ptemp.medida }}</td>
                     <td>{{ ptemp.color }}</td>
                     <td>{{ ptemp.estado_conservacion }}</td>
@@ -461,6 +467,7 @@ export default {
       idp: 0,
       idde: 0,
       modificarp: false,
+      modificarde: false,
       modalde: 0,
       modalp: 0,
       opcion_producto: "",
@@ -498,7 +505,7 @@ export default {
         { nombre_color: "CRISTALINA" },
         { nombre_color: "MARRON" },
       ],
-      /*Lista de cracoin de tablas */
+      /*Lista de creacion de tablas */
       lista_guardar_producto: [],
       lista_detalle_entrada: [],
       /*Datos de formularios */
@@ -541,7 +548,21 @@ export default {
       const res = await axios.get("/entrada");
       this.lista_detalle_entrada = res.data;
     },
-    listtempp() {},
+    async guardarde() {
+      if (this.modificarde) {
+        const res = await axios.put(
+          "/entrada/" + this.id,
+          this.detalle_producto
+        );
+      } else {
+        const res = await axios.post(
+          "/entrada",
+          this.entrada
+        );
+      }
+      this.cerrarModaldp();
+      this.listardp();
+    },
     agregarProducto() {
       window.alert(
         typeof this.producto.idtemp + " /" + Number(this.producto.idtemp)
@@ -558,6 +579,7 @@ export default {
         idtemp: this.producto.idtemp,
         unidadMedida: this.producto.unidadMedida,
         cantidadUnitaria: this.producto.cantidadUnitaria,
+        cantidadProducto: this.producto.cantidadProducto,
       });
       this.producto.idtemp = Number(this.producto.idtemp) + 1;
       this.cerrarModalp();
@@ -612,15 +634,21 @@ export default {
     },
 
     /*Funciones*/
-    mostrarNombreCat: function (id) {
-      return this.lista_categoria.find((dev) => dev.id === id).nombre_categoria;
-    },
-    mostrarNombreDen: function (id) {
-      return this.lista_detalle_producto.find((dev) => dev.id === id)
-        .nombre_producto;
-    },
-    mostrarNombreMar: function (id) {
-      return this.lista_marca.find((dev) => dev.id === id).nombre_marca;
+
+    mostrarNombre: function (arr = [], e, id) {
+      switch (e) {
+        case "c":
+          return arr.find((dev) => dev.id === id).nombre_categoria;
+          breack;
+        case "p":
+          return arr.find((dev) => dev.id === id).nombre_producto;
+          breack;
+        case "m":
+          return arr.find((dev) => dev.id === id).nombre_marca;
+          breack;
+        default:
+          return "No encontrado";
+      }
     },
     /*Modales*/
 

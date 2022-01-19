@@ -6427,6 +6427,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -6558,7 +6564,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee);
       }))();
     },
-    listtempp: function listtempp() {},
     agregarProducto: function agregarProducto() {
       window.alert(_typeof(this.producto.idtemp) + " /" + Number(this.producto.idtemp));
       this.lista_guardar_producto.push({
@@ -6572,7 +6577,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         estado_conservacion: this.producto.estado_conservacion,
         idtemp: this.producto.idtemp,
         unidadMedida: this.producto.unidadMedida,
-        cantidadUnitaria: this.producto.cantidadUnitaria
+        cantidadUnitaria: this.producto.cantidadUnitaria,
+        cantidadProducto: this.producto.cantidadProducto
       });
       this.producto.idtemp = Number(this.producto.idtemp) + 1;
       this.cerrarModalp();
@@ -6627,20 +6633,33 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
 
     /*Funciones*/
-    mostrarNombreCat: function mostrarNombreCat(id) {
-      return this.lista_categoria.find(function (dev) {
-        return dev.id === id;
-      }).nombre_categoria;
-    },
-    mostrarNombreDen: function mostrarNombreDen(id) {
-      return this.lista_detalle_producto.find(function (dev) {
-        return dev.id === id;
-      }).nombre_producto;
-    },
-    mostrarNombreMar: function mostrarNombreMar(id) {
-      return this.lista_marca.find(function (dev) {
-        return dev.id === id;
-      }).nombre_marca;
+    mostrarNombre: function mostrarNombre() {
+      var arr = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+      var e = arguments.length > 1 ? arguments[1] : undefined;
+      var id = arguments.length > 2 ? arguments[2] : undefined;
+
+      switch (e) {
+        case "c":
+          return arr.find(function (dev) {
+            return dev.id === id;
+          }).nombre_categoria;
+          breack;
+
+        case "p":
+          return arr.find(function (dev) {
+            return dev.id === id;
+          }).nombre_producto;
+          breack;
+
+        case "m":
+          return arr.find(function (dev) {
+            return dev.id === id;
+          }).nombre_marca;
+          breack;
+
+        default:
+          return "No encontrado";
+      }
     },
 
     /*Modales*/
@@ -32928,7 +32947,17 @@ var render = function () {
                     _vm._l(_vm.lista_guardar_producto, function (ptemp) {
                       return _c("tr", { key: ptemp.idtemp }, [
                         _c("td", [
-                          _vm._v(_vm._s(_vm.mostrarNombreCat(ptemp.idc))),
+                          _vm._v(
+                            "\n                    " +
+                              _vm._s(
+                                _vm.mostrarNombre(
+                                  _vm.lista_categoria,
+                                  "c",
+                                  ptemp.idc
+                                )
+                              ) +
+                              "\n                  "
+                          ),
                         ]),
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(ptemp.cantidadProducto))]),
@@ -32944,11 +32973,25 @@ var render = function () {
                         ]),
                         _vm._v(" "),
                         _c("td", [
-                          _vm._v(_vm._s(_vm.mostrarNombreDen(ptemp.iddp))),
+                          _vm._v(
+                            "\n                    " +
+                              _vm._s(
+                                _vm.mostrarNombre(
+                                  _vm.lista_detalle_producto,
+                                  "p",
+                                  ptemp.iddp
+                                )
+                              ) +
+                              "\n                  "
+                          ),
                         ]),
                         _vm._v(" "),
                         _c("td", [
-                          _vm._v(_vm._s(_vm.mostrarNombreMar(ptemp.idm))),
+                          _vm._v(
+                            _vm._s(
+                              _vm.mostrarNombre(_vm.lista_marca, "m", ptemp.idm)
+                            )
+                          ),
                         ]),
                         _vm._v(" "),
                         _c("td", [
