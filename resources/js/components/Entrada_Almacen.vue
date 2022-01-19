@@ -171,7 +171,7 @@
           </div>
           <div class="modal-body">
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-12">
                 <div class="form-group">
                   <label class="form-control-label"
                     >Productos<span class="is-required">*</span></label
@@ -179,15 +179,42 @@
                   <select
                     class="form-control"
                     required
-                    v-model="productos.idDetalleProducto"
+                    v-model="producto.idp"
+                    @change="rellenarDatosProducto(producto)"
                   >
                     <option value="0">--Seleccionar--</option>
                     <option
-                      v-for="producto in lista_producto"
-                      :key="producto.id"
-                      :value="producto.id"
+                      v-for="prod in lista_producto"
+                      :key="prod.idp"
+                      :value="prod.idp"
+                      
+                    ><div v-if="prod.estado_activo==0"> 
+                      {{ prod.nombre_categoria }}/
+                      {{ prod.nombre_producto }}/
+                      {{ prod.nombre_marca }}/
+                      {{ prod.color }}/
+                      {{ prod.modelo }}/
+                      {{ prod.medida }}
+                    </div>
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="form-control-label"
+                    >Nombre producto<span class="is-required">*</span></label
+                  >
+                  <select class="form-control" required v-model="producto.iddp">
+                    <option value="0">--Seleccionar--</option>
+                    <option
+                      v-for="detalle_producto in lista_detalle_producto"
+                      :key="detalle_producto.id"
+                      :value="detalle_producto.id"
                     >
-                      {{ producto.nombre_producto }}
+                      {{ detalle_producto.nombre_producto }}
                     </option>
                   </select>
                 </div>
@@ -200,7 +227,7 @@
                   <select
                     class="form-control"
                     required
-                    v-model="productos.unidadMedida"
+                    v-model="producto.unidadMedida"
                   >
                     <option value="0">--Seleccionar--</option>
                     <option
@@ -222,7 +249,7 @@
                     class="form-control"
                     id="idCantidadUnitariaproducto"
                     type="text"
-                    v-model="productos.cantidadUnitaria"
+                    v-model="producto.cantidadUnitaria"
                   />
                 </div>
               </div>
@@ -235,7 +262,7 @@
                     class="form-control"
                     id="idCantidadIngresoProducto"
                     type="text"
-                    v-model="productos.cantidadProducto"
+                    v-model="producto.cantidadProducto"
                   />
                 </div>
               </div>
@@ -246,11 +273,7 @@
                   <label class="form-control-label"
                     >Categoría<span class="is-required">*</span></label
                   >
-                  <select
-                    class="form-control"
-                    required
-                    v-model="productos.idCategoria"
-                  >
+                  <select class="form-control" required v-model="producto.idc">
                     <option value="0">--Seleccionar--</option>
                     <option
                       v-for="categoria in lista_categoria"
@@ -267,11 +290,7 @@
                   <label class="form-control-label"
                     >Marca<span class="is-required">*</span></label
                   >
-                  <select
-                    class="form-control"
-                    required
-                    v-model="productos.idMarca"
-                  >
+                  <select class="form-control" required v-model="producto.idm">
                     <option value="0">--Seleccionar--</option>
                     <option
                       v-for="marca in lista_marca"
@@ -291,7 +310,7 @@
                   <select
                     class="form-control"
                     required
-                    v-model="productos.color"
+                    v-model="producto.color"
                   >
                     <option value="NINGUNO">--Seleccionar--</option>
                     <option
@@ -313,7 +332,7 @@
                     class="form-control"
                     id="idModeloProducto"
                     type="text"
-                    v-model="productos.modelo"
+                    v-model="producto.modelo"
                   />
                 </div>
               </div>
@@ -324,7 +343,7 @@
                     class="form-control"
                     id="idMedidaProducto"
                     type="text"
-                    v-model="productos.medida"
+                    v-model="producto.medida"
                   />
                 </div>
               </div>
@@ -336,7 +355,7 @@
                   <select
                     class="form-control"
                     required
-                    v-model="productos.estado_conservacion"
+                    v-model="producto.estado_conservacion"
                   >
                     <option value="NINGUNO">--Seleccionar--</option>
                     <option
@@ -426,9 +445,9 @@
 </template>
 
 <script>
+import func from 'vue-editor-bridge';
 /*Variables globales */
 let dte;
-let dt1;
 
 export default {
   data: function () {
@@ -436,6 +455,7 @@ export default {
       lista_producto: {},
       lista_categoria: {},
       lista_marca: {},
+      lista_detalle_producto: {},
       lista_ec: [{ nombre_ec: "SELLADO" }],
       lista_unidad_medida: [
         { nombre_um: "UNIDAD" },
@@ -466,7 +486,8 @@ export default {
       lista_guardar_producto: [],
       opcion_producto: "",
       opcion_stock: "",
-      productos: {
+      producto: {
+        idProducto: 0,
         idDetalleProducto: 0,
         unidadMedida: "",
         cantidadUnitaria: 0,
@@ -497,13 +518,39 @@ export default {
     };
   },
   methods: {
+    rellenarDatosProducto(producto) {
+      if (producto.idp == 0) {
+        this.reset_producto();
+      } else {
+        this.consultarp(producto);
+      }
+    },
+    async consultarp(producto) {
+      const res = await axios.get("/producto", producto);
+      this.producto = res.data[0];
+    },
     guardarProducto() {
-      this.lista_guardar_producto.push(this.productos);
+      this.lista_guardar_producto.push(this.producto);
     },
     mostrarProducto() {
       return this.lista_guardar_producto;
     },
-    reset_producto() {},
+    reset_producto() {
+      this.producto = {
+        idc: 0,
+        idp: 0,
+        idm: 0,
+        iddp: 0,
+        unidadMedida: "",
+        cantidadUnitaria: 0,
+        cantidadProducto: 0,
+        idCategoria: 0,
+        modelo: "",
+        color: "",
+        medida: "",
+        estado_conservacion: "",
+      };
+    },
     reset_stock() {
       this.stock = {
         idea: 0,
@@ -527,9 +574,25 @@ export default {
     },
   },
   mounted() {
-    axios.get("detalle_producto").then((response) => {
+    axios.get("producto").then((response) => {
       this.lista_producto = response.data;
     });
+    axios.get("detalle_producto").then((response) => {
+      this.lista_detalle_producto = response.data;
+    });
+    axios.get("categoria").then((response) => {
+      this.lista_categoria = response.data;
+    });
+    axios.get("marca").then((response) => {
+      this.lista_marca = response.data;
+    });
+  },
+  computed:{
+prodFiltrado: function(){
+  return this.lista_producto.filter(function(prod){
+    return 
+  })
+}
   },
 };
 

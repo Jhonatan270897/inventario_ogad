@@ -2,10 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Entrada_Almacen;
-use App\Models\Stock;
-use Illuminate\Http\Request;
-
 class AlmacenController extends Controller
 {
     public function stock()
@@ -25,5 +21,13 @@ class AlmacenController extends Controller
     public function detalle_producto()
     {
         return view('almacen/producto');
+    }
+    public function marca()
+    {
+        return view('almacen/marca');
+    }
+    public function categoria()
+    {
+        return view('almacen/categoria');
     }
 }

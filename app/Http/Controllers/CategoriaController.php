@@ -10,28 +10,33 @@ class CategoriaController extends Controller
 
     public function index()
     {
-        return Marca::get();
+        return Categoria::get();
     }
-
 
     public function store(Request $request)
     {
-        //
+        $categoria = new Categoria();
+        $categoria->create([
+            'nombre_categoria' => $request->nombre_categoria,
+            'descripcion' => $request->descripcion,
+            'estado_activo' => $request->estado_activo
+        ]);
     }
 
-    public function show($id)
+    public function show(Categoria $categoria)
     {
-        //
+        return $categoria;
     }
 
-
-    public function update(Request $request, $id)
+    public function update(Request $request, $categoria)
     {
-        //
+        $categoria = Categoria::find($categoria);
+        $categoria->update($request->all());
+        return $categoria;
     }
 
-    public function destroy($id)
+    public function destroy($categoria)
     {
-        //
+        
     }
 }
