@@ -108,7 +108,7 @@
                     <td>{{ ptemp.color }}</td>
                     <td>{{ ptemp.estado_conservacion }}</td>
                     <td>
-                      <button
+                      <!--<button
                         type="button"
                         @click="
                           modificarp = true;
@@ -117,10 +117,12 @@
                         class="btn btn-warning btn-circle btn-sm"
                       >
                         <i class="fas fa-pencil-alt"></i>
-                      </button>
+                      </button>-->
                       <button
                         type="button"
-                        @click="eliminarp(ptemp)"
+                        @click="
+                          eliminarProducto(lista_guardar_producto, ptemp.idtemp)
+                        "
                         class="btn btn-danger btn-circle btn-sm"
                       >
                         <i class="fas fa-trash-alt"></i>
@@ -242,7 +244,7 @@
           </div>
           <div class="modal-body">
             <div class="row">
-              <div class="col-12">
+              <div class="col-10">
                 <div class="form-group">
                   <label class="form-control-label"
                     >Productos<span class="is-required">*</span></label
@@ -252,6 +254,7 @@
                     required
                     v-model="cbxproduc"
                     @change="rellenarDatosProducto(cbxproduc)"
+                    :disabled="!isDisabled"
                   >
                     <option value="0">--Seleccionar--</option>
                     <option
@@ -269,6 +272,17 @@
                   </select>
                 </div>
               </div>
+              <div class="col-2">
+                <br />
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  id="btn-nuevo-prod-temp"
+                  @click="registrarNuevoProd()"
+                >
+                  {{ nombreBtn }}
+                </button>
+              </div>
             </div>
             <div class="row">
               <div class="col-md-6">
@@ -276,7 +290,11 @@
                   <label class="form-control-label"
                     >Nombre producto<span class="is-required">*</span></label
                   >
-                  <select class="form-control" required v-model="producto.iddp">
+                  <select
+                    class="form-control"
+                    v-model="producto.iddp"
+                    :disabled="isDisabled"
+                  >
                     <option value="0">--Seleccionar--</option>
                     <option
                       v-for="detalle_producto in lista_detalle_producto"
@@ -344,7 +362,12 @@
                   <label class="form-control-label"
                     >Categoría<span class="is-required">*</span></label
                   >
-                  <select class="form-control" required v-model="producto.idc">
+                  <select
+                    class="form-control"
+                    required
+                    v-model="producto.idc"
+                    :disabled="isDisabled"
+                  >
                     <option value="0">--Seleccionar--</option>
                     <option
                       v-for="categoria in lista_categoria"
@@ -361,7 +384,12 @@
                   <label class="form-control-label"
                     >Marca<span class="is-required">*</span></label
                   >
-                  <select class="form-control" required v-model="producto.idm">
+                  <select
+                    class="form-control"
+                    required
+                    v-model="producto.idm"
+                    :disabled="isDisabled"
+                  >
                     <option value="0">--Seleccionar--</option>
                     <option
                       v-for="marca in lista_marca"
@@ -382,6 +410,7 @@
                     class="form-control"
                     required
                     v-model="producto.color"
+                    :disabled="isDisabled"
                   >
                     <option value="">--Seleccionar--</option>
                     <option
@@ -404,6 +433,7 @@
                     id="idModeloProducto"
                     type="text"
                     v-model="producto.modelo"
+                    :disabled="isDisabled"
                   />
                 </div>
               </div>
@@ -415,6 +445,7 @@
                     id="idMedidaProducto"
                     type="text"
                     v-model="producto.medida"
+                    :disabled="isDisabled"
                   />
                 </div>
               </div>
@@ -464,6 +495,9 @@
 export default {
   data: function () {
     return {
+      isDisabled: true,
+      nombreBtn: "Editar",
+      idtemp: 0,
       idp: 0,
       idde: 0,
       modificarp: false,
@@ -555,13 +589,22 @@ export default {
           this.detalle_producto
         );
       } else {
-        const res = await axios.post(
-          "/entrada",
-          this.entrada
-        );
+        const res = await axios.post("/entrada", this.entrada);
       }
       this.cerrarModaldp();
       this.listardp();
+    },
+    registrarNuevoProd() {
+      if (this.isDisabled) {
+        this.isDisabled = false;
+        this.nombreBtn = "Volver";
+        this.producto.idp = 0;
+        this.cbxproduc = "0";
+      } else {
+        this.isDisabled = true;
+        this.nombreBtn = "Nuevo";
+        this.reset_temp();
+      }
     },
     agregarProducto() {
       window.alert(
@@ -576,7 +619,7 @@ export default {
         color: this.producto.color,
         medida: this.producto.medida,
         estado_conservacion: this.producto.estado_conservacion,
-        idtemp: this.producto.idtemp,
+        idtemp: this.idtemp,
         unidadMedida: this.producto.unidadMedida,
         cantidadUnitaria: this.producto.cantidadUnitaria,
         cantidadProducto: this.producto.cantidadProducto,
@@ -584,10 +627,17 @@ export default {
       this.producto.idtemp = Number(this.producto.idtemp) + 1;
       this.cerrarModalp();
     },
+    eliminarProducto(arry = [], id) {
+      arry.forEach(function (currentValue, index, arr) {
+        if (arry[index].idtemp == id) {
+          arry.splice(index, 1);
+        }
+      });
+    },
 
     rellenarDatosProducto(cbx) {
-      if (cbx.idp === 0) {
-        this.reset_producto();
+      if (cbx == "0") {
+        this.reset_temp();
       } else {
         this.producto.idc = cbx.idc;
         this.producto.idp = cbx.idp;
@@ -596,11 +646,11 @@ export default {
         this.producto.modelo = cbx.modelo;
         this.producto.color = cbx.color;
         this.producto.medida = cbx.medida;
-        this.producto.estado_conservacion = cbx.estado_conservacion;
       }
+      console.log(this.idtemp);
     },
     /*Limpiar*/
-    reset_producto() {
+    reset_temp() {
       this.producto.idc = 0;
       this.producto.idp = 0;
       this.producto.idm = 0;
@@ -608,8 +658,11 @@ export default {
       this.producto.modelo = "";
       this.producto.color = "";
       this.producto.medida = "";
-      this.producto.estado_conservacion = "";
+    },
+    reset_producto() {
+      this.reset_temp();
       this.producto.unidadMedida = "";
+      this.producto.estado_conservacion = "";
       this.producto.cantidadUnitaria = 0;
       this.producto.cantidadProducto = 0;
     },
@@ -660,14 +713,18 @@ export default {
         this.producto.iddp = data.iddp;
       } else {
         this.idp = 0;
+        this.cbxproduc = "0";
         this.opcion_producto = "Agregar";
         this.reset_producto();
+        this.idtemp = this.producto.idtemp;
       }
     },
     cerrarModalp() {
       this.modalp = 0;
       this.reset_producto();
       this.cbxproduc = 0;
+      this.isDisabled = true;
+      this.idtemp = 0;
     },
   },
   mounted() {

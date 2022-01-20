@@ -5562,7 +5562,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 data = _arguments.length > 0 && _arguments[0] !== undefined ? _arguments[0] : {};
                 _context3.next = 3;
-                return axios["delete"]("/categoria/", _this3.categoria);
+                return axios["delete"]("/categoria/" + data.id, data);
 
               case 3:
                 res = _context3.sent;
@@ -5906,7 +5906,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 data = _arguments.length > 0 && _arguments[0] !== undefined ? _arguments[0] : {};
                 _context3.next = 3;
-                return axios.put("/detalle_producto/" + data.id, {});
+                return axios["delete"]("/detalle_producto/" + data.id, data);
 
               case 3:
                 res = _context3.sent;
@@ -6433,12 +6433,47 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
+      isDisabled: true,
+      nombreBtn: "Editar",
+      idtemp: 0,
       idp: 0,
       idde: 0,
       modificarp: false,
+      modificarde: false,
       modalde: 0,
       modalp: 0,
       opcion_producto: "",
@@ -6500,7 +6535,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         nombre_color: "MARRON"
       }],
 
-      /*Lista de cracoin de tablas */
+      /*Lista de creacion de tablas */
       lista_guardar_producto: [],
       lista_detalle_entrada: [],
 
@@ -6564,6 +6599,61 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee);
       }))();
     },
+    guardarde: function guardarde() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        var res, _res;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                if (!_this2.modificarde) {
+                  _context2.next = 6;
+                  break;
+                }
+
+                _context2.next = 3;
+                return axios.put("/entrada/" + _this2.id, _this2.detalle_producto);
+
+              case 3:
+                res = _context2.sent;
+                _context2.next = 9;
+                break;
+
+              case 6:
+                _context2.next = 8;
+                return axios.post("/entrada", _this2.entrada);
+
+              case 8:
+                _res = _context2.sent;
+
+              case 9:
+                _this2.cerrarModaldp();
+
+                _this2.listardp();
+
+              case 11:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
+    },
+    registrarNuevoProd: function registrarNuevoProd() {
+      if (this.isDisabled) {
+        this.isDisabled = false;
+        this.nombreBtn = "Volver";
+        this.producto.idp = 0;
+        this.cbxproduc = "0";
+      } else {
+        this.isDisabled = true;
+        this.nombreBtn = "Nuevo";
+        this.reset_temp();
+      }
+    },
     agregarProducto: function agregarProducto() {
       window.alert(_typeof(this.producto.idtemp) + " /" + Number(this.producto.idtemp));
       this.lista_guardar_producto.push({
@@ -6575,7 +6665,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         color: this.producto.color,
         medida: this.producto.medida,
         estado_conservacion: this.producto.estado_conservacion,
-        idtemp: this.producto.idtemp,
+        idtemp: this.idtemp,
         unidadMedida: this.producto.unidadMedida,
         cantidadUnitaria: this.producto.cantidadUnitaria,
         cantidadProducto: this.producto.cantidadProducto
@@ -6583,9 +6673,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.producto.idtemp = Number(this.producto.idtemp) + 1;
       this.cerrarModalp();
     },
+    eliminarProducto: function eliminarProducto() {
+      var arry = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+      var id = arguments.length > 1 ? arguments[1] : undefined;
+      arry.forEach(function (currentValue, index, arr) {
+        if (arry[index].idtemp == id) {
+          arry.splice(index, 1);
+        }
+      });
+    },
     rellenarDatosProducto: function rellenarDatosProducto(cbx) {
-      if (cbx.idp === 0) {
-        this.reset_producto();
+      if (cbx == "0") {
+        this.reset_temp();
       } else {
         this.producto.idc = cbx.idc;
         this.producto.idp = cbx.idp;
@@ -6594,12 +6693,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         this.producto.modelo = cbx.modelo;
         this.producto.color = cbx.color;
         this.producto.medida = cbx.medida;
-        this.producto.estado_conservacion = cbx.estado_conservacion;
       }
+
+      console.log(this.idtemp);
     },
 
     /*Limpiar*/
-    reset_producto: function reset_producto() {
+    reset_temp: function reset_temp() {
       this.producto.idc = 0;
       this.producto.idp = 0;
       this.producto.idm = 0;
@@ -6607,8 +6707,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.producto.modelo = "";
       this.producto.color = "";
       this.producto.medida = "";
-      this.producto.estado_conservacion = "";
+    },
+    reset_producto: function reset_producto() {
+      this.reset_temp();
       this.producto.unidadMedida = "";
+      this.producto.estado_conservacion = "";
       this.producto.cantidadUnitaria = 0;
       this.producto.cantidadProducto = 0;
     },
@@ -6673,30 +6776,34 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         this.producto.iddp = data.iddp;
       } else {
         this.idp = 0;
+        this.cbxproduc = "0";
         this.opcion_producto = "Agregar";
         this.reset_producto();
+        this.idtemp = this.producto.idtemp;
       }
     },
     cerrarModalp: function cerrarModalp() {
       this.modalp = 0;
       this.reset_producto();
       this.cbxproduc = 0;
+      this.isDisabled = true;
+      this.idtemp = 0;
     }
   },
   mounted: function mounted() {
-    var _this2 = this;
+    var _this3 = this;
 
     axios.get("producto").then(function (response) {
-      _this2.lista_producto = response.data;
+      _this3.lista_producto = response.data;
     });
     axios.get("detalle_producto").then(function (response) {
-      _this2.lista_detalle_producto = response.data;
+      _this3.lista_detalle_producto = response.data;
     });
     axios.get("categoria").then(function (response) {
-      _this2.lista_categoria = response.data;
+      _this3.lista_categoria = response.data;
     });
     axios.get("marca").then(function (response) {
-      _this2.lista_marca = response.data;
+      _this3.lista_marca = response.data;
     });
   },
   created: function created() {
@@ -7006,7 +7113,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 data = _arguments.length > 0 && _arguments[0] !== undefined ? _arguments[0] : {};
                 _context3.next = 3;
-                return axios.put("/marca/" + data.id, {});
+                return axios["delete"]("/marca/" + data.id, data);
 
               case 3:
                 res = _context3.sent;
@@ -33008,26 +33115,14 @@ var render = function () {
                           _c(
                             "button",
                             {
-                              staticClass: "btn btn-warning btn-circle btn-sm",
-                              attrs: { type: "button" },
-                              on: {
-                                click: function ($event) {
-                                  _vm.modificarp = true
-                                  _vm.abrirModalp(ptemp)
-                                },
-                              },
-                            },
-                            [_c("i", { staticClass: "fas fa-pencil-alt" })]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "button",
-                            {
                               staticClass: "btn btn-danger btn-circle btn-sm",
                               attrs: { type: "button" },
                               on: {
                                 click: function ($event) {
-                                  return _vm.eliminarp(ptemp)
+                                  return _vm.eliminarProducto(
+                                    _vm.lista_guardar_producto,
+                                    ptemp.idtemp
+                                  )
                                 },
                               },
                             },
@@ -33204,7 +33299,7 @@ var render = function () {
               _vm._v(" "),
               _c("div", { staticClass: "modal-body" }, [
                 _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-12" }, [
+                  _c("div", { staticClass: "col-10" }, [
                     _c("div", { staticClass: "form-group" }, [
                       _vm._m(5),
                       _vm._v(" "),
@@ -33220,7 +33315,7 @@ var render = function () {
                             },
                           ],
                           staticClass: "form-control",
-                          attrs: { required: "" },
+                          attrs: { required: "", disabled: !_vm.isDisabled },
                           on: {
                             change: [
                               function ($event) {
@@ -33279,6 +33374,30 @@ var render = function () {
                       ),
                     ]),
                   ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-2" }, [
+                    _c("br"),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary",
+                        attrs: { type: "button", id: "btn-nuevo-prod-temp" },
+                        on: {
+                          click: function ($event) {
+                            return _vm.registrarNuevoProd()
+                          },
+                        },
+                      },
+                      [
+                        _vm._v(
+                          "\n                " +
+                            _vm._s(_vm.nombreBtn) +
+                            "\n              "
+                        ),
+                      ]
+                    ),
+                  ]),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "row" }, [
@@ -33298,7 +33417,7 @@ var render = function () {
                             },
                           ],
                           staticClass: "form-control",
-                          attrs: { required: "" },
+                          attrs: { disabled: _vm.isDisabled },
                           on: {
                             change: function ($event) {
                               var $$selectedVal = Array.prototype.filter
@@ -33505,7 +33624,7 @@ var render = function () {
                             },
                           ],
                           staticClass: "form-control",
-                          attrs: { required: "" },
+                          attrs: { required: "", disabled: _vm.isDisabled },
                           on: {
                             change: function ($event) {
                               var $$selectedVal = Array.prototype.filter
@@ -33569,7 +33688,7 @@ var render = function () {
                             },
                           ],
                           staticClass: "form-control",
-                          attrs: { required: "" },
+                          attrs: { required: "", disabled: _vm.isDisabled },
                           on: {
                             change: function ($event) {
                               var $$selectedVal = Array.prototype.filter
@@ -33630,7 +33749,7 @@ var render = function () {
                             },
                           ],
                           staticClass: "form-control",
-                          attrs: { required: "" },
+                          attrs: { required: "", disabled: _vm.isDisabled },
                           on: {
                             change: function ($event) {
                               var $$selectedVal = Array.prototype.filter
@@ -33696,7 +33815,11 @@ var render = function () {
                           },
                         ],
                         staticClass: "form-control",
-                        attrs: { id: "idModeloProducto", type: "text" },
+                        attrs: {
+                          id: "idModeloProducto",
+                          type: "text",
+                          disabled: _vm.isDisabled,
+                        },
                         domProps: { value: _vm.producto.modelo },
                         on: {
                           input: function ($event) {
@@ -33730,7 +33853,11 @@ var render = function () {
                           },
                         ],
                         staticClass: "form-control",
-                        attrs: { id: "idMedidaProducto", type: "text" },
+                        attrs: {
+                          id: "idMedidaProducto",
+                          type: "text",
+                          disabled: _vm.isDisabled,
+                        },
                         domProps: { value: _vm.producto.medida },
                         on: {
                           input: function ($event) {

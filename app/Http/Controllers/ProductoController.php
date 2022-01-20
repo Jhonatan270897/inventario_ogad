@@ -10,9 +10,8 @@ class ProductoController extends Controller
 
     public function index()
     {
-        $producto = Producto
-
-            ::join('detalle_productos', 'detalle_productos.id', '=', 'productos.id_detalle_producto')
+        $producto = new Producto();
+        return $producto::join('detalle_productos', 'detalle_productos.id', '=', 'productos.id_detalle_producto')
             ->join('categorias', 'categorias.id', '=', 'productos.id_categoria')
             ->join('marcas', 'marcas.id', '=', 'productos.id_marca')
             ->select(
@@ -30,26 +29,41 @@ class ProductoController extends Controller
             )
             ->where('productos.estado_activo', '=', '0')
             ->get();
-        return $producto;
     }
 
     public function store(Request $request)
     {
-        //
+        $producto = new Producto();
+        $producto->nombre_producto = $request->nombre_producto;
+        $producto->color = $request->color;
+        $producto->modelo = $request->modelo;
+        $producto->medida = $request->medida;
+        $producto->estado_activo = $request->estado_activo;
+        $producto->id_detalle_producto = $request->id_detalle_producto;
+        $producto->id_categoria = $request->id_marca;
+        $producto->id_marca = $request->id_marca;
+        $producto->save();
     }
-    public function show($producto)
+    public function show(Producto $producto)
     {
         return $producto;
     }
 
-    public function update(Request $request, $producto)
+    public function update(Request $request, Producto $producto)
     {
-        //
+        $producto->nombre_producto = $request->nombre_producto;
+        $producto->color = $request->color;
+        $producto->modelo = $request->modelo;
+        $producto->medida = $request->medida;
+        $producto->estado_activo = $request->estado_activo;
+        $producto->id_detalle_producto = $request->id_detalle_producto;
+        $producto->id_categoria = $request->id_marca;
+        $producto->id_marca = $request->id_marca;
+        $producto->save();
     }
 
-    public function destroy($producto)
+    public function destroy(Producto $producto)
     {
-        //
+        $producto->delete();
     }
 }
-    

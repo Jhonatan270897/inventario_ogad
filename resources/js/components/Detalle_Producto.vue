@@ -221,7 +221,7 @@ export default {
       this.listardp();
     },
     async eliminardp(data = {}) {
-      const res = await axios.put("/detalle_producto/" + data.id, {});
+      const res = await axios.delete("/detalle_producto/" + data.id, data);
       this.listardp();
     },
     abrirModaldp(data = {}) {

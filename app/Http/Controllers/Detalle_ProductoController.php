@@ -15,30 +15,26 @@ class Detalle_ProductoController extends Controller
     public function store(Request $request)
     {
         $detalle_producto = new Detalle_Producto;
-        $detalle_producto->create([
-            'nombre_producto' => $request->nombre_producto,
-            'descripcion' => $request->descripcion,
-            'estado_activo' => $request->estado_activo
-        ]);
+        $detalle_producto->nombre_producto = $request->nombre_producto;
+        $detalle_producto->descripcion = $request->descripcion;
+        $detalle_producto->estado_activo = $request->estado_activo;
+        $detalle_producto->save();
     }
-    public function show($detalle_producto)
+    public function show(Detalle_Producto $detalle_producto)
     {
         return $detalle_producto;
     }
 
-    public function update(Request $request, $detalle_producto)
+    public function update(Request $request, Detalle_Producto $detalle_producto)
     {
-        $dp = Detalle_Producto::find($detalle_producto);
-        $dp->update($request->all());
-        return $dp;
+        $detalle_producto->nombre_producto = $request->nombre_producto;
+        $detalle_producto->descripcion = $request->descripcion;
+        $detalle_producto->estado_activo = $request->estado_activo;
+        $detalle_producto->save();
     }
 
-    public function destroy($detalle_producto)
+    public function destroy(Detalle_Producto $detalle_producto)
     {
-        $dp = Detalle_Producto::find($detalle_producto);
-        $dp->update([
-            'estado_activo' => '1'
-        ]);
-        return $dp;
+        $detalle_producto->delete();
     }
 }

@@ -215,7 +215,7 @@ export default {
       this.listarc();
     },
     async eliminarc(data = {}) {
-      const res = await axios.delete("/categoria/", this.categoria);
+      const res = await axios.delete("/categoria/" + data.id, data);
       this.listarc();
     },
     abrirModalc(data = {}) {

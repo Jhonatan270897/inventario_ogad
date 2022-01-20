@@ -15,11 +15,10 @@ class MarcaController extends Controller
     public function store(Request $request)
     {
         $marca = new Marca;
-        $marca->create([
-            'nombre_marca' => $request->nombre_marca,
-            'descripcion' => $request->descripcion,
-            'estado_activo' => $request->estado_activo
-        ]);
+        $marca->nombre_marca = $request->nombre_marca;
+        $marca->descripcion = $request->descripcion;
+        $marca->estado_activo = $request->estado_activo;
+        $marca->save();
     }
     public function show(Marca $marca)
     {
@@ -28,10 +27,13 @@ class MarcaController extends Controller
 
     public function update(Request $request, Marca $marca)
     {
-        $marca->update($request->all());
+        $marca->nombre_marca = $request->nombre_marca;
+        $marca->descripcion = $request->descripcion;
+        $marca->estado_activo = $request->estado_activo;
+        $marca->save();
     }
     public function destroy(Marca $marca)
     {
-        $marca->update($request->all());
+        $marca->delete();
     }
 }

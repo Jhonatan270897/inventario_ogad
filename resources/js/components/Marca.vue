@@ -215,7 +215,7 @@ export default {
       this.listarm();
     },
     async eliminarm(data = {}) {
-      const res = await axios.put("/marca/" + data.id, {});
+      const res = await axios.delete("/marca/" + data.id, data);
       this.listarm();
     },
     abrirModalm(data = {}) {
