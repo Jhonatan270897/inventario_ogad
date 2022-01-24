@@ -7,7 +7,7 @@
           <div class="card-header py-3">
             <div class="row align-items-center">
               <div class="col-12">
-                <h6 class="m-0 font-weight-bold text-primary">kardex.</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Almacen</h6>
               </div>
             </div>
           </div>

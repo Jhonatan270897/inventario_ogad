@@ -51,10 +51,9 @@ class ProductoController extends Controller
 
     public function update(Request $request, Producto $producto)
     {
-        $producto->nombre_producto = $request->nombre_producto;
         $producto->color = $request->color;
-        $producto->modelo = $request->modelo;
-        $producto->medida = $request->medida;
+        $producto->modelo = $request->strtoupper(modelo);
+        $producto->medida = $request->strtoupper(medida);
         $producto->estado_activo = $request->estado_activo;
         $producto->id_detalle_producto = $request->id_detalle_producto;
         $producto->id_categoria = $request->id_marca;

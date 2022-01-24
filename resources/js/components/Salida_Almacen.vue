@@ -266,7 +266,7 @@
           </div>
           <div class="modal-body">
             <div class="row">
-              <div class="col-10">
+              <div class="col-8">
                 <div class="form-group">
                   <label class="form-control-label"
                     >Productos<span class="is-required">*</span></label
@@ -295,199 +295,101 @@
                 </div>
               </div>
               <div class="col-2">
-                <br />
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  id="btn-nuevo-prod-temp"
-                  @click="registrarNuevoProd()"
+                <label> Cantidad </label>
+                <input
+                  class="form-control"
+                  id="idCantidadSalida"
+                  type="number"
+                  v-model="producto.cantidadProducto"
+                />
+              </div>
+              <div class="col-2">
+                <label> Unidad Medida </label>
+                <select
+                  class="form-control"
+                  required
+                  v-model="producto.unidadMedida"
                 >
-                  {{ nombreBtn }}
-                </button>
+                  <option value="">--Seleccionar--</option>
+                  <option
+                    v-for="um in lista_unidad_medida"
+                    :key="um.nombre_um"
+                    :value="um.nombre_um"
+                  >
+                    {{ um.nombre_um }}
+                  </option>
+                </select>
               </div>
             </div>
             <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label class="form-control-label"
-                    >Nombre producto<span class="is-required">*</span></label
-                  >
-                  <select
-                    class="form-control"
-                    v-model="producto.iddp"
-                    :disabled="isDisabled"
-                  >
-                    <option value="0">--Seleccionar--</option>
-                    <option
-                      v-for="detalle_producto in lista_detalle_producto"
-                      :key="detalle_producto.id"
-                      :value="detalle_producto.id"
-                    >
-                      {{ detalle_producto.nombre_producto }}
-                    </option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-md-2">
-                <div class="form-group">
-                  <label class="form-control-label"
-                    >Cantidad <span class="is-required">*</span></label
-                  >
-                  <br />
-                  <label> </label>
-                  <input
-                    class="form-control"
-                    id="idCantidadIngresoProducto"
-                    type="number"
-                    v-model="producto.cantidadProducto"
-                  />
-                </div>
-              </div>
-              <div class="col-md-2">
-                <div class="form-group">
-                  <label class="form-control-label"
-                    >Unidad Medida<span class="is-required">*</span></label
-                  >
-                  <select
-                    class="form-control"
-                    required
-                    v-model="producto.unidadMedida"
-                  >
-                    <option value="">--Seleccionar--</option>
-                    <option
-                      v-for="um in lista_unidad_medida"
-                      :key="um.nombre_um"
-                      :value="um.nombre_um"
-                    >
-                      {{ um.nombre_um }}
-                    </option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-md-2">
-                <div class="form-group">
-                  <label class="form-control-label"
-                    >Cantidad Unitaria<span class="is-required">*</span></label
-                  >
-                  <input
-                    class="form-control"
-                    id="idCantidadUnitariaproducto"
-                    type="number"
-                    v-model="producto.cantidadUnitaria"
-                  />
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-4">
-                <div class="form-group">
-                  <label class="form-control-label"
-                    >Categoría<span class="is-required">*</span></label
-                  >
-                  <select
-                    class="form-control"
-                    required
-                    v-model="producto.idc"
-                    :disabled="isDisabled"
-                  >
-                    <option value="0">--Seleccionar--</option>
-                    <option
-                      v-for="categoria in lista_categoria"
-                      :key="categoria.id"
-                      :value="categoria.id"
-                    >
-                      {{ categoria.nombre_categoria }}
-                    </option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="form-group">
-                  <label class="form-control-label"
-                    >Marca<span class="is-required">*</span></label
-                  >
-                  <select
-                    class="form-control"
-                    required
-                    v-model="producto.idm"
-                    :disabled="isDisabled"
-                  >
-                    <option value="0">--Seleccionar--</option>
-                    <option
-                      v-for="marca in lista_marca"
-                      :key="marca.id"
-                      :value="marca.id"
-                    >
-                      {{ marca.nombre_marca }}
-                    </option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="form-group">
-                  <label class="form-control-label">Color</label>
-                  <select
-                    class="form-control"
-                    required
-                    v-model="producto.color"
-                    :disabled="isDisabled"
-                  >
-                    <option value="">--Seleccionar--</option>
-                    <option
-                      v-for="color in lista_color"
-                      :key="color.nombre_color"
-                      :value="color.nombre_color"
-                    >
-                      {{ color.nombre_color }}
-                    </option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-4">
-                <div class="form-group">
-                  <label class="form-control-label">Modelo</label>
-                  <input
-                    class="form-control"
-                    id="idModeloProducto"
-                    type="text"
-                    v-model="producto.modelo"
-                    :disabled="isDisabled"
-                  />
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="form-group">
-                  <label class="form-control-label">Medida</label>
-                  <input
-                    class="form-control"
-                    id="idMedidaProducto"
-                    type="text"
-                    v-model="producto.medida"
-                    :disabled="isDisabled"
-                  />
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="form-group">
-                  <label class="form-control-label"
-                    >Estado de Conservacion</label
-                  >
-                  <select
-                    class="form-control"
-                    required
-                    v-model="producto.estado_conservacion"
-                  >
-                    <option value="">--Seleccionar--</option>
-                    <option
-                      v-for="ec in lista_ec"
-                      :key="ec.nombre_ec"
-                      :value="ec.nombre_ec"
-                    >
-                      {{ ec.nombre_ec }}
-                    </option>
-                  </select>
+              <div class="col-12">
+                <div class="card shadow mb-4">
+                  <div class="card-header py-3">
+                    <div class="row align-items-center">
+                      <div class="col-12">
+                        <h6 class="m-0 font-weight-bold text-primary">
+                          Lista de productos de salida
+                        </h6>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table
+                        class="table table-bordered"
+                        id="datatabale_salida"
+                        width="100%"
+                        cellspacing="0"
+                      >
+                        <thead>
+                          <tr>
+                            <th>Detalle General</th>
+                            <th>Categoria</th>
+                            <th>Cantidad</th>
+                            <th>Medida</th>
+                            <th>Denominacion/Marca/Modelo/Medida/Color</th>
+                            <th style="width: 5%">Opciones</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr
+                            v-for="entrada in lista_detalle_salida"
+                            :key="entrada.id"
+                          >
+                            <td>{{ entrada.d_entrada }}</td>
+                            <td>{{ entrada.nombre_categoria }}</td>
+                            <td>{{ entrada.cantidad_unidad }}</td>
+                            <td>
+                              {{ entrada.tipo_unidad }} DE
+                              {{ entrada.valor_unidad }} UNIDADES
+                            </td>
+                            <td>
+                              {{ entrada.nombre_producto }}/{{
+                                entrada.nombre_marca
+                              }}/{{ entrada.modelo }}/{{ entrada.medida }}/{{
+                                entrada.color
+                              }}
+                            </td>
+                            <td>
+                              <button
+                                type="button"
+                                class="btn btn-warning btn-circle btn-sm"
+                              >
+                                <i class="fas fa-pencil-alt"></i>
+                              </button>
+                              <button
+                                type="button"
+                                @click="eliminarde(entrada)"
+                                class="btn btn-danger btn-circle btn-sm"
+                              >
+                                <i class="fas fa-trash-alt"></i>
+                              </button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -531,32 +433,10 @@ export default {
       lista_producto: {},
       lista_categoria: {},
       lista_marca: {},
-      lista_ec: [{ nombre_ec: "ABIERTO" }, { nombre_ec: "SELLADO" }],
       lista_unidad_medida: [
         { nombre_um: "UNIDAD" },
         { nombre_um: "CAJA" },
         { nombre_um: "PAQUETE" },
-      ],
-      lista_color: [
-        { nombre_color: "AZUL" },
-        { nombre_color: "ROJO" },
-        { nombre_color: "MULTICOLOR" },
-        { nombre_color: "BLANCO" },
-        { nombre_color: "ROSADO" },
-        { nombre_color: "AMARILLO" },
-        { nombre_color: "VERDE" },
-        { nombre_color: "CELESTE" },
-        { nombre_color: "MELON" },
-        { nombre_color: "NARANJA" },
-        { nombre_color: "CREMA" },
-        { nombre_color: "NEGRO" },
-        { nombre_color: "CIAN" },
-        { nombre_color: "MAGENTA" },
-        { nombre_color: "PLOMO" },
-        { nombre_color: "PLATEADO" },
-        { nombre_color: "TRANSPARENTE" },
-        { nombre_color: "CRISTALINA" },
-        { nombre_color: "MARRON" },
       ],
       /*Lista de creacion de tablas */
       lista_guardar_producto: [],
@@ -598,6 +478,7 @@ export default {
   },
   methods: {
     /*Crud*/
+
     async listars() {
       const res = await axios.get("/salida");
       this.lista_detalle_salida = res.data;

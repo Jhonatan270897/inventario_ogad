@@ -59,17 +59,7 @@
                   Productos a ingresar
                 </h6>
               </div>
-              <div class="col-4 text-right">
-                <button
-                  type="button"
-                  id="btn-limpiar-prod"
-                  class="btn btn-sm btn-primary"
-                  @click="reset_insertGeneral()"
-                >
-                  Limpiar
-                </button>
-              </div>
-              <div class="col-4 text-right">
+              <div class="col-8 text-right">
                 <button
                   type="button"
                   id="btn-modal-producto"
@@ -96,10 +86,10 @@
                   <tr>
                     <th>Categoria</th>
                     <th>Cantidad</th>
-                    <th>Medida</th>
+                    <th>Tipo Unidad</th>
                     <th>Denominacion</th>
                     <th>Marca</th>
-                    <th>Modelo/Marca</th>
+                    <th>Modelo/Medida</th>
                     <th>Color</th>
                     <th>Estado Conservación</th>
                     <th>Opciones</th>
@@ -307,6 +297,7 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
+                  <br />
                   <label class="form-control-label"
                     >Nombre producto<span class="is-required">*</span></label
                   >
@@ -603,14 +594,18 @@ export default {
     },
     async guardarde() {
       if (this.lista_guardar_producto.length !== 0) {
-        const res1 = await axios.post("/ent", this.entrada);   
-        for(let index=0;index<this.lista_guardar_producto.length;index++){
+        const res1 = await axios.post("/ent", this.entrada);
+        for (
+          let index = 0;
+          index < this.lista_guardar_producto.length;
+          index++
+        ) {
           if (this.lista_guardar_producto[index].idp == 0) {
             const res2 = await axios.post(
               "/producto",
               this.lista_guardar_producto[index]
             );
-            console.log('devuelve id'+res2.data);
+            console.log("devuelve id" + res2.data);
             this.lista_guardar_producto[index].idp = res2.data;
           }
           this.lista_guardar_producto[index].idea = res1.data;
@@ -619,7 +614,7 @@ export default {
             this.lista_guardar_producto[index]
           );
           /*Ingresar detalle_producto*/
-        };
+        }
         this.reset_insertGeneral();
       } else {
         window.alert("Vacioooooo");

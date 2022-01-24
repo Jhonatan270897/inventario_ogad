@@ -16,7 +16,7 @@ class Detalles_EntradaController extends Controller
             ->join('productos', 'productos.id', '=', 'detalles_entradas.id_producto')
             ->join('detalle_productos', 'detalle_productos.id', '=', 'productos.id_detalle_producto')
             ->join('marcas', 'marcas.id', '=', 'productos.id_marca')
-            ->join('categorias', 'categorias.id', '=', 'productos.id_marca')
+            ->join('categorias', 'categorias.id', '=', 'productos.id_categoria')
             ->select(
                 'detalles_entradas.id AS idde',
                 'entrada_almacens.ruta',
@@ -43,7 +43,7 @@ class Detalles_EntradaController extends Controller
     {
         $detalles_entrada = new Detalles_Entrada();
         $detalles_entrada->tipo_unidad = $request->unidadMedida;
-        $detalles_entrada->valor_unidad = $request->cantidadProducto;
+        $detalles_entrada->valor_unidad = $request->cantidadUnitaria;
         $detalles_entrada->cantidad_unidad = $request->cantidadProducto;
         $detalles_entrada->estado_conservacion = $request->estado_conservacion;
         $detalles_entrada->estado_activo = "0";

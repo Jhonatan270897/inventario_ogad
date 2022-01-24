@@ -18,16 +18,21 @@ class Salida_AlmacenController extends Controller
         $salida_almacen->create($request->all());
     }
 
-    public function show(Salida_Almacen $salida_almacen)
+    public function show($salida_almacen)
     {
         return $salida_almacen;
     }
-    public function update(Request $request, Salida_Almacen $salida_almacen)
+    public function update(Request $request, $salida_almacen)
     {
-        $salida_almacen->update($request->all());
+        $salida_almacen = Salida_Almacen::find($salida_almacen);
+        $salida_almacen->detalles = $request->tipo_unidad;
+        $salida_almacen->ruta = $request->valor_unidad;
+        $salida_almacen->estado_activo = $request->estado_activo;
+        $salida_almacen->id_usuario = Auth::id();
+        $salida_almacen->save();
     }
 
-    public function destroy(Salida_Almacen $salida_almacen)
+    public function destroy($salida_almacen)
     {
         //
     }

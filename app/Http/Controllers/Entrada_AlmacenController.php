@@ -16,7 +16,7 @@ class Entrada_AlmacenController extends Controller
     public function store(Request $request)
     {
         $entrada_almacen = new Entrada_Almacen();
-        $entrada_almacen->detalles = $request->detalles;
+        $entrada_almacen->detalles = strtoupper($request->detalles);
         $entrada_almacen->ruta = $request->ruta;
         $entrada_almacen->estado_activo = "0";
         $entrada_almacen->id_usuario = Auth::id();
@@ -31,8 +31,8 @@ class Entrada_AlmacenController extends Controller
     public function update(Request $request, $entrada_almacen)
     {
         $entrada_almacen = Entrada_Almacen::find($entrada_almacen);
-        $entrada_almacen->detalles = $request->tipo_unidad;
-        $entrada_almacen->ruta = $request->valor_unidad;
+        $entrada_almacen->detalles = strtoupper($request->detalles);
+        $entrada_almacen->ruta = $request->ruta;
         $entrada_almacen->estado_activo = $request->estado_activo;
         $entrada_almacen->id_usuario = Auth::id();
         $entrada_almacen->save();
