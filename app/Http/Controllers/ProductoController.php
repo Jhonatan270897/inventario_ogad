@@ -34,15 +34,15 @@ class ProductoController extends Controller
     public function store(Request $request)
     {
         $producto = new Producto();
-        $producto->nombre_producto = $request->nombre_producto;
         $producto->color = $request->color;
         $producto->modelo = $request->modelo;
         $producto->medida = $request->medida;
-        $producto->estado_activo = $request->estado_activo;
-        $producto->id_detalle_producto = $request->id_detalle_producto;
-        $producto->id_categoria = $request->id_marca;
-        $producto->id_marca = $request->id_marca;
+        $producto->estado_activo = "0";
+        $producto->id_detalle_producto = $request->iddp;
+        $producto->id_categoria = $request->idc;
+        $producto->id_marca = $request->idm;
         $producto->save();
+        return $producto->id;
     }
     public function show(Producto $producto)
     {

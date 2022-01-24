@@ -2,13 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Entrada_Almacen extends Model
 {
     public $table = "entrada_almacens";
-    use HasFactory;
 
     protected $fillable = [
         'detalles',

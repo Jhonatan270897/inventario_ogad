@@ -8,16 +8,38 @@ use App\Models\Stock;
 class StockController extends Controller
 {
 
+
     public function index()
     {
-        $stock = Stock
-            ::join('productos', 'productos.id', '=', 'stocks.id_producto')
+        $stock = new Stock();
+        return $stock::join('detalles_entradas', 'detalles_entradas.id', '=', 'stocks.detalles_entrada')
+            ->join('entrada_almacens', 'entrada_almacens.id', '=', 'detalles_entradas.id_entrada_almacen')
+            ->join('users', 'users.id', '=', 'entrada_almacens.id_usuario')
+            ->join('productos', 'productos.id', '=', 'detalles_entradas.id_producto')
+            ->join('detalle_productos', 'detalle_productos.id', '=', 'productos.id_detalle_producto')
             ->join('marcas', 'marcas.id', '=', 'productos.id_marca')
             ->join('categorias', 'categorias.id', '=', 'productos.id_categoria')
-            ->select('*')
-            ->where("productos.estado_activo", "=", "0")
+            ->select(
+                'stocks.id AS ids',
+                'detalles_entradas.id AS idde',
+                'entrada_almacens.ruta',
+                'categorias.nombre_categoria',
+                'detalles_entradas.tipo_unidad',
+                'detalles_entradas.valor_unidad',
+                'stocks.cantidad_total',
+                'detalle_productos.nombre_producto',
+                'marcas.nombre_marca',
+                'productos.modelo',
+                'productos.medida',
+                'productos.color',
+                'detalles_entradas.created_at',
+                'entrada_almacens.detalles as d_entrada',
+                'stocks.estado_conservacion',
+                'users.name'
+            )
+            ->where('detalles_entradas.estado_activo', '=', '0')
+            ->orderBy('detalles_entradas.created_at', 'DESC')
             ->get();
-        return $stock;
     }
 
     public function store(Request $request)

@@ -6,8 +6,22 @@
         <div class="card shadow mb-4">
           <div class="card-header py-3">
             <div class="row align-items-center">
-              <div class="col-12">
-                <h6 class="m-0 font-weight-bold text-primary">Generalidades</h6>
+              <div class="col-6">
+                <h6 class="m-0 font-weight-bold text-primary">
+                  Generalidades de entrada
+                </h6>
+              </div>
+              <div class="col-6 text-right">
+                <button
+                  type="button"
+                  class="btn btn-sm btn-primary"
+                  @click="
+                    modificarde = false;
+                    guardarde();
+                  "
+                >
+                  Guardar
+                </button>
               </div>
             </div>
           </div>
@@ -20,6 +34,7 @@
                     type="textarea"
                     class="form-control bg-light border-0 small"
                     placeholder="Detalles"
+                    v-model="entrada.detalles"
                   />
                 </form>
               </div>
@@ -31,11 +46,6 @@
                   Subir PDF
                 </button>
               </div>
-              <div class="col-6 text-right">
-                <button type="button" class="btn btn-sm btn-primary">
-                  Guardar
-                </button>
-              </div>
             </div>
           </div>
         </div>
@@ -44,10 +54,20 @@
         <div class="card shadow mb-4">
           <div class="card-header py-3">
             <div class="row align-items-center">
-              <div class="col-8">
+              <div class="col-4">
                 <h6 class="m-0 font-weight-bold text-primary">
                   Productos a ingresar
                 </h6>
+              </div>
+              <div class="col-4 text-right">
+                <button
+                  type="button"
+                  id="btn-limpiar-prod"
+                  class="btn btn-sm btn-primary"
+                  @click="reset_insertGeneral()"
+                >
+                  Limpiar
+                </button>
               </div>
               <div class="col-4 text-right">
                 <button
@@ -56,10 +76,10 @@
                   class="btn btn-sm btn-primary"
                   @click="
                     modificardp = false;
-                    abrirModalp(producto);
+                    abrirModalp();
                   "
                 >
-                  Agregar
+                  Agregar a la lista
                 </button>
               </div>
             </div>
@@ -309,6 +329,21 @@
               <div class="col-md-2">
                 <div class="form-group">
                   <label class="form-control-label"
+                    >Cantidad <span class="is-required">*</span></label
+                  >
+                  <br />
+                  <label> </label>
+                  <input
+                    class="form-control"
+                    id="idCantidadIngresoProducto"
+                    type="number"
+                    v-model="producto.cantidadProducto"
+                  />
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="form-group">
+                  <label class="form-control-label"
                     >Unidad Medida<span class="is-required">*</span></label
                   >
                   <select
@@ -335,23 +370,8 @@
                   <input
                     class="form-control"
                     id="idCantidadUnitariaproducto"
-                    type="text"
+                    type="number"
                     v-model="producto.cantidadUnitaria"
-                  />
-                </div>
-              </div>
-              <div class="col-md-2">
-                <div class="form-group">
-                  <label class="form-control-label"
-                    >Cantidad <span class="is-required">*</span></label
-                  >
-                  <br />
-                  <label> </label>
-                  <input
-                    class="form-control"
-                    id="idCantidadIngresoProducto"
-                    type="text"
-                    v-model="producto.cantidadProducto"
                   />
                 </div>
               </div>
@@ -403,9 +423,7 @@
               </div>
               <div class="col-md-4">
                 <div class="form-group">
-                  <label class="form-control-label"
-                    >Color<span class="is-required">*</span></label
-                  >
+                  <label class="form-control-label">Color</label>
                   <select
                     class="form-control"
                     required
@@ -512,7 +530,7 @@ export default {
       lista_producto: {},
       lista_categoria: {},
       lista_marca: {},
-      lista_ec: [{ nombre_ec: "SELLADO" }],
+      lista_ec: [{ nombre_ec: "ABIERTO" }, { nombre_ec: "SELLADO" }],
       lista_unidad_medida: [
         { nombre_um: "UNIDAD" },
         { nombre_um: "CAJA" },
@@ -559,6 +577,8 @@ export default {
       },
       entrada: {
         idde: 0,
+        idea: 0,
+        idp: 0,
         ruta: "",
         nombre_categoria: "",
         tipo_unidad: "",
@@ -569,8 +589,7 @@ export default {
         modelo: "",
         medida: "",
         color: "",
-        created_at: "",
-        d_entrada: "",
+        detalles: "",
         estado_conservacion: "",
         name: "",
       },
@@ -583,17 +602,30 @@ export default {
       this.lista_detalle_entrada = res.data;
     },
     async guardarde() {
-      if (this.modificarde) {
-        const res = await axios.put(
-          "/entrada/" + this.id,
-          this.detalle_producto
-        );
+      if (this.lista_guardar_producto.length !== 0) {
+        const res1 = await axios.post("/ent", this.entrada);   
+        for(let index=0;index<this.lista_guardar_producto.length;index++){
+          if (this.lista_guardar_producto[index].idp == 0) {
+            const res2 = await axios.post(
+              "/producto",
+              this.lista_guardar_producto[index]
+            );
+            console.log('devuelve id'+res2.data);
+            this.lista_guardar_producto[index].idp = res2.data;
+          }
+          this.lista_guardar_producto[index].idea = res1.data;
+          const res3 = await axios.post(
+            "/entrada",
+            this.lista_guardar_producto[index]
+          );
+          /*Ingresar detalle_producto*/
+        };
+        this.reset_insertGeneral();
       } else {
-        const res = await axios.post("/entrada", this.entrada);
+        window.alert("Vacioooooo");
       }
-      this.cerrarModaldp();
-      this.listardp();
     },
+
     registrarNuevoProd() {
       if (this.isDisabled) {
         this.isDisabled = false;
@@ -607,25 +639,38 @@ export default {
       }
     },
     agregarProducto() {
-      window.alert(
-        typeof this.producto.idtemp + " /" + Number(this.producto.idtemp)
-      );
-      this.lista_guardar_producto.push({
-        idc: this.producto.idc,
-        idp: this.producto.idp,
-        idm: this.producto.idm,
-        iddp: this.producto.iddp,
-        modelo: this.producto.modelo,
-        color: this.producto.color,
-        medida: this.producto.medida,
-        estado_conservacion: this.producto.estado_conservacion,
-        idtemp: this.idtemp,
-        unidadMedida: this.producto.unidadMedida,
-        cantidadUnitaria: this.producto.cantidadUnitaria,
-        cantidadProducto: this.producto.cantidadProducto,
-      });
-      this.producto.idtemp = Number(this.producto.idtemp) + 1;
-      this.cerrarModalp();
+      if (
+        this.producto.iddp == 0 ||
+        this.producto.idc == 0 ||
+        this.producto.idm == 0 ||
+        this.producto.cantidadProducto == 0 ||
+        this.producto.cantidadUnitaria == 0 ||
+        this.producto.unidadMedida == ""
+      ) {
+        console.log("Respuesta rellenar datos necesarios");
+      } else {
+        this.lista_guardar_producto.push({
+          idea: 0,
+          idc: this.producto.idc,
+          idp: this.producto.idp,
+          idm: this.producto.idm,
+          iddp: this.producto.iddp,
+          modelo: this.producto.modelo,
+          color: this.producto.color,
+          medida: this.producto.medida,
+          estado_conservacion: this.producto.estado_conservacion,
+          idtemp: this.idtemp,
+          unidadMedida: this.producto.unidadMedida,
+          cantidadUnitaria: this.producto.cantidadUnitaria,
+          cantidadProducto: this.producto.cantidadProducto,
+        });
+        this.producto.idtemp = Number(this.producto.idtemp) + 1;
+        this.cerrarModalp();
+      }
+    },
+    async eliminarde(data) {
+      const res = await axios.delete("/entrada/" + data.idde, data);
+      this.listarde();
     },
     eliminarProducto(arry = [], id) {
       arry.forEach(function (currentValue, index, arr) {
@@ -665,6 +710,12 @@ export default {
       this.producto.estado_conservacion = "";
       this.producto.cantidadUnitaria = 0;
       this.producto.cantidadProducto = 0;
+    },
+    reset_insertGeneral() {
+      this.entrada.ruta = "";
+      this.entrada.detalles = "";
+      this.lista_guardar_producto = [];
+      this.listarde();
     },
     reset_entrada() {
       this.entrada = {
@@ -752,6 +803,9 @@ export default {
   display: list-item;
   opacity: 1;
   background: rgba(37, 37, 39, 0.847);
+}
+input {
+  text-transform: uppercase;
 }
 </style>
 
