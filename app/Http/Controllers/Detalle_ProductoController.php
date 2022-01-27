@@ -15,8 +15,8 @@ class Detalle_ProductoController extends Controller
     public function store(Request $request)
     {
         $detalle_producto = new Detalle_Producto;
-        $detalle_producto->nombre_producto = strtoupper($request->nombre_producto);
-        $detalle_producto->descripcion = strtoupper($request->descripcion);
+        $detalle_producto->nombre_producto = trim($request->nombre_producto);
+        $detalle_producto->descripcion = trim($request->descripcion);
         $detalle_producto->estado_activo = $request->estado_activo;
         $detalle_producto->save();
     }
@@ -27,8 +27,8 @@ class Detalle_ProductoController extends Controller
 
     public function update(Request $request, Detalle_Producto $detalle_producto)
     {
-        $detalle_producto->nombre_producto = strtoupper($request->nombre_producto);
-        $detalle_producto->descripcion = strtoupper($request->descripcion);
+        $detalle_producto->nombre_producto = trim($request->nombre_producto);
+        $detalle_producto->descripcion = trim($request->descripcion);
         $detalle_producto->estado_activo = $request->estado_activo;
         $detalle_producto->save();
     }

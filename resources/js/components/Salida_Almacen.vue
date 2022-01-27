@@ -2,7 +2,7 @@
   <div>
     <!--Contenido pagina salida -->
     <div class="row">
-      <div class="col-4">
+      <div class="col-3">
         <div class="card shadow mb-4">
           <div class="card-header py-3">
             <div class="row align-items-center">
@@ -15,10 +15,7 @@
                 <button
                   type="button"
                   class="btn btn-sm btn-primary"
-                  @click="
-                    modificarde = false;
-                    guardarde();
-                  "
+                  @click="guardarSa"
                 >
                   Guardar
                 </button>
@@ -34,21 +31,18 @@
                     type="textarea"
                     class="form-control bg-light border-0 small"
                     placeholder="Detalles"
-                    v-model="entrada.detalles"
+                    v-model="stock.detalle"
                   />
                   <label>Persona</label>
-                  <select
-                    class="form-control"
-                    required
-                    v-model="producto.unidadMedida"
-                  >
+                  <select v-model="stock.idp" class="form-control" required>
                     <option value="">--Seleccionar--</option>
                     <option
-                      v-for="um in lista_unidad_medida"
-                      :key="um.nombre_um"
-                      :value="um.nombre_um"
+                      v-for="lp in lista_persona"
+                      :key="lp.id"
+                      :value="lp.id"
                     >
-                      {{ um.nombre_um }}
+                      {{ lp.nombre_persona }} {{ lp.a_paterno }}
+                      {{ lp.a_materno }}
                     </option>
                   </select>
                 </form>
@@ -65,7 +59,7 @@
           </div>
         </div>
       </div>
-      <div class="col-8">
+      <div class="col-9">
         <div class="card shadow mb-4">
           <div class="card-header py-3">
             <div class="row align-items-center">
@@ -100,14 +94,12 @@
                 <thead>
                   <tr>
                     <th>Categoria</th>
-                    <th>Cantidad</th>
-                    <th>Medida</th>
+                    <th>Cantidad Total</th>
+                    <th>Cantidad a Sacar</th>
                     <th>Denominacion</th>
-                    <th>Marca</th>
-                    <th>Modelo/Marca</th>
-                    <th>Color</th>
-                    <th>Estado Conservación</th>
-                    <th>Opciones</th>
+                    <th>Marca/Modelo/Marca/Color</th>
+                    <th>Estado Salida</th>
+                    <th>-</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -116,22 +108,24 @@
                     :key="ptemp.idtemp"
                   >
                     <td>
-                      {{ mostrarNombre(lista_categoria, "c", ptemp.idc) }}
-                    </td>
-                    <td>{{ ptemp.cantidadProducto }}</td>
-                    <td>
-                      {{ ptemp.unidadMedida }} DE
-                      {{ ptemp.cantidadUnitaria }} UNIDADES
+                      {{ ptemp.nombre_categoria }}
                     </td>
                     <td>
-                      {{
-                        mostrarNombre(lista_detalle_producto, "p", ptemp.iddp)
-                      }}
+                      {{ ptemp.cantidad_total }} {{ ptemp.tipo_unidad }} DE
+                      {{ ptemp.valor_unidad }}
                     </td>
-                    <td>{{ mostrarNombre(lista_marca, "m", ptemp.idm) }}</td>
-                    <td>{{ ptemp.modelo }}/{{ ptemp.medida }}</td>
-                    <td>{{ ptemp.color }}</td>
-                    <td>{{ ptemp.estado_conservacion }}</td>
+                    <td>
+                      {{ ptemp.cantidad_salida }} {{ ptemp.tipo_unidad_salida }}
+                    </td>
+                    <td>
+                      {{ ptemp.nombre_producto }}
+                    </td>
+                    <td>
+                      {{ ptemp.nombre_marca }}/{{ ptemp.modelo }}/{{
+                        ptemp.medida
+                      }}/{{ ptemp.color }}
+                    </td>
+                    <td>{{ ptemp.estado_conservacion_salida }}</td>
                     <td>
                       <!--<button
                         type="button"
@@ -183,7 +177,6 @@
               >
                 <thead>
                   <tr>
-                    <th>Detalle General</th>
                     <th>Categoria</th>
                     <th>Cantidad</th>
                     <th>Medida</th>
@@ -198,27 +191,25 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="entrada in lista_detalle_salida" :key="entrada.id">
-                    <td>{{ entrada.d_entrada }}</td>
-                    <td>{{ entrada.nombre_categoria }}</td>
-                    <td>{{ entrada.cantidad_unidad }}</td>
+                  <tr v-for="lds in lista_detalles_salida" :key="lds.id">
+                    <td>{{ lds.nombre_categoria }}</td>
+                    <td>{{ lds.cantidad_salida }}</td>
                     <td>
-                      {{ entrada.tipo_unidad }} DE
-                      {{ entrada.valor_unidad }} UNIDADES
+                      {{ lds.tipo_unidad }}
                     </td>
-                    <td>{{ entrada.nombre_producto }}</td>
-                    <td>{{ entrada.nombre_marca }}</td>
-                    <td>{{ entrada.modelo }}/{{ entrada.medida }}</td>
-                    <td>{{ entrada.color }}</td>
-                    <td>{{ entrada.created_at }}</td>
-                    <td>{{ entrada.estado_conservacion }}</td>
-                    <td>{{ entrada.name }}</td>
+                    <td>{{ lds.nombre_producto }}</td>
+                    <td>{{ lds.nombre_marca }}</td>
+                    <td>{{ lds.modelo }}/{{ lds.medida }}</td>
+                    <td>{{ lds.color }}</td>
+                    <td>{{ lds.created_at }}</td>
+                    <td>{{ lds.estado_conservacion }}</td>
+                    <td>{{ lds.name }}</td>
                     <td>
                       <button
                         type="button"
                         @click="
                           modificarde = true;
-                          abrirModalde(entrada);
+                          abrirModalde(salida);
                         "
                         class="btn btn-warning btn-circle btn-sm"
                       >
@@ -226,7 +217,6 @@
                       </button>
                       <button
                         type="button"
-                        @click="eliminarde(entrada)"
                         class="btn btn-danger btn-circle btn-sm"
                       >
                         <i class="fas fa-trash-alt"></i>
@@ -249,11 +239,20 @@
       aria-hidden="true"
       :class="{ mostrar: modalp }"
     >
-      <div class="modal-dialog modal-lg" role="document">
+      <div
+        class="modal-dialog modal-xl"
+        style="
+          overflow-y: scroll;
+          max-height: 85%;
+          margin-top: 50px;
+          margin-bottom: 50px;
+        "
+        role="document"
+      >
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="modal-title-notification">
-              {{ opcion_producto }} Producto
+              Agregar Producto
             </h5>
             <button
               type="button"
@@ -266,59 +265,93 @@
           </div>
           <div class="modal-body">
             <div class="row">
-              <div class="col-8">
+              <br />
+              <div class="col-6">
                 <div class="form-group">
-                  <label class="form-control-label"
-                    >Productos<span class="is-required">*</span></label
-                  >
-                  <select
+                  <label class="form-control-label">Productos</label>
+                  <input
                     class="form-control"
-                    required
-                    v-model="cbxproduc"
-                    @change="rellenarDatosProducto(cbxproduc)"
-                    :disabled="!isDisabled"
-                  >
-                    <option value="0">--Seleccionar--</option>
-                    <option
-                      v-for="prod in lista_producto"
-                      :key="prod.idp"
-                      :value="prod"
-                    >
-                      <div v-if="prod.estado_activo == 0">
-                        {{ prod.nombre_categoria }}/ {{ prod.nombre_producto }}/
-                        {{ prod.nombre_marca }}/ {{ prod.color }}/
-                        {{ prod.modelo }}/
-                        {{ prod.medida }}
-                      </div>
-                    </option>
-                  </select>
+                    id="idNombreProducto"
+                    type="text"
+                    :value="stock.nombre_producto"
+                    :disabled="true"
+                  />
                 </div>
               </div>
+              <br />
               <div class="col-2">
                 <label> Cantidad </label>
                 <input
                   class="form-control"
-                  id="idCantidadSalida"
+                  id="IdCantidadSalida"
                   type="number"
-                  v-model="producto.cantidadProducto"
+                  v-model="stock.cantidad_salida"
                 />
               </div>
               <div class="col-2">
-                <label> Unidad Medida </label>
+                <label> U/Medida </label>
                 <select
+                  v-model="stock.tipo_unidad_salida"
                   class="form-control"
                   required
-                  v-model="producto.unidadMedida"
                 >
                   <option value="">--Seleccionar--</option>
-                  <option
-                    v-for="um in lista_unidad_medida"
-                    :key="um.nombre_um"
-                    :value="um.nombre_um"
-                  >
+                  <option v-for="um in lista_unidad_medida" :key="um.nombre_um">
                     {{ um.nombre_um }}
                   </option>
                 </select>
+              </div>
+              <div class="col-2">
+                <label> Estado Salida </label>
+                <select
+                  v-model="stock.estado_conservacion_salida"
+                  class="form-control"
+                  required
+                >
+                  <option value="">--Seleccionar--</option>
+                  <option v-for="ec in lista_ec" :key="ec.nombre_ec">
+                    {{ ec.nombre_ec }}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <label class="form-control-label"
+                  >Marca/Modelo/Medida/Color</label
+                >
+                <input
+                  class="form-control"
+                  id="idModeloMarcaColor"
+                  type="text"
+                  :value="
+                    stock.nombre_marca +
+                    '/' +
+                    stock.modelo +
+                    '/' +
+                    stock.medida +
+                    '/' +
+                    stock.color
+                  "
+                  :disabled="true"
+                />
+              </div>
+              <div class="col-6">
+                <label class="form-control-label">Stock</label>
+                <input
+                  class="form-control"
+                  id="inputStock"
+                  type="text"
+                  :value="
+                    stock.cantidad_total +
+                    ' ' +
+                    stock.tipo_unidad +
+                    ' de ' +
+                    stock.valor_unidad +
+                    ' unidades'
+                  "
+                  :disabled="true"
+                />
               </div>
             </div>
             <div class="row">
@@ -328,7 +361,7 @@
                     <div class="row align-items-center">
                       <div class="col-12">
                         <h6 class="m-0 font-weight-bold text-primary">
-                          Lista de productos de salida
+                          Lista de productos en stock
                         </h6>
                       </div>
                     </div>
@@ -352,37 +385,28 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr
-                            v-for="entrada in lista_detalle_salida"
-                            :key="entrada.id"
-                          >
-                            <td>{{ entrada.d_entrada }}</td>
-                            <td>{{ entrada.nombre_categoria }}</td>
-                            <td>{{ entrada.cantidad_unidad }}</td>
+                          <tr v-for="stk in lista_stock" :key="stk.id">
+                            <td>{{ stk.d_entrada }}</td>
+                            <td>{{ stk.nombre_categoria }}</td>
+                            <td>{{ stk.cantidad_total }}</td>
                             <td>
-                              {{ entrada.tipo_unidad }} DE
-                              {{ entrada.valor_unidad }} UNIDADES
+                              {{ stk.tipo_unidad }} DE
+                              {{ stk.valor_unidad }}
                             </td>
                             <td>
-                              {{ entrada.nombre_producto }}/{{
-                                entrada.nombre_marca
-                              }}/{{ entrada.modelo }}/{{ entrada.medida }}/{{
-                                entrada.color
+                              {{ stk.nombre_producto }}/{{
+                                stk.nombre_marca
+                              }}/{{ stk.modelo }}/{{ stk.medida }}/{{
+                                stk.color
                               }}
                             </td>
                             <td>
                               <button
-                                type="button"
-                                class="btn btn-warning btn-circle btn-sm"
+                                type="button btn-success btn-circlton"
+                                @click="rellenarDatosProducto(stk)"
+                                class="btn e btn-sm"
                               >
-                                <i class="fas fa-pencil-alt"></i>
-                              </button>
-                              <button
-                                type="button"
-                                @click="eliminarde(entrada)"
-                                class="btn btn-danger btn-circle btn-sm"
-                              >
-                                <i class="fas fa-trash-alt"></i>
+                                <i class="fas fa-plus-square"></i>
                               </button>
                             </td>
                           </tr>
@@ -417,137 +441,112 @@
 export default {
   data: function () {
     return {
-      isDisabled: true,
-      nombreBtn: "Editar",
       idtemp: 0,
-      idp: 0,
-      idde: 0,
-      modificars: false,
       modalde: 0,
       modalp: 0,
-      opcion_producto: "",
-      opcion_stock: "",
-      /*Listas cbx */
-      cbxproduc: {},
-      lista_salida: {},
-      lista_producto: {},
-      lista_categoria: {},
-      lista_marca: {},
+      lista_stock: [],
+      lista_ec: [{ nombre_ec: "ABIERTO" }, { nombre_ec: "SELLADO" }],
       lista_unidad_medida: [
-        { nombre_um: "UNIDAD" },
-        { nombre_um: "CAJA" },
-        { nombre_um: "PAQUETE" },
+        { nombre_um: "UNIDADES" },
+        { nombre_um: "CAJAS" },
+        { nombre_um: "PAQUETES" },
       ],
       /*Lista de creacion de tablas */
       lista_guardar_producto: [],
-      lista_detalle_salida: [],
       /*Datos de formularios */
-      producto: {
-        idc: 0,
+      lista_detalles_salida: [],
+      stock: {
+        ids: 0,
         idp: 0,
-        idm: 0,
-        iddp: 0,
-        unidadMedida: "",
-        cantidadUnitaria: 0,
-        cantidadProducto: 0,
-        modelo: "",
-        color: "",
-        medida: "",
-        estado_conservacion: "",
-        idtemp: 1,
-      },
-      entrada: {
-        idde: 0,
-        idea: 0,
-        idp: 0,
-        ruta: "",
-        nombre_categoria: "",
-        tipo_unidad: "",
+        cantidad_salida: 0,
         valor_unidad: 0,
-        cantidad_unidad: 0,
+        detalle: "",
+        estado_conservacion: "",
+        cantidad_total: 0,
+        tipo_unidad: "",
         nombre_producto: "",
         nombre_marca: "",
         modelo: "",
         medida: "",
         color: "",
-        detalles: "",
-        estado_conservacion: "",
-        name: "",
+        idtemp: 0,
+        tipo_unidad_salida: "",
+        estado_conservacion_salida: "",
       },
+      salida: {},
+      lista_persona: {},
+      lista_salida: {},
     };
   },
   methods: {
     /*Crud*/
-
-    async listars() {
-      const res = await axios.get("/salida");
-      this.lista_detalle_salida = res.data;
+    async listarPersonas() {
+      const res = await axios.get();
     },
-    async guardarde() {
+    async listarSalida() {
+      const res = await axios.get("/salida");
+      this.lista_detalles_salida = res.data;
+    },
+    async listars() {
+      const res = await axios.get("/stock");
+      this.lista_stock = res.data;
+    },
+
+    async guardarSa() {
       if (this.lista_guardar_producto.length !== 0) {
-        const res1 = await axios.post("/ent", this.entrada);
-        this.lista_guardar_producto.forEach(async (a, index) => {
-          if (this.lista_guardar_producto[index].idp == 0) {
-            const res2 = await axios.post(
-              "/producto",
-              this.lista_guardar_producto[index]
-            );
-            console.log(res2.data);
-            this.lista_guardar_producto[index].idp = res2.data;
-          }
-          this.lista_guardar_producto[index].idea = res1.data;
+        const res1 = await axios.post("/sal", this.stock);
+        for (
+          let index = 0;
+          index < this.lista_guardar_producto.length;
+          index++
+        ) {
+          this.lista_guardar_producto[index].idsa = res1.data;
+          window.alert(res1.data);
           const res3 = await axios.post(
-            "/entrada",
+            "/salida",
             this.lista_guardar_producto[index]
           );
           /*Ingresar detalle_producto*/
-        });
+        }
       } else {
         window.alert("Vacioooooo");
       }
       /*  this.reset_insertGeneral();*/
-      this.listarde();
+      this.listars();
     },
 
     registrarNuevoProd() {
       if (this.isDisabled) {
-        this.isDisabled = false;
-        this.nombreBtn = "Volver";
-        this.producto.idp = 0;
         this.cbxproduc = "0";
       } else {
         this.isDisabled = true;
-        this.nombreBtn = "Nuevo";
         this.reset_temp();
       }
     },
     agregarProducto() {
       if (
-        this.producto.iddp == 0 ||
-        this.producto.idc == 0 ||
-        this.producto.idm == 0 ||
-        this.producto.cantidadProducto == 0 ||
-        this.producto.cantidadUnitaria == 0 ||
-        this.producto.unidadMedida == ""
+        this.stock.cantidad_salida == 0 ||
+        this.stock.stado_conservacion == ""
       ) {
         console.log("Respuesta rellenar datos necesarios");
       } else {
         this.lista_guardar_producto.push({
-          idea: 0,
-          idc: this.producto.idc,
-          idp: this.producto.idp,
-          idm: this.producto.idm,
-          iddp: this.producto.iddp,
-          modelo: this.producto.modelo,
-          color: this.producto.color,
-          medida: this.producto.medida,
-          estado_conservacion: this.producto.estado_conservacion,
+          ids: this.stock.ids,
+          idsa: 0,
+          cantidad_total: this.stock.cantidad_total,
+          nombre_producto: this.stock.nombre_producto,
+          nombre_categoria: this.stock.nombre_categoria,
+          nombre_marca: this.stock.nombre_marca,
+          medida: this.stock.medida,
+          cantidad_salida: this.stock.cantidad_salida,
+          tipo_unidad: this.stock.tipo_unidad,
+          tipo_unidad_salida: this.stock.tipo_unidad_salida,
+          detalles: this.stock.d_entrada,
+          estado_conservacion_salida: this.stock.estado_conservacion_salida,
+          valor_unidad: this.stock.valor_unidad,
           idtemp: this.idtemp,
-          unidadMedida: this.producto.unidadMedida,
-          cantidadUnitaria: this.producto.cantidadUnitaria,
-          cantidadProducto: this.producto.cantidadProducto,
         });
-        this.producto.idtemp = Number(this.producto.idtemp) + 1;
+        this.stock.idtemp = Number(this.stock.idtemp) + 1;
         this.cerrarModalp();
       }
     },
@@ -559,119 +558,38 @@ export default {
       });
     },
 
-    rellenarDatosProducto(cbx) {
-      if (cbx == "0") {
-        this.reset_temp();
-      } else {
-        this.producto.idc = cbx.idc;
-        this.producto.idp = cbx.idp;
-        this.producto.idm = cbx.idm;
-        this.producto.iddp = cbx.iddp;
-        this.producto.modelo = cbx.modelo;
-        this.producto.color = cbx.color;
-        this.producto.medida = cbx.medida;
-      }
-      console.log(this.idtemp);
-    },
-    /*Limpiar*/
-    reset_temp() {
-      this.producto.idc = 0;
-      this.producto.idp = 0;
-      this.producto.idm = 0;
-      this.producto.iddp = 0;
-      this.producto.modelo = "";
-      this.producto.color = "";
-      this.producto.medida = "";
-    },
-    reset_producto() {
-      this.reset_temp();
-      this.producto.unidadMedida = "";
-      this.producto.estado_conservacion = "";
-      this.producto.cantidadUnitaria = 0;
-      this.producto.cantidadProducto = 0;
-    },
-    reset_insertGeneral(res) {
-      this.entrada.ruta = "";
-      this.entrada.detalles = "";
-      this.lista_guardar_producto = [];
-    },
-    reset_entrada() {
-      this.entrada = {
-        idde: 0,
-        ruta: "",
-        nombre_categoria: "",
-        tipo_unidad: "",
-        valor_unidad: 0,
-        cantidad_unidad: 0,
-        nombre_producto: "",
-        nombre_marca: "",
-        modelo: "",
-        medida: "",
-        color: "",
-        created_at: "",
-        d_entrada: "",
-        estado_conservacion: "",
-        name: "",
-      };
-    },
-
-    /*Funciones*/
-
-    mostrarNombre: function (arr = [], e, id) {
-      switch (e) {
-        case "c":
-          return arr.find((dev) => dev.id === id).nombre_categoria;
-          breack;
-        case "p":
-          return arr.find((dev) => dev.id === id).nombre_producto;
-          breack;
-        case "m":
-          return arr.find((dev) => dev.id === id).nombre_marca;
-          breack;
-        default:
-          return "No encontrado";
-      }
+    rellenarDatosProducto(data) {
+      this.stock.ids = data.ids;
+      this.stock.detalle = data.d_detalle;
+      this.stock.estado_conservacion = data.estado_conservacion;
+      this.stock.cantidad_total = data.cantidad_total;
+      this.stock.tipo_unidad = data.tipo_unidad;
+      this.stock.nombre_producto = data.nombre_producto;
+      this.stock.nombre_marca = data.nombre_marca;
+      this.stock.modelo = data.modelo;
+      this.stock.medida = data.medida;
+      this.stock.color = data.color;
+      this.stock.nombre_categoria = data.nombre_categoria;
+      this.stock.valor_unidad = data.valor_unidad;
     },
     /*Modales*/
-
     abrirModalp(data = {}) {
       this.modalp = 1;
-      if (this.modificarp) {
-        this.idp = data.id;
-        this.opcion_producto = "Modificar";
-        this.producto.iddp = data.iddp;
-      } else {
-        this.idp = 0;
-        this.cbxproduc = "0";
-        this.opcion_producto = "Agregar";
-        this.reset_producto();
-        this.idtemp = this.producto.idtemp;
-      }
+      this.listars();
+      this.idtemp = this.stock.idtemp;
     },
     cerrarModalp() {
       this.modalp = 0;
-      this.reset_producto();
-      this.cbxproduc = 0;
-      this.isDisabled = true;
       this.idtemp = 0;
     },
   },
   mounted() {
-    axios.get("producto").then((response) => {
-      this.lista_producto = response.data;
-    });
-    axios.get("detalle_producto").then((response) => {
-      this.lista_detalle_producto = response.data;
-    });
-    axios.get("categoria").then((response) => {
-      this.lista_categoria = response.data;
-    });
-    axios.get("marca").then((response) => {
-      this.lista_marca = response.data;
+    axios.get("persona").then((response) => {
+      this.lista_persona = response.data;
     });
   },
   created() {
-    this.listarde();
+    this.listarSalida();
   },
 };
 </script>
@@ -681,9 +599,6 @@ export default {
   display: list-item;
   opacity: 1;
   background: rgba(37, 37, 39, 0.847);
-}
-input {
-  text-transform: uppercase;
 }
 </style>
 

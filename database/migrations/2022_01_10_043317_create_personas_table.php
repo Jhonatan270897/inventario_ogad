@@ -20,14 +20,15 @@ class CreatePersonasTable extends Migration
             $table->string('a_paterno');
             $table->string('a_materno');
             $table->boolean('estado_activo')->default('0');
+            $table->foreignId('id_usuario')
+                ->nullable()
+                ->constrained('users')
+                ->cascadeOnUpdate()
+                ->nullOnDelete();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+
     public function down()
     {
         Schema::dropIfExists('personas');

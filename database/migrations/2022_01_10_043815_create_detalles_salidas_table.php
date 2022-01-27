@@ -12,6 +12,7 @@ class CreateDetallesSalidasTable extends Migration
         Schema::create('detalles_salidas', function (Blueprint $table) {
             $table->id();
             $table->integer('cantidad_salida');
+            $table->string('tipo_unidad')->nullable();
             $table->text('detalles')->nullable();
             $table->string('estado_conservacion')->nullable();
             $table->boolean('estado_activo')->default('0');

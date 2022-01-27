@@ -9,6 +9,7 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\productoController;
 use App\Http\Controllers\Entrada_AlmacenController;
 use App\Http\Controllers\Salida_AlmacenController;
+use App\Http\Controllers\PersonaController;
 
 
 use Illuminate\Support\Facades\Route;
@@ -35,3 +36,4 @@ Route::apiResource('/sal', Salida_AlmacenController::class);
 Route::apiResource('/detalle_producto', Detalle_ProductoController::class);
 Route::apiResource('/marca', MarcaController::class);
 Route::apiResource('/categoria', CategoriaController::class);
+Route::apiResource('/persona', PersonaController::class);

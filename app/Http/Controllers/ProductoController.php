@@ -35,8 +35,8 @@ class ProductoController extends Controller
     {
         $producto = new Producto();
         $producto->color = $request->color;
-        $producto->modelo = $request->modelo;
-        $producto->medida = $request->medida;
+        $producto->modelo = trim($request->modelo);
+        $producto->medida = trim($request->medida);
         $producto->estado_activo = "0";
         $producto->id_detalle_producto = $request->iddp;
         $producto->id_categoria = $request->idc;
@@ -52,8 +52,8 @@ class ProductoController extends Controller
     public function update(Request $request, Producto $producto)
     {
         $producto->color = $request->color;
-        $producto->modelo = $request->strtoupper(modelo);
-        $producto->medida = $request->strtoupper(medida);
+        $producto->modelo = $request->trim(modelo);
+        $producto->medida = $request->trim(medida);
         $producto->estado_activo = $request->estado_activo;
         $producto->id_detalle_producto = $request->id_detalle_producto;
         $producto->id_categoria = $request->id_marca;

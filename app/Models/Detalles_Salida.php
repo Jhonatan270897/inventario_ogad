@@ -2,15 +2,16 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Detalles_Salida extends Model
 {
-    use HasFactory;
+
+    protected $table = 'detalles_salidas';
 
     protected $fillable = [
         'cantidad_salida',
+        'tipo_unidad',
         'detalles',
         'estado_conservacion',
         'estado_activo',

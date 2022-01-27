@@ -605,7 +605,6 @@ export default {
               "/producto",
               this.lista_guardar_producto[index]
             );
-            console.log("devuelve id" + res2.data);
             this.lista_guardar_producto[index].idp = res2.data;
           }
           this.lista_guardar_producto[index].idea = res1.data;
@@ -798,9 +797,6 @@ export default {
   display: list-item;
   opacity: 1;
   background: rgba(37, 37, 39, 0.847);
-}
-input {
-  text-transform: uppercase;
 }
 </style>
 

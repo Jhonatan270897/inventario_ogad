@@ -21,8 +21,8 @@ class Persona extends Model
     {
         return $this->hasMany(Salida_Almacen::class, 'id');
     }
-    public function users()
+    public function usuario()
     {
-        return $this->hasMany(User::class, 'id');
+        return $this->belongsTo(User::class, 'id_usuario');
     }
 }
