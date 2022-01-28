@@ -11,7 +11,7 @@ class PersonaController extends Controller
     public function index()
     {
         $persona = new Persona;
-        return $persona::get();
+        return $persona::orderBy('personas.nombre_persona', 'ASC')->get();
     }
 
     public function store(Request $request)

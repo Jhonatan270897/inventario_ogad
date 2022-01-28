@@ -445,11 +445,11 @@ export default {
       modalde: 0,
       modalp: 0,
       lista_stock: [],
-      lista_ec: [{ nombre_ec: "ABIERTO" }, { nombre_ec: "SELLADO" }],
+      lista_ec: [{ nombre_ec: "Abierto" }, { nombre_ec: "Sellado" }],
       lista_unidad_medida: [
-        { nombre_um: "UNIDADES" },
-        { nombre_um: "CAJAS" },
-        { nombre_um: "PAQUETES" },
+        { nombre_um: "Unidades" },
+        { nombre_um: "Cajas" },
+        { nombre_um: "Pauqetes" },
       ],
       /*Lista de creacion de tablas */
       lista_guardar_producto: [],

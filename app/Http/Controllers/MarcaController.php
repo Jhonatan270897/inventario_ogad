@@ -10,7 +10,7 @@ class MarcaController extends Controller
 
     public function index()
     {
-        return Marca::get();
+        return Marca::orderBy('marcas.nombre_marca', 'ASC')->get();
     }
     public function store(Request $request)
     {

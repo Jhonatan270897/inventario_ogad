@@ -10,7 +10,7 @@ class CategoriaController extends Controller
 
     public function index()
     {
-        return Categoria::get();
+        return Categoria::orderBy('categorias.nombre_categoria', 'ASC')->get();
     }
 
     public function store(Request $request)

@@ -7694,16 +7694,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       modalp: 0,
       lista_stock: [],
       lista_ec: [{
-        nombre_ec: "ABIERTO"
+        nombre_ec: "Abierto"
       }, {
-        nombre_ec: "SELLADO"
+        nombre_ec: "Sellado"
       }],
       lista_unidad_medida: [{
-        nombre_um: "UNIDADES"
+        nombre_um: "Unidades"
       }, {
-        nombre_um: "CAJAS"
+        nombre_um: "Cajas"
       }, {
-        nombre_um: "PAQUETES"
+        nombre_um: "Pauqetes"
       }],
 
       /*Lista de creacion de tablas */

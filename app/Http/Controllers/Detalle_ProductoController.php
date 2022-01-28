@@ -9,7 +9,7 @@ class Detalle_ProductoController extends Controller
 {
     public function index()
     {
-        return Detalle_Producto::get();
+        return Detalle_Producto::orderBy('detalle_productos.nombre_producto', 'ASC')->get();
     }
 
     public function store(Request $request)

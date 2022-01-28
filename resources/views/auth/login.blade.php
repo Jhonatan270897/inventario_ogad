@@ -20,8 +20,6 @@
 
     <!-- Custom styles for this template-->
     <link href="{{asset('sbadmin/css/sb-admin-2.min.css')}}" rel="stylesheet">
-    <!-- Custom styles for this page -->
-    <link href="{{asset('sbadmin/dataTables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
 
 </head>
 
@@ -84,12 +82,13 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">¡Bienvenido!</h1>
                                     </div>
-                                    <form class='user' method="POST" action="{{ route('login') }}">
+                                    <form class='form-group' method="POST" action="{{ route('login') }}">
                                         @csrf
                                         <div class="form-group">
-                                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('email') }}</label>
-                                            <input id="email" type="email" class="form-control form-control-user @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" id="exampleInputEmail" required autocomplete="email" autofocus>
-                                            @error('email')
+                                            <label for="userdni" class="col-md-4 col-form-label text-md-end">{{ __('DNI') }}</label>
+                                            <input id="userdni" type="text" class="form-control form-control-user @error('userdni') 
+                                            is-invalid @enderror" name="userdni" value="{{ old('userdni') }}" id="exampleInputEmail" required autocomplete="userdni" autofocus>
+                                            @error('userdni')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
