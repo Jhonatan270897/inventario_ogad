@@ -1,155 +1,79 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('layouts.main', ['class' => 'off-canvas-sidebar', 'activePage' => 'login', 'title' => __('Inventario')])
 
-<head>
+@section('content')
+<div class="container" style="height: auto;">
+    <div class="row align-items-center">
+        <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
+            <form class="form" method="POST" action="{{ route('login') }}">
+                @csrf
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>Login Almacen OGAD</title>
-
-    <!-- Custom fonts for this template-->
-
-    <link href="{{asset('sbadmin\fontawesome\css\all.min.css')}}" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
-    <!-- Custom styles for this template-->
-    <link href="{{asset('sbadmin/css/sb-admin-2.min.css')}}" rel="stylesheet">
-
-</head>
-
-<body class="bg-gradient-primary">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <!-- Left Side Of Navbar -->
-        <ul class="navbar-nav me-auto">
-
-        </ul>
-
-        <!-- Right Side Of Navbar -->
-        <ul class="navbar-nav ms-auto">
-            <!-- Authentication Links -->
-            @guest
-            @if (Route::has('login'))
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-            </li>
-            @endif
-
-            @if (Route::has('register'))
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-            </li>
-            @endif
-            @else
-            <li class="nav-item dropdown">
-                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                    {{ Auth::user()->name }}
-                </a>
-
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                         document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    </a>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
-                </div>
-            </li>
-            @endguest
-        </ul>
-    </div>
-    <div class="container">
-
-        <!-- Outer Row -->
-        <div class="row justify-content-center">
-
-            <div class="col-xl-10 col-lg-12 col-md-9">
-
-                <div class="card o-hidden border-0 shadow-lg my-5">
-                    <div class="card-body p-0">
-                        <!-- Nested Row within Card Body -->
-                        <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-                            <div class="col-lg-6">
-                                <div class="p-5">
-                                    <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">¡Bienvenido!</h1>
-                                    </div>
-                                    <form class='form-group' method="POST" action="{{ route('login') }}">
-                                        @csrf
-                                        <div class="form-group">
-                                            <label for="userdni" class="col-md-4 col-form-label text-md-end">{{ __('DNI') }}</label>
-                                            <input id="userdni" type="text" class="form-control form-control-user @error('userdni') 
-                                            is-invalid @enderror" name="userdni" value="{{ old('userdni') }}" id="exampleInputEmail" required autocomplete="userdni" autofocus>
-                                            @error('userdni')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('password') }}</label>
-                                            <input id="password" type="password" class="form-control form-control-user @error('password') 
-                                            is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                            @error('password')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
-
-                                        <div class="form-group">
-                                            <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                                <label class="custom-control-label" for="remember">{{ __('Recordarme') }}</label>
-                                            </div>
-                                        </div>
-                                        <button type="submit" class="btn btn-primary btn-user btn-block">
-                                            {{ __('Login') }}
-                                        </button>
-
-                                        <hr>
-                                        <div class="text-center">
-                                            @if (Route::has('password.request'))
-                                            <a class="btn btn-link" href="{{ route('password.request') }}">
-                                                {{ __('¿Olvidaste tu contraseña?') }}
-                                            </a>
-                                            @endif
-                                            @if (Route::has('password.request'))
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                            </li>
-                                            @endif
-                                        </div>
-                                    </form>
-                                </div>
+                <div class="card card-login card-hidden mb-3">
+                    <div class="card-header card-header-info text-center">
+                        <h4 class="card-title"><strong>{{ __('Iniciar Sesión') }}</strong></h4>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description text-center">{{ __('Ingrese sus credenciales ') }}</p>
+                        {{-- <div class="bmd-form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="material-icons">email</i>
+                                </span>
                             </div>
+                            <input type="email" name="email" class="form-control" placeholder="{{ __('Email...') }}" value="{{ old('email', null) }}" required autocomplete="email" autofocus>
                         </div>
+                        @if ($errors->has('email'))
+                        <div id="email-error" class="error text-danger pl-3" for="email" style="display: block;">
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </div>
+                        @endif
+                    </div> --}}
+                    {{-- Username --}}
+                    <div class="bmd-form-group{{ $errors->has('username') ? ' has-danger' : '' }}">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="material-icons">face</i>
+                                </span>
+                            </div>
+                            <input type="text" name="username" class="form-control" placeholder="{{ __('DNI') }}" value="{{ old('username', null) }}" required autocomplete="username" autofocus>
+                        </div>
+                        @if ($errors->has('username'))
+                        <div id="username-error" class="error text-danger pl-3" for="username" style="display: block;">
+                            <strong>{{ $errors->first('username') }}</strong>
+                        </div>
+                        @endif
+                    </div>
+                    <div class="bmd-form-group{{ $errors->has('password') ? ' has-danger' : '' }} mt-3">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="material-icons">lock_outline</i>
+                                </span>
+                            </div>
+                            <input type="password" name="password" id="password" class="form-control" placeholder="{{ __('Password...') }}" required autocomplete="current-password">
+                        </div>
+                        @if ($errors->has('password'))
+                        <div id="password-error" class="error text-danger pl-3" for="password" style="display: block;">
+                            <strong>{{ $errors->first('password') }}</strong>
+                        </div>
+                        @endif
+                    </div>
+                    <div class="form-check mr-auto ml-3 mt-3">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Recordarme') }}
+                            <span class="form-check-sign">
+                                <span class="check"></span>
+                            </span>
+                        </label>
                     </div>
                 </div>
-
-            </div>
-
+                <div class="card-footer justify-content-center">
+                    <button type="submit" class="btn btn-primary btn-link btn-lg">{{ __('Ingresar') }}</button>
+                </div>
         </div>
-
+        </form>
     </div>
-
-    <!-- Bootstrap core JavaScript-->
-    <script src="{{asset('sbadmin/jquery/jquery.min.js')}}"></script>
-    <!-- Core plugin Bootstrap-->
-    <script src="{{asset('sbadmin\bootstrap\js\bootstrap.bundle.min.js')}}"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="{{asset('sbadmin\js\sb-admin-2.min.js')}}"></script>
-
-</body>
-
-</html>
+</div>
+</div>
+@endsection

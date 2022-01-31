@@ -38,6 +38,7 @@ class StockController extends Controller
                 'users.name'
             )
             ->where('detalles_entradas.estado_activo', '=', '0')
+            ->where('stocks.cantidad_total', '>', '0')
             ->orderBy('detalles_entradas.created_at', 'DESC')
             ->get();
     }

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Role;
 
 class RoleSeeder extends Seeder
 {
@@ -13,6 +14,18 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        $role1 = Role::create(['name' => 'Admin']);
+        app()->make(\Spatie\Permission\PermissionRegistrar::class)->forgetCachedPermissions();
+
+        $roles = [
+            'Administrador',
+            'Jefe OGAD',
+            'Almacenero'
+        ];
+
+        foreach ($roles as $role) {
+            Role::create([
+                'name' => $role
+            ]);
+        }
     }
 }

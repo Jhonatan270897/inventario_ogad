@@ -7,9 +7,7 @@
           <div class="card-header py-3">
             <div class="row align-items-center">
               <div class="col-6">
-                <h6 class="m-0 font-weight-bold text-primary">
-                  Generalidades de entrada
-                </h6>
+                <h6 class="m-0 font-weight-bold text-primary"></h6>
               </div>
               <div class="col-6 text-right">
                 <button
@@ -42,7 +40,7 @@
             <br />
             <div class="row">
               <div class="col-6 text-left">
-                <button type="button" class="btn btn-sm btn-primary">
+                <button type="file" class="btn btn-sm btn-primary">
                   Subir PDF
                 </button>
               </div>
@@ -521,32 +519,32 @@ export default {
       lista_producto: {},
       lista_categoria: {},
       lista_marca: {},
-      lista_ec: [{ nombre_ec: "ABIERTO" }, { nombre_ec: "SELLADO" }],
+      lista_ec: [{ nombre_ec: "Abierto" }, { nombre_ec: "Sellado" }],
       lista_unidad_medida: [
-        { nombre_um: "UNIDAD" },
-        { nombre_um: "CAJA" },
-        { nombre_um: "PAQUETE" },
+        { nombre_um: "Unidad" },
+        { nombre_um: "Caja" },
+        { nombre_um: "Paquete" },
       ],
       lista_color: [
-        { nombre_color: "AZUL" },
-        { nombre_color: "ROJO" },
-        { nombre_color: "MULTICOLOR" },
-        { nombre_color: "BLANCO" },
-        { nombre_color: "ROSADO" },
-        { nombre_color: "AMARILLO" },
-        { nombre_color: "VERDE" },
-        { nombre_color: "CELESTE" },
-        { nombre_color: "MELON" },
-        { nombre_color: "NARANJA" },
-        { nombre_color: "CREMA" },
-        { nombre_color: "NEGRO" },
-        { nombre_color: "CIAN" },
-        { nombre_color: "MAGENTA" },
-        { nombre_color: "PLOMO" },
-        { nombre_color: "PLATEADO" },
-        { nombre_color: "TRANSPARENTE" },
-        { nombre_color: "CRISTALINA" },
-        { nombre_color: "MARRON" },
+        { nombre_color: "Azul" },
+        { nombre_color: "Rojo" },
+        { nombre_color: "Multicolor" },
+        { nombre_color: "Blanco" },
+        { nombre_color: "Rosado" },
+        { nombre_color: "Amarillo" },
+        { nombre_color: "Verde" },
+        { nombre_color: "Celeste" },
+        { nombre_color: "Melon" },
+        { nombre_color: "Naranja" },
+        { nombre_color: "Crema" },
+        { nombre_color: "Negro" },
+        { nombre_color: "Cian" },
+        { nombre_color: "Magenta" },
+        { nombre_color: "Plomo" },
+        { nombre_color: "Plateado" },
+        { nombre_color: "Trasparente" },
+        { nombre_color: "Cristalina" },
+        { nombre_color: "Marron" },
       ],
       /*Lista de creacion de tablas */
       lista_guardar_producto: [],
@@ -632,6 +630,15 @@ export default {
         this.reset_temp();
       }
     },
+    showCamposCompletos(info) {
+      this.$swal({
+        position: "top-end",
+        icon: "info",
+        title: info,
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    },
     agregarProducto() {
       if (
         this.producto.iddp == 0 ||
@@ -641,7 +648,7 @@ export default {
         this.producto.cantidadUnitaria == 0 ||
         this.producto.unidadMedida == ""
       ) {
-        console.log("Respuesta rellenar datos necesarios");
+        this.showCamposCompletos("Por favor rellene los campos requeridos");
       } else {
         this.lista_guardar_producto.push({
           idea: 0,
