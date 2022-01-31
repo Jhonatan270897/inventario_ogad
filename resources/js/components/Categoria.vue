@@ -4,7 +4,7 @@
       <div class="card-header py-3">
         <div class="row align-items-center">
           <div class="col-8">
-            <h6 class="m-0 font-weight-bold text-primary">Inventario</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Categoria</h6>
           </div>
           <div class="col-4 text-right">
             <button
@@ -24,7 +24,7 @@
       <div class="card-body">
         <div class="table-responsive">
           <table
-            class="table table-bordered"
+            class="table"
             id="datatable_categoria"
             width="100%"
             cellspacing="0"
@@ -54,14 +54,15 @@
                     "
                     class="btn btn-warning btn-circle btn-sm"
                   >
-                    <i class="fas fa-pencil-alt"></i>
-                  </button>
+                    <i class="material-icons">edit</i>
+                  </button>     
                   <button
                     type="button"
                     @click="eliminarc(categoria)"
                     class="btn btn-danger btn-circle btn-sm"
                   >
-                    <i class="fas fa-trash-alt"></i>
+                     <i
+                          class="material-icons">close</i>
                   </button>
                 </td>
               </tr>

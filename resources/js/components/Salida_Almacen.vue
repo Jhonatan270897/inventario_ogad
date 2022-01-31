@@ -33,6 +33,7 @@
                     placeholder="Detalles"
                     v-model="stock.detalle"
                   />
+                  <br>
                   <label>Persona</label>
                   <select v-model="stock.idp" class="form-control" required>
                     <option value="">--Seleccionar--</option>
@@ -46,14 +47,6 @@
                     </option>
                   </select>
                 </form>
-              </div>
-            </div>
-            <br />
-            <div class="row">
-              <div class="col-6 text-right">
-                <button type="button" class="btn btn-sm btn-primary">
-                  Generar reporte PDF
-                </button>
               </div>
             </div>
           </div>
@@ -86,7 +79,7 @@
           <div class="card-body">
             <div class="table-responsive">
               <table
-                class="table table-bordered"
+                class="table"
                 id="datatable_temp"
                 width="100%"
                 cellspacing="0"
@@ -111,7 +104,7 @@
                       {{ ptemp.nombre_categoria }}
                     </td>
                     <td>
-                      {{ ptemp.cantidad_total }} {{ ptemp.tipo_unidad }} DE
+                      {{ ptemp.cantidad_total }} {{ ptemp.tipo_unidad }} de
                       {{ ptemp.valor_unidad }}
                     </td>
                     <td>
@@ -127,16 +120,6 @@
                     </td>
                     <td>{{ ptemp.estado_conservacion_salida }}</td>
                     <td>
-                      <!--<button
-                        type="button"
-                        @click="
-                          modificarp = true;
-                          abrirModalp(ptemp);
-                        "
-                        class="btn btn-warning btn-circle btn-sm"
-                      >
-                        <i class="fas fa-pencil-alt"></i>
-                      </button>-->
                       <button
                         type="button"
                         @click="
@@ -144,7 +127,7 @@
                         "
                         class="btn btn-danger btn-circle btn-sm"
                       >
-                        <i class="fas fa-trash-alt"></i>
+                         <i class="material-icons">close</i>
                       </button>
                     </td>
                   </tr>
@@ -170,7 +153,7 @@
           <div class="card-body">
             <div class="table-responsive">
               <table
-                class="table table-bordered"
+                class="table"
                 id="datatabale_salida"
                 width="100%"
                 cellspacing="0"
@@ -213,13 +196,13 @@
                         "
                         class="btn btn-warning btn-circle btn-sm"
                       >
-                        <i class="fas fa-pencil-alt"></i>
+                         <i class="material-icons">edit</i>
                       </button>
                       <button
                         type="button"
                         class="btn btn-danger btn-circle btn-sm"
                       >
-                        <i class="fas fa-trash-alt"></i>
+                         <i class="material-icons">close</i>
                       </button>
                     </td>
                   </tr>
@@ -240,12 +223,9 @@
       :class="{ mostrar: modalp }"
     >
       <div
-        class="modal-dialog modal-xl"
+        class="modal-dialog modal-lg"
         style="
           overflow-y: scroll;
-          max-height: 85%;
-          margin-top: 50px;
-          margin-bottom: 50px;
         "
         role="document"
       >
@@ -369,7 +349,7 @@
                   <div class="card-body">
                     <div class="table-responsive">
                       <table
-                        class="table table-bordered"
+                        class="table"
                         id="datatabale_salida"
                         width="100%"
                         cellspacing="0"
@@ -390,7 +370,7 @@
                             <td>{{ stk.nombre_categoria }}</td>
                             <td>{{ stk.cantidad_total }}</td>
                             <td>
-                              {{ stk.tipo_unidad }} DE
+                              {{ stk.tipo_unidad }} de
                               {{ stk.valor_unidad }}
                             </td>
                             <td>
@@ -406,7 +386,7 @@
                                 @click="rellenarDatosProducto(stk)"
                                 class="btn e btn-sm"
                               >
-                                <i class="fas fa-plus-square"></i>
+                                <i class="material-icons">arrow_circle_up</i>
                               </button>
                             </td>
                           </tr>

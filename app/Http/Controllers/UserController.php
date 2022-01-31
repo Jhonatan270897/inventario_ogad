@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UserCreateRequest;
 use App\Http\Requests\UserEditRequest;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Spatie\Permission\Models\Role;
 
@@ -58,8 +57,8 @@ class UserController extends Controller
     {
         // $user=User::findOrFail($id);
         $data = $request->only('name', 'username', 'email');
-        $password=$request->input('password');
-        if($password)
+        $password = $request->input('password');
+        if ($password)
             $data['password'] = bcrypt($password);
         // if(trim($request->password)=='')
         // {

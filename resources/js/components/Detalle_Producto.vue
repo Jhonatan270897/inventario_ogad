@@ -24,7 +24,7 @@
       <div class="card-body">
         <div class="table-responsive">
           <table
-            class="table table-bordered"
+            class="table"
             id="datatable_detalle_producto"
             width="100%"
             cellspacing="0"
@@ -54,14 +54,14 @@
                     "
                     class="btn btn-warning btn-circle btn-sm"
                   >
-                    <i class="fas fa-pencil-alt"></i>
+                     <i class="material-icons">edit</i>
                   </button>
                   <button
                     type="button"
                     @click="eliminardp(producto)"
                     class="btn btn-danger btn-circle btn-sm"
                   >
-                    <i class="fas fa-trash-alt"></i>
+                    <i class="material-icons">close</i>
                   </button>
                 </td>
               </tr>

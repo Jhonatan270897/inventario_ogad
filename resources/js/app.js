@@ -8,7 +8,11 @@ require('./bootstrap');
 
 window.Vue = require('vue').default;
 import Vue from 'vue';
+import { createApp } from 'vue';
+import { abilitiesPlugin } from '@casl/vue';
+import ability from './services/ability';
 import VueSweetalert2 from 'vue-sweetalert2';
+Vue.use(ability);
 Vue.use(VueSweetalert2);
 /**
  * The following block of code may be used to automatically register your

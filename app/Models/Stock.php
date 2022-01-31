@@ -9,6 +9,7 @@ class Stock extends Model
 
     protected $fillable = [
         'cantidad_total',
+        'tipo_unidad',
         'estado_conservacion',
     ];
 

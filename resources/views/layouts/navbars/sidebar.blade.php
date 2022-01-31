@@ -11,19 +11,69 @@
   </div>
   <div class="sidebar-wrapper">
     <ul class="nav">
+      <!--Manejo de almacen-->
+      @can('entrada_index')
+      <li class="nav-item{{ $activePage == 'entrada' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('almacen.entrada') }}">
+          <i class="material-icons">library_books</i>
+          <p>{{ __('Entrada Almacen') }}</p>
+        </a>
+      </li>
+      @endcan
+      @can('almacen_index')
+      <li class="nav-item{{ $activePage == 'almacen' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('almacen.stock') }}">
+          <i class="material-icons">library_books</i>
+          <p>{{ __('Almacen') }}</p>
+        </a>
+      </li>
+      @endcan
+      @can('salida_index')
+      <li class="nav-item{{ $activePage == 'salida' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('almacen.salida') }}">
+          <i class="material-icons">library_books</i>
+          <p>{{ __('Salida Almacen') }}</p>
+        </a>
+      </li>
+      @endcan
+      @can('producto_index')
+      <li class="nav-item{{ $activePage == 'producto' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('almacen.producto') }}">
+          <i class="material-icons">library_books</i>
+          <p>{{ __('Ingresar Productos') }}</p>
+        </a>
+      </li>
+      @endcan
+      @can('marca_index')
+      <li class="nav-item{{ $activePage == 'marca' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('almacen.marca') }}">
+          <i class="material-icons">library_books</i>
+          <p>{{ __('Ingresar Marcas') }}</p>
+        </a>
+      </li>
+      @endcan
+      @can('categoria_index')
+      <li class="nav-item{{ $activePage == 'categoria' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('almacen.categoria') }}">
+          <i class="material-icons">library_books</i>
+          <p>{{ __('Ingresar Categorias') }}</p>
+        </a>
+      </li>
+      @endcan
+      @can('persona_index')
+      <li class="nav-item{{ $activePage == 'persona' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('posts.index') }}">
+          <i class="material-icons">library_books</i>
+          <p>{{ __('Ingresar Personas') }}</p>
+        </a>
+      </li>
+      @endcan
+      <!--Manejo de usuarios-->
       @can('user_index')
       <li class="nav-item{{ $activePage == 'users' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('users.index') }}">
           <i class="material-icons">manage_accounts</i>
           <p>Usuarios</p>
-        </a>
-      </li>
-      @endcan
-      @can('post_index')
-      <li class="nav-item{{ $activePage == 'posts' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('posts.index') }}">
-          <i class="material-icons">library_books</i>
-          <p>{{ __('Post') }}</p>
         </a>
       </li>
       @endcan

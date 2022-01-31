@@ -1,20 +1,8 @@
 <template>
-  <div>
     <!--Contenido pagina entrada -->
-    <div class="row">
-      <div class="col-12">
-        <div class="card shadow mb-4">
-          <div class="card-header py-3">
-            <div class="row align-items-center">
-              <div class="col-12">
-                <h6 class="m-0 font-weight-bold text-primary">Almacen</h6>
-              </div>
-            </div>
-          </div>
-          <div class="card-body">
             <div class="table-responsive">
               <table
-                class="table table-bordered"
+                class="table cell-border"
                 id="datatable_stock"
                 width="100%"
                 cellspacing="0"
@@ -29,36 +17,31 @@
                     <th>Marca</th>
                     <th>Modelo/Medida</th>
                     <th>Color</th>
-                    <th>Fecha</th>
+                    <th>Fecha de Creacion</th>
                     <th>Estado Conservación</th>
                     <th>Usuario</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr v-for="entrada in lista_stock" :key="entrada.id">
-                    <td>{{ entrada.d_entrada }}</td>
-                    <td>{{ entrada.nombre_categoria }}</td>
-                    <td>{{ entrada.cantidad_total }}</td>
-                    <td>
-                      {{ entrada.tipo_unidad }} DE
-                      {{ entrada.valor_unidad }} UNIDADES
+                    <td class="text-center">{{ entrada.d_entrada }}</td>
+                    <td class="text-center">{{ entrada.nombre_categoria }}</td>
+                    <td class="text-center">{{ entrada.cantidad_total }}</td>
+                    <td class="text-center">
+                      {{ entrada.tipo_unidad }} de
+                      {{ entrada.valor_unidad }}
                     </td>
-                    <td>{{ entrada.nombre_producto }}</td>
-                    <td>{{ entrada.nombre_marca }}</td>
-                    <td>{{ entrada.modelo }}/{{ entrada.medida }}</td>
-                    <td>{{ entrada.color }}</td>
-                    <td>{{ entrada.created_at }}</td>
-                    <td>{{ entrada.estado_conservacion }}</td>
-                    <td>{{ entrada.name }}</td>
+                    <td class="text-center">{{ entrada.nombre_producto }}</td>
+                    <td class="text-center">{{ entrada.nombre_marca }}</td>
+                    <td class="text-center">{{ entrada.modelo }}/{{ entrada.medida }}</td>
+                    <td class="text-center">{{ entrada.color }}</td>
+                    <td class="text-center">{{ entrada.created_at }}</td>
+                    <td class="text-center">{{ entrada.estado_conservacion }}</td>
+                    <td class="text-center">{{ entrada.name }}</td>
                   </tr>
                 </tbody>
               </table>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </template>
 
 <script>

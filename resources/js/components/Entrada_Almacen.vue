@@ -75,7 +75,7 @@
           <div class="card-body">
             <div class="table-responsive">
               <table
-                class="table table-bordered"
+                class="table"
                 id="datatable_temp"
                 width="100%"
                 cellspacing="0"
@@ -103,8 +103,8 @@
                     </td>
                     <td>{{ ptemp.cantidadProducto }}</td>
                     <td>
-                      {{ ptemp.unidadMedida }} DE
-                      {{ ptemp.cantidadUnitaria }} UNIDADES
+                      {{ ptemp.unidadMedida }} de
+                      {{ ptemp.cantidadUnitaria }}
                     </td>
                     <td>
                       {{
@@ -116,16 +116,6 @@
                     <td>{{ ptemp.color }}</td>
                     <td>{{ ptemp.estado_conservacion }}</td>
                     <td>
-                      <!--<button
-                        type="button"
-                        @click="
-                          modificarp = true;
-                          abrirModalp(ptemp);
-                        "
-                        class="btn btn-warning btn-circle btn-sm"
-                      >
-                        <i class="fas fa-pencil-alt"></i>
-                      </button>-->
                       <button
                         type="button"
                         @click="
@@ -133,7 +123,7 @@
                         "
                         class="btn btn-danger btn-circle btn-sm"
                       >
-                        <i class="fas fa-trash-alt"></i>
+                        <i class="material-icons">close</i>
                       </button>
                     </td>
                   </tr>
@@ -159,7 +149,7 @@
           <div class="card-body">
             <div class="table-responsive">
               <table
-                class="table table-bordered"
+                class="table"
                 id="datatable_entrada"
                 width="100%"
                 cellspacing="0"
@@ -189,8 +179,8 @@
                     <td>{{ entrada.nombre_categoria }}</td>
                     <td>{{ entrada.cantidad_unidad }}</td>
                     <td>
-                      {{ entrada.tipo_unidad }} DE
-                      {{ entrada.valor_unidad }} UNIDADES
+                      {{ entrada.tipo_unidad }} de
+                      {{ entrada.valor_unidad }}
                     </td>
                     <td>{{ entrada.nombre_producto }}</td>
                     <td>{{ entrada.nombre_marca }}</td>
@@ -208,14 +198,14 @@
                         "
                         class="btn btn-warning btn-circle btn-sm"
                       >
-                        <i class="fas fa-pencil-alt"></i>
+                         <i class="material-icons">edit</i>
                       </button>
                       <button
                         type="button"
                         @click="eliminarde(entrada)"
                         class="btn btn-danger btn-circle btn-sm"
                       >
-                        <i class="fas fa-trash-alt"></i>
+                         <i class="material-icons">close</i>
                       </button>
                     </td>
                   </tr>
@@ -335,6 +325,7 @@
                   <label class="form-control-label"
                     >Unidad Medida<span class="is-required">*</span></label
                   >
+                  <br>
                   <select
                     class="form-control"
                     required

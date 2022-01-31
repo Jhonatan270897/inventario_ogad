@@ -1,12 +1,21 @@
-@extends('layouts.principal')
+@extends('layouts.main',['activePage' => 'producto', 'titlePage' => 'Entrada'])
 
 @section('content')
-
 <div class="container-fluid">
-<h3 class="h3 mb-2 text-gray-800">Productos</h3>
-    <detalle_producto/>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-info">
+                    <h4 class="card-title">Productos</h4>
+                    <p class="card-category">Lists de productos registradas en las bases de datos</p>
+                </div>
+                <div class="card-body">
+                    <detalle_producto />
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
+
 @endsection
-
-

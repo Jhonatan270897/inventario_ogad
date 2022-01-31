@@ -5465,6 +5465,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 /*Variables globales */
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -5969,15 +5970,6 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -7673,26 +7665,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -7972,23 +7944,6 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -32549,7 +32504,7 @@ var render = function () {
           _c(
             "table",
             {
-              staticClass: "table table-bordered",
+              staticClass: "table",
               attrs: {
                 id: "datatable_categoria",
                 width: "100%",
@@ -32586,7 +32541,11 @@ var render = function () {
                             },
                           },
                         },
-                        [_c("i", { staticClass: "fas fa-pencil-alt" })]
+                        [
+                          _c("i", { staticClass: "material-icons" }, [
+                            _vm._v("edit"),
+                          ]),
+                        ]
                       ),
                       _vm._v(" "),
                       _c(
@@ -32600,7 +32559,11 @@ var render = function () {
                             },
                           },
                         },
-                        [_c("i", { staticClass: "fas fa-trash-alt" })]
+                        [
+                          _c("i", { staticClass: "material-icons" }, [
+                            _vm._v("close"),
+                          ]),
+                        ]
                       ),
                     ]),
                   ])
@@ -32888,7 +32851,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-8" }, [
       _c("h6", { staticClass: "m-0 font-weight-bold text-primary" }, [
-        _vm._v("Inventario"),
+        _vm._v("Categoria"),
       ]),
     ])
   },
@@ -32988,7 +32951,7 @@ var render = function () {
           _c(
             "table",
             {
-              staticClass: "table table-bordered",
+              staticClass: "table",
               attrs: {
                 id: "datatable_detalle_producto",
                 width: "100%",
@@ -33025,7 +32988,11 @@ var render = function () {
                             },
                           },
                         },
-                        [_c("i", { staticClass: "fas fa-pencil-alt" })]
+                        [
+                          _c("i", { staticClass: "material-icons" }, [
+                            _vm._v("edit"),
+                          ]),
+                        ]
                       ),
                       _vm._v(" "),
                       _c(
@@ -33039,7 +33006,11 @@ var render = function () {
                             },
                           },
                         },
-                        [_c("i", { staticClass: "fas fa-trash-alt" })]
+                        [
+                          _c("i", { staticClass: "material-icons" }, [
+                            _vm._v("close"),
+                          ]),
+                        ]
                       ),
                     ]),
                   ])
@@ -33501,7 +33472,7 @@ var render = function () {
               _c(
                 "table",
                 {
-                  staticClass: "table table-bordered",
+                  staticClass: "table",
                   attrs: {
                     id: "datatable_temp",
                     width: "100%",
@@ -33535,9 +33506,9 @@ var render = function () {
                           _vm._v(
                             "\n                    " +
                               _vm._s(ptemp.unidadMedida) +
-                              " DE\n                    " +
+                              " de\n                    " +
                               _vm._s(ptemp.cantidadUnitaria) +
-                              " UNIDADES\n                  "
+                              "\n                  "
                           ),
                         ]),
                         _vm._v(" "),
@@ -33588,7 +33559,11 @@ var render = function () {
                                 },
                               },
                             },
-                            [_c("i", { staticClass: "fas fa-trash-alt" })]
+                            [
+                              _c("i", { staticClass: "material-icons" }, [
+                                _vm._v("close"),
+                              ]),
+                            ]
                           ),
                         ]),
                       ])
@@ -33613,7 +33588,7 @@ var render = function () {
               _c(
                 "table",
                 {
-                  staticClass: "table table-bordered",
+                  staticClass: "table",
                   attrs: {
                     id: "datatable_entrada",
                     width: "100%",
@@ -33637,9 +33612,9 @@ var render = function () {
                           _vm._v(
                             "\n                    " +
                               _vm._s(entrada.tipo_unidad) +
-                              " DE\n                    " +
+                              " de\n                    " +
                               _vm._s(entrada.valor_unidad) +
-                              " UNIDADES\n                  "
+                              "\n                  "
                           ),
                         ]),
                         _vm._v(" "),
@@ -33676,7 +33651,11 @@ var render = function () {
                                 },
                               },
                             },
-                            [_c("i", { staticClass: "fas fa-pencil-alt" })]
+                            [
+                              _c("i", { staticClass: "material-icons" }, [
+                                _vm._v("edit"),
+                              ]),
+                            ]
                           ),
                           _vm._v(" "),
                           _c(
@@ -33690,7 +33669,11 @@ var render = function () {
                                 },
                               },
                             },
-                            [_c("i", { staticClass: "fas fa-trash-alt" })]
+                            [
+                              _c("i", { staticClass: "material-icons" }, [
+                                _vm._v("close"),
+                              ]),
+                            ]
                           ),
                         ]),
                       ])
@@ -33974,6 +33957,8 @@ var render = function () {
                   _c("div", { staticClass: "col-md-2" }, [
                     _c("div", { staticClass: "form-group" }, [
                       _vm._m(9),
+                      _vm._v(" "),
+                      _c("br"),
                       _vm._v(" "),
                       _c(
                         "select",
@@ -34668,7 +34653,7 @@ var render = function () {
           _c(
             "table",
             {
-              staticClass: "table table-bordered",
+              staticClass: "table",
               attrs: { id: "datatable_marca", width: "100%", cellspacing: "0" },
             },
             [
@@ -34701,7 +34686,11 @@ var render = function () {
                             },
                           },
                         },
-                        [_c("i", { staticClass: "fas fa-pencil-alt" })]
+                        [
+                          _c("i", { staticClass: "material-icons" }, [
+                            _vm._v("edit"),
+                          ]),
+                        ]
                       ),
                       _vm._v(" "),
                       _c(
@@ -34715,7 +34704,11 @@ var render = function () {
                             },
                           },
                         },
-                        [_c("i", { staticClass: "fas fa-trash-alt" })]
+                        [
+                          _c("i", { staticClass: "material-icons" }, [
+                            _vm._v("close"),
+                          ]),
+                        ]
                       ),
                     ]),
                   ])
@@ -35117,6 +35110,8 @@ var render = function () {
                     },
                   }),
                   _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
                   _c("label", [_vm._v("Persona")]),
                   _vm._v(" "),
                   _c(
@@ -35180,10 +35175,6 @@ var render = function () {
                 ]),
               ]),
             ]),
-            _vm._v(" "),
-            _c("br"),
-            _vm._v(" "),
-            _vm._m(1),
           ]),
         ]),
       ]),
@@ -35192,7 +35183,7 @@ var render = function () {
         _c("div", { staticClass: "card shadow mb-4" }, [
           _c("div", { staticClass: "card-header py-3" }, [
             _c("div", { staticClass: "row align-items-center" }, [
-              _vm._m(2),
+              _vm._m(1),
               _vm._v(" "),
               _c("div", { staticClass: "col-8 text-right" }, [
                 _c(
@@ -35222,7 +35213,7 @@ var render = function () {
               _c(
                 "table",
                 {
-                  staticClass: "table table-bordered",
+                  staticClass: "table",
                   attrs: {
                     id: "datatable_temp",
                     width: "100%",
@@ -35230,7 +35221,7 @@ var render = function () {
                   },
                 },
                 [
-                  _vm._m(3),
+                  _vm._m(2),
                   _vm._v(" "),
                   _c(
                     "tbody",
@@ -35250,7 +35241,7 @@ var render = function () {
                               _vm._s(ptemp.cantidad_total) +
                               " " +
                               _vm._s(ptemp.tipo_unidad) +
-                              " DE\n                    " +
+                              " de\n                    " +
                               _vm._s(ptemp.valor_unidad) +
                               "\n                  "
                           ),
@@ -35307,7 +35298,11 @@ var render = function () {
                                 },
                               },
                             },
-                            [_c("i", { staticClass: "fas fa-trash-alt" })]
+                            [
+                              _c("i", { staticClass: "material-icons" }, [
+                                _vm._v("close"),
+                              ]),
+                            ]
                           ),
                         ]),
                       ])
@@ -35325,14 +35320,14 @@ var render = function () {
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-12" }, [
         _c("div", { staticClass: "card shadow mb-4" }, [
-          _vm._m(4),
+          _vm._m(3),
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
             _c("div", { staticClass: "table-responsive" }, [
               _c(
                 "table",
                 {
-                  staticClass: "table table-bordered",
+                  staticClass: "table",
                   attrs: {
                     id: "datatabale_salida",
                     width: "100%",
@@ -35340,7 +35335,7 @@ var render = function () {
                   },
                 },
                 [
-                  _vm._m(5),
+                  _vm._m(4),
                   _vm._v(" "),
                   _c(
                     "tbody",
@@ -35387,10 +35382,14 @@ var render = function () {
                                 },
                               },
                             },
-                            [_c("i", { staticClass: "fas fa-pencil-alt" })]
+                            [
+                              _c("i", { staticClass: "material-icons" }, [
+                                _vm._v("edit"),
+                              ]),
+                            ]
                           ),
                           _vm._v(" "),
-                          _vm._m(6, true),
+                          _vm._m(5, true),
                         ]),
                       ])
                     }),
@@ -35421,13 +35420,8 @@ var render = function () {
         _c(
           "div",
           {
-            staticClass: "modal-dialog modal-xl",
-            staticStyle: {
-              "overflow-y": "scroll",
-              "max-height": "85%",
-              "margin-top": "50px",
-              "margin-bottom": "50px",
-            },
+            staticClass: "modal-dialog modal-lg",
+            staticStyle: { "overflow-y": "scroll" },
             attrs: { role: "document" },
           },
           [
@@ -35676,14 +35670,14 @@ var render = function () {
                 _c("div", { staticClass: "row" }, [
                   _c("div", { staticClass: "col-12" }, [
                     _c("div", { staticClass: "card shadow mb-4" }, [
-                      _vm._m(7),
+                      _vm._m(6),
                       _vm._v(" "),
                       _c("div", { staticClass: "card-body" }, [
                         _c("div", { staticClass: "table-responsive" }, [
                           _c(
                             "table",
                             {
-                              staticClass: "table table-bordered",
+                              staticClass: "table",
                               attrs: {
                                 id: "datatabale_salida",
                                 width: "100%",
@@ -35691,7 +35685,7 @@ var render = function () {
                               },
                             },
                             [
-                              _vm._m(8),
+                              _vm._m(7),
                               _vm._v(" "),
                               _c(
                                 "tbody",
@@ -35711,7 +35705,7 @@ var render = function () {
                                       _vm._v(
                                         "\n                            " +
                                           _vm._s(stk.tipo_unidad) +
-                                          " DE\n                            " +
+                                          " de\n                            " +
                                           _vm._s(stk.valor_unidad) +
                                           "\n                          "
                                       ),
@@ -35750,9 +35744,11 @@ var render = function () {
                                           },
                                         },
                                         [
-                                          _c("i", {
-                                            staticClass: "fas fa-plus-square",
-                                          }),
+                                          _c(
+                                            "i",
+                                            { staticClass: "material-icons" },
+                                            [_vm._v("arrow_circle_up")]
+                                          ),
                                         ]
                                       ),
                                     ]),
@@ -35813,20 +35809,6 @@ var staticRenderFns = [
     return _c("div", { staticClass: "col-6" }, [
       _c("h6", { staticClass: "m-0 font-weight-bold text-primary" }, [
         _vm._v("\n                Generalidades de salida\n              "),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-6 text-right" }, [
-        _c(
-          "button",
-          { staticClass: "btn btn-sm btn-primary", attrs: { type: "button" } },
-          [_vm._v("\n                Generar reporte PDF\n              ")]
-        ),
       ]),
     ])
   },
@@ -35918,7 +35900,7 @@ var staticRenderFns = [
         staticClass: "btn btn-danger btn-circle btn-sm",
         attrs: { type: "button" },
       },
-      [_c("i", { staticClass: "fas fa-trash-alt" })]
+      [_c("i", { staticClass: "material-icons" }, [_vm._v("close")])]
     )
   },
   function () {
@@ -35980,94 +35962,78 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-12" }, [
-        _c("div", { staticClass: "card shadow mb-4" }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [
-            _c("div", { staticClass: "table-responsive" }, [
-              _c(
-                "table",
-                {
-                  staticClass: "table table-bordered",
-                  attrs: {
-                    id: "datatable_stock",
-                    width: "100%",
-                    cellspacing: "0",
-                  },
-                },
-                [
-                  _vm._m(1),
-                  _vm._v(" "),
-                  _c(
-                    "tbody",
-                    _vm._l(_vm.lista_stock, function (entrada) {
-                      return _c("tr", { key: entrada.id }, [
-                        _c("td", [_vm._v(_vm._s(entrada.d_entrada))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(entrada.nombre_categoria))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(entrada.cantidad_total))]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _vm._v(
-                            "\n                    " +
-                              _vm._s(entrada.tipo_unidad) +
-                              " DE\n                    " +
-                              _vm._s(entrada.valor_unidad) +
-                              " UNIDADES\n                  "
-                          ),
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(entrada.nombre_producto))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(entrada.nombre_marca))]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _vm._v(
-                            _vm._s(entrada.modelo) +
-                              "/" +
-                              _vm._s(entrada.medida)
-                          ),
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(entrada.color))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(entrada.created_at))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(entrada.estado_conservacion))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(entrada.name))]),
-                      ])
-                    }),
-                    0
-                  ),
-                ]
-              ),
-            ]),
-          ]),
-        ]),
-      ]),
-    ]),
+  return _c("div", { staticClass: "table-responsive" }, [
+    _c(
+      "table",
+      {
+        staticClass: "table cell-border",
+        attrs: { id: "datatable_stock", width: "100%", cellspacing: "0" },
+      },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.lista_stock, function (entrada) {
+            return _c("tr", { key: entrada.id }, [
+              _c("td", { staticClass: "text-center" }, [
+                _vm._v(_vm._s(entrada.d_entrada)),
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "text-center" }, [
+                _vm._v(_vm._s(entrada.nombre_categoria)),
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "text-center" }, [
+                _vm._v(_vm._s(entrada.cantidad_total)),
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "text-center" }, [
+                _vm._v(
+                  "\n                  " +
+                    _vm._s(entrada.tipo_unidad) +
+                    " de\n                  " +
+                    _vm._s(entrada.valor_unidad) +
+                    "\n                "
+                ),
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "text-center" }, [
+                _vm._v(_vm._s(entrada.nombre_producto)),
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "text-center" }, [
+                _vm._v(_vm._s(entrada.nombre_marca)),
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "text-center" }, [
+                _vm._v(_vm._s(entrada.modelo) + "/" + _vm._s(entrada.medida)),
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "text-center" }, [
+                _vm._v(_vm._s(entrada.color)),
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "text-center" }, [
+                _vm._v(_vm._s(entrada.created_at)),
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "text-center" }, [
+                _vm._v(_vm._s(entrada.estado_conservacion)),
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "text-center" }, [
+                _vm._v(_vm._s(entrada.name)),
+              ]),
+            ])
+          }),
+          0
+        ),
+      ]
+    ),
   ])
 }
 var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header py-3" }, [
-      _c("div", { staticClass: "row align-items-center" }, [
-        _c("div", { staticClass: "col-12" }, [
-          _c("h6", { staticClass: "m-0 font-weight-bold text-primary" }, [
-            _vm._v("Almacen"),
-          ]),
-        ]),
-      ]),
-    ])
-  },
   function () {
     var _vm = this
     var _h = _vm.$createElement
@@ -36090,7 +36056,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Color")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Fecha")]),
+        _c("th", [_vm._v("Fecha de Creacion")]),
         _vm._v(" "),
         _c("th", [_vm._v("Estado Conservación")]),
         _vm._v(" "),

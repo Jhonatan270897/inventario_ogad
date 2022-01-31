@@ -19,20 +19,22 @@
 
 <body class="{{ $class ?? '' }}">
   @auth()
-    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
     @csrf
   </form>
   @include('layouts.page_templates.auth')
   @endauth
 
   @guest()
-    @include('layouts.page_templates.guest')
+  @include('layouts.page_templates.guest')
   @endguest
   <!--   Core JS Files   -->
+  <script src="{{asset('js/app.js')}}"></script>
   <script src="{{ asset('js/core/jquery.min.js') }}"></script>
   <script src="{{ asset('js/core/popper.min.js') }}"></script>
   <script src="{{ asset('js/core/bootstrap-material-design.min.js') }}"></script>
   {{-- <script src="{{ asset('js/plugins/perfect-scrollbar.jquery.min.js') }}"></script> --}}
   @stack('js')
 </body>
+
 </html>
